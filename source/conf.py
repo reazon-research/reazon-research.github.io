@@ -53,9 +53,17 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 root_doc = 'index'
-html_theme = 'alabaster'
-html_title = 'Human Interaction Laboratory'
+html_theme = 'furo'
+html_title = 'Reazon Human Interaction Lab'
+html_logo = '_static/logo.png'
 html_copy_source = False
+
+html_theme_options = {
+  "sidebar_hide_name": True,
+  "source_repository": "https://github.com/reazon-research/reazon-research.github.io/",
+  "source_branch": "main",
+  "source_directory": "source/",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

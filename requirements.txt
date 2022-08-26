@@ -1,0 +1,7 @@
+ipython
+sphinx
+nbsphinx
+Pygments
+sphinx-intl
+myst-parser
+furo
