@@ -3,23 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Human Interaction Laboratory
-============================
-
-Our Mission
------------
-
-Human Interaction Laboratory was founded as R&D section of Reazon Holdings, Inc.
-
-* We regard human interaction as a process of connecting our mental world
-  with the outside world mutually.
-
-* We aim to promote the process of human interaction both in the sense of
-  human-human interaction and human-machine interaction.
-
-Our Research
-------------
+Reazon Human Interaction Laboratory
+===================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+
+   about.md
+   projects/index.rst
+   news/index.rst
+   blog/index.rst
+   publications.rst
+   careers.rst

@@ -29,6 +29,7 @@ author = 'Human Interaction Laboratory'
 # ones.
 extensions = [
   "sphinx.ext.githubpages",
+  "myst_parser",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -55,7 +56,8 @@ exclude_patterns = []
 root_doc = 'index'
 html_theme = 'furo'
 html_title = 'Reazon Human Interaction Lab'
-html_logo = '_static/logo.png'
+html_baseurl = 'https://research.reazon.jp'
+html_css_files = ['custom.css']
 html_copy_source = False
 
 html_theme_options = {
@@ -63,6 +65,8 @@ html_theme_options = {
   "source_repository": "https://github.com/reazon-research/reazon-research.github.io/",
   "source_branch": "main",
   "source_directory": "source/",
+  "light_logo": "logo.png",
+  "dark_logo": "logo-dark.png",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

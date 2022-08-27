@@ -1,7 +1,4 @@
-ipython
-sphinx
-nbsphinx
-Pygments
-sphinx-intl
-myst-parser
-furo
+Sphinx==5.3.0
+Pygments==2.13.0
+myst-parser==0.18.1
+furo==2022.12.7
