@@ -229,20 +229,43 @@
 <p>音声コーパスに加えて、コーパスを構築するためのツールキット及び学習済みモデルを
 自由なライセンスで公開しています。</p>
 <dl class="simple">
-<dt>日本語音声コーパス:</dt><dd><p><a class="reference external" href="https://huggingface.co/datasets/reazon-research/reazonspeech">https://huggingface.co/datasets/reazon-research/reazonspeech</a></p>
-</dd>
-<dt>学習済みESPnetモデル <a class="reference external" href="https://colab.research.google.com/drive/1mcFngwmQK1Teurfiiv6XFD0uNvDjUd43#scrollTo=EWQjsbq9RXpR"><img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a> :</dt><dd><p><a class="reference external" href="https://huggingface.co/reazon-research/reazonspeech-espnet-v1">https://huggingface.co/reazon-research/reazonspeech-espnet-v1</a></p>
+<dt>学習済みESPnetモデル:</dt><dd><p><a class="reference external" href="https://huggingface.co/reazon-research/reazonspeech-espnet-v1">https://huggingface.co/reazon-research/reazonspeech-espnet-v1</a></p>
 </dd>
 <dt>コーパス構築ツールキット:</dt><dd><p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">https://github.com/reazon-research/ReazonSpeech</a></p>
 </dd>
+<dt>研究論文:</dt><dd><p><a class="reference external" href="http://research.reazon.jp/_static/reazonspeech_nlp2023.pdf">http://research.reazon.jp/_static/reazonspeech_nlp2023.pdf</a></p>
+</dd>
 </dl>
 <section id="id1">
-<h2>音声コーパスのサンプル<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
+<h2>日本語音声認識デモ<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
+<p>ReazonSpeechの音声認識モデルを、実際にブラウザで試すことができます  <a class="reference external" href="https://colab.research.google.com/drive/1mcFngwmQK1Teurfiiv6XFD0uNvDjUd43#scrollTo=EWQjsbq9RXpR"><img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<script src='../../_static/asr.js'></script>
+<div class="table-wrapper docutils container">
+  <table class='docutils align-default' width=95%>
+    <thead>
+      <tr>
+        <th width='50%'><p>音声認識</th>
+        <th width='50%'><p>認識結果</th>
+      </tr>
+    </thead>
+    <tr style='height:180px;vertical-align:top;'>
+      <td>
+        <p>次のボタンを押してマイクで音声を吹き込むと、認識結果が表示されます。
+        <p><button style="margin:1em 0;padding:0.5em;" id='demo-button'>音声認識を試す</button>
+      </td>
+      <td>
+         <p id='demo-message'></p>
+      </td>
+    </tr>
+  </table>
+</div></section>
+<section id="id2">
+<h2>音声コーパスのサンプル<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 66.7%" />
-<col style="width: 33.3%" />
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>字幕</p></th>
@@ -263,8 +286,8 @@
 </table>
 </div>
 </section>
-<section id="id2">
-<h2>音声認識技術への応用性<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<section id="id3">
+<h2>音声認識技術への応用性<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">#</a></h2>
 <p>日本語音声認識の研究に利用できることを示すために、
 ReazonSpeechでESPnetのConformer-Transformerモデルを訓練しました。</p>
 <p>JSUT・Common Voiceを検証データとして、他の主要な音声認識モデルと精度を比較した結果を以下に示します。</p>
@@ -300,8 +323,7 @@ ReazonSpeechでESPnetのConformer-Transformerモデルを訓練しました。</
 </tbody>
 </table>
 </div>
-<p>最先端の大規模モデルに匹敵する高い認識精度が実現できています。
-詳細は論文の予稿を公開していますので、参照ください。</p>
+<p>最先端の大規模モデルに匹敵する高い認識精度が実現できています。</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">コンテンツリンク</span></p>
 <ul>
@@ -369,8 +391,9 @@ ReazonSpeechでESPnetのConformer-Transformerモデルを訓練しました。</
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">ReazonSpeech</a><ul>
-<li><a class="reference internal" href="#id1">音声コーパスのサンプル</a></li>
-<li><a class="reference internal" href="#id2">音声認識技術への応用性</a></li>
+<li><a class="reference internal" href="#id1">日本語音声認識デモ</a></li>
+<li><a class="reference internal" href="#id2">音声コーパスのサンプル</a></li>
+<li><a class="reference internal" href="#id3">音声認識技術への応用性</a></li>
 </ul>
 </li>
 </ul>
