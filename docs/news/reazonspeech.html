@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="author" title="このドキュメントについて" href="../about.html" /><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Blog" href="../blog/index.html" /><link rel="prev" title="News" href="index.html" />
+<link rel="author" title="このドキュメントについて" href="../about.html" /><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" />
         <link rel="canonical" href="https://research.reazon.jp/news/reazonspeech.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
@@ -159,7 +159,7 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../projects/index.html">Projects</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../projects/ReazonSpeech/index.html">ReazonSpeech</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -170,8 +170,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">News</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">News</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../blog/index.html">Blog</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -250,9 +249,15 @@
 <div><p>※OpenAI Whisper: ChatGPTなど最先端のAIプロダクトを次々に発表している米国の人工知能研究所OpenAIが2022年9月に公開した高精度な音声認識モデル。従来の多くの音声認識モデルの精度を凌駕しているとして大きな話題を呼んだ。</p>
 </div></blockquote>
 <figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/colab_demo.png"><img alt="../_images/colab_demo.png" src="../_images/colab_demo.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">[図] ReazonSpeech音声認識モデル使用例</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="../_images/fig21.png"><img alt="../_images/fig21.png" src="../_images/fig21.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">[図] スマホの通話内容をReazonSpeechを使ってリアルタイムで自動文字起こししてslackに記録する例</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-text">[図] スマホの通話内容をReazonSpeechを使ってリアルタイムで自動文字起こししてslackに記録する例</span><a class="headerlink" href="#id10" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -277,16 +282,16 @@
 <a class="reference internal image-reference" href="../_images/reazonspeech_cer.jpg"><img alt="../_images/reazonspeech_cer.jpg" src="../_images/reazonspeech_cer.jpg" style="width: 500px;" /></a>
 </figure>
 <p>一般に音声認識モデルのパラメータ数と精度はトレードオフの関係にありますが、ESPnet ReazonSpeech は、少ないパラメータ数で Whisper large-v2 と同等の精度を達成しています。</p>
-<figure class="align-default" id="id10">
+<figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="../_images/reazonspeech_modelparams.png"><img alt="../_images/reazonspeech_modelparams.png" src="../_images/reazonspeech_modelparams.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">[図] Common VoiceでのCER音声認識精度(小さいほど良い) vs モデルパラメータ数(少ないほど良い)</span><a class="headerlink" href="#id10" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-text">[図] Common VoiceでのCER音声認識精度(小さいほど良い) vs モデルパラメータ数(少ないほど良い)</span><a class="headerlink" href="#id11" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id5">
 <h2>ライセンス<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">#</a></h2>
-<p>音声認識モデルと音声コーパス作成ツールはApacheライセンス2.0にて公開するので、商用・非商用を問わず、誰もが自由に利用・改変・再配布可能し、同様のコーパスの構築・共有活動に参加できるようになります。</p>
+<p>音声認識モデルと音声コーパス作成ツールはApacheライセンス2.0にて公開するので、商用・非商用を問わず、誰もが自由に利用・改変・再配布し、同様のコーパスの構築・共有活動に参加できるようになります。</p>
 <p>音声コーパスについては、 <a class="reference external" href="https://cdla.dev/sharing-1-0/">CDLA-Sharing-1.0</a> ライセンス(著作権法30条の4を含む適用法令を遵守し、現著作権者の権利を侵害しないことが前提※)を予定しています。</p>
 <p>※放送録画データに含まれる音声及び字幕データの権利は、元のテレビ放送の著作権者に帰属しますが、このデータを機械学習モデル構築のために使用することは、商用・非商用の目的を問わず著作権法30条の4によって認められています。</p>
 <figure class="align-default">
@@ -313,9 +318,9 @@
 <section id="id8">
 <h2>レアゾン・ホールディングスについて<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">#</a></h2>
 <p>「新しい&quot;当たり前&quot;を作り続ける世界一の企業へ」を掲げ、「アドテク事業」、「ソーシャルゲーム事業」、「メディア事業」、「フードテック事業」の4つの領域を中心に事業を展開しています。各事業領域同士で事業シナジーを高めることで、他社にはない事業展開や新規事業を創出し続けます。</p>
-<div class="table-wrapper docutils container" id="id11">
-<table class="docutils align-left" id="id11">
-<caption><span class="caption-text">■会社概要</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">#</a></caption>
+<div class="table-wrapper docutils container" id="id12">
+<table class="docutils align-left" id="id12">
+<caption><span class="caption-text">■会社概要</span><a class="headerlink" href="#id12" title="このテーブルへのパーマリンク">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>商号</p></td>
 <td><p>株式会社レアゾン・ホールディングス</p></td>
@@ -346,26 +351,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../blog/index.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Blog</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="index.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">News</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
