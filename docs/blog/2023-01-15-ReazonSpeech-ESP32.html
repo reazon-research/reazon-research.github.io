@@ -356,13 +356,14 @@ https://github.com/espressif/esp-adf/tree/master/examples/get-started/pipeline_a
 <p>わずか数十行で、音声認識＆WebHookが可能となりました。<br />
 なお slack の WebHook用URLを取得して設定しておく必要があります。<br />
 https://api.slack.com/messaging/webhooks</p>
-<p>（ReazonSpeechのセットアップはこちら（URLを記述予定））</p>
+<p>（ReazonSpeechのセットアップは(こちら)[https://research.reazon.jp/projects/ReazonSpeech/quickstart.html]）</p>
 </section>
 <section id="id5">
 <h2>トラブル発生その３（音が歪む）<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">#</a></h2>
 <p>実際に通話してみると文字認識できるものの、音声が酷く歪むことに気付きました。<br />
 「こんにちは」と発音している例（昔のロボット映画みたいな音声）</p>
-<p><a class="reference download internal" download="" href="../_downloads/3ca69532dd5b6fca108c04f895b56001/yugami.wav"><code class="xref download docutils literal notranslate"><span class="pre">サンプル音声</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/3ca69532dd5b6fca108c04f895b56001/yugami.wav"><code class="xref download docutils literal notranslate"><span class="pre">サンプル音声</span></code></a><br />
+<audio controls src="/_downloads\3ca69532dd5b6fca108c04f895b56001/yugami.wav"></audio></p>
 <p>不思議なことにWifiをOFFにすると歪みません。<br />
 つまり何らかの理由で Wifi/通信が音声系に悪影響を与えていることが予想されました。</p>
 <p>同様の事例で解決例が無いかを探しつつ、通信のTCP化、音声コールバックと送信ルーチンの別スレッド化、各モジュール(IPスタック/Bluetooth/Wifi等)のCPUアフィニティ分散＆コア毎CPU使用率監視、SPIRAMとRAMの住み分け、各種CONFIG変更（2,000項目以上あります）等を色々試しましたが、なかなか解決しません。</p>
