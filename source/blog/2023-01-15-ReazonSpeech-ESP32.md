@@ -133,13 +133,14 @@ ESP32から送られてくる発話データ(UDP)を受信、ReazonSpeech を呼
 なお slack の WebHook用URLを取得して設定しておく必要があります。  
 https://api.slack.com/messaging/webhooks
 
-（ReazonSpeechのセットアップはこちら（URLを記述予定））
+（ReazonSpeechのセットアップは(こちら)[https://research.reazon.jp/projects/ReazonSpeech/quickstart.html]）
 
 ## トラブル発生その３（音が歪む）
 実際に通話してみると文字認識できるものの、音声が酷く歪むことに気付きました。  
 「こんにちは」と発音している例（昔のロボット映画みたいな音声）  
 
-{download}`サンプル音声 <2023-01-15-ReazonSpeech-ESP32/yugami.wav>`
+{download}`サンプル音声 <2023-01-15-ReazonSpeech-ESP32/yugami.wav>`  
+<audio controls src="/_downloads\3ca69532dd5b6fca108c04f895b56001/yugami.wav"></audio>
 
 不思議なことにWifiをOFFにすると歪みません。  
 つまり何らかの理由で Wifi/通信が音声系に悪影響を与えていることが予想されました。  
