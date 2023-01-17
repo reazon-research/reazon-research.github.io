@@ -8,22 +8,52 @@ ReazonSpeech
 音声コーパスに加えて、コーパスを構築するためのツールキット及び学習済みモデルを
 自由なライセンスで公開しています。
 
-日本語音声コーパス:
-    https://huggingface.co/datasets/reazon-research/reazonspeech
-学習済みESPnetモデル |colab| :
+学習済みESPnetモデル:
     https://huggingface.co/reazon-research/reazonspeech-espnet-v1
+
 コーパス構築ツールキット:
     https://github.com/reazon-research/ReazonSpeech
 
+研究論文:
+    http://research.reazon.jp/_static/reazonspeech_nlp2023.pdf
+
+日本語音声認識デモ
+==================
+
+ReazonSpeechの音声認識モデルを、実際にブラウザで試すことができます  |colab|
+
 .. |colab| image:: https://colab.research.google.com/assets/colab-badge.svg 
     :target: https://colab.research.google.com/drive/1mcFngwmQK1Teurfiiv6XFD0uNvDjUd43#scrollTo=EWQjsbq9RXpR
+
+.. raw:: html
+
+    <script src='../../_static/asr.js'></script>
+    <div class="table-wrapper docutils container">
+      <table class='docutils align-default' width=95%>
+        <thead>
+          <tr>
+            <th width='50%'><p>音声認識</th>
+            <th width='50%'><p>認識結果</th>
+          </tr>
+        </thead>
+        <tr style='height:180px;vertical-align:top;'>
+          <td>
+            <p>次のボタンを押してマイクで音声を吹き込むと、認識結果が表示されます。
+            <p><button style="margin:1em 0;padding:0.5em;" id='demo-button'>音声認識を試す</button>
+          </td>
+          <td>
+             <p id='demo-message'></p>
+          </td>
+        </tr>
+      </table>
+    </div>
 
 音声コーパスのサンプル
 ======================
 
 .. list-table::
    :header-rows: 1
-   :widths: 10 5
+   :widths: 5 5
 
    * - 字幕
      - 音声
@@ -65,7 +95,6 @@ JSUT・Common Voiceを検証データとして、他の主要な音声認識モ�
 +------------------------+----------------+--------------+
 
 最先端の大規模モデルに匹敵する高い認識精度が実現できています。
-詳細は論文の予稿を公開していますので、参照ください。
 
 .. toctree::
    :maxdepth: 1
