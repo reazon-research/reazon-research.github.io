@@ -133,7 +133,7 @@ ESP32から送られてくる発話データ(UDP)を受信、ReazonSpeech を呼
 なお slack の WebHook用URLを取得して設定しておく必要があります。  
 https://api.slack.com/messaging/webhooks
 
-（ReazonSpeechのセットアップは(こちら)[https://research.reazon.jp/projects/ReazonSpeech/quickstart.html]）
+（ReazonSpeechのセットアップは[こちら](https://research.reazon.jp/projects/ReazonSpeech/quickstart.html)）
 
 ## トラブル発生その３（音が歪む）
 実際に通話してみると文字認識できるものの、音声が酷く歪むことに気付きました。  
