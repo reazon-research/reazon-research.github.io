@@ -10,10 +10,13 @@ ReazonSpeech
 
 日本語音声コーパス:
     https://huggingface.co/datasets/reazon-research/reazonspeech
-学習済みESPnetモデル:
+学習済みESPnetモデル |colab| :
     https://huggingface.co/reazon-research/reazonspeech-espnet-v1
 コーパス構築ツールキット:
     https://github.com/reazon-research/ReazonSpeech
+
+.. |colab| image:: https://colab.research.google.com/assets/colab-badge.svg 
+    :target: https://colab.research.google.com/drive/1mcFngwmQK1Teurfiiv6XFD0uNvDjUd43#scrollTo=EWQjsbq9RXpR
 
 音声コーパスのサンプル
 ======================
