@@ -1,0 +1,499 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="author" title="このドキュメントについて" href="../about.html" /><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Publications" href="../publications.html" /><link rel="prev" title="(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価" href="2023-01-15-DDS-performance.html" />
+        <link rel="canonical" href="https://research.reazon.jp/blog/2023-01-15-ReazonSpeech-ESP32.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する - Reazon Human Interaction Lab</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Reazon Human Interaction Lab</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../_static/logo.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../_static/logo-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="検索" name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects/index.html">Projects</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../projects/ReazonSpeech/index.html">ReazonSpeech</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ReazonSpeech/quickstart.html">クイックスタート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ReazonSpeech/howto.html">HowToガイド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ReazonSpeech/api.html">APIリファレンス</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../news/index.html">News</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/reazonspeech.html">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Blog</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../careers.html">Careers</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/reazon-research/reazon-research.github.io/edit/main/source/blog/2023-01-15-ReazonSpeech-ESP32.md" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="reazonspeechslack">
+<h1>(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する<a class="headerlink" href="#reazonspeechslack" title="この見出しへのパーマリンク">#</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
+<p>スマートフォンの通話内容を ReazonSpeechを使って音声認識させ、文字起こしした内容をSlackに転送する実験です。</p>
+</section>
+<section id="id2">
+<h2>構成<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<p><img alt="fig1" src="../_images/fig1.png" /></p>
+<p>上記のような構成で、スマートフォンの通話内容を Bluetoothヘッドセット（ESP32開発ボード）で受け取り、その発話データを音声認識サーバに送り込み、文字起こししたデータを WebHook経由でSlack端末に流す、という流れとなります。</p>
+</section>
+<section id="id3">
+<h2>開発の概要<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">#</a></h2>
+<ol class="arabic simple">
+<li><p>ESP32開発ボード(ESP32-LyraT-mini)上で bluetooth/Wifモジュールを動作させ、発話データをキャプチャして音声認識サーバにUDP送信するコードを追加します。(C/C++)</p></li>
+<li><p>音声認識サーバ(ReazonSpeech)上で、発話データをUDP受信して ReazonSpeech を呼び出して文字起こしし、そのデータを Slack（WebHook経由）に渡すサーバを作ります。(Python)</p></li>
+</ol>
+</section>
+<section id="esp32">
+<h2>ESP32部分の開発<a class="headerlink" href="#esp32" title="この見出しへのパーマリンク">#</a></h2>
+<p>ESP32開発ボード開発元の espressif が提供している ESP32-ADF の pipeline_a2dp_sink_and_hfp をベースにします。<br />
+https://github.com/espressif/esp-adf/tree/master/examples/get-started/pipeline_a2dp_sink_and_hfp</p>
+<p>これをビルドするだけで bluetoothヘッドセット(HFP)として、スマートフォン等からペアリングできるようになります。<br />
+さらに ESP-IDF のサンプルコード群を参考にしつつ、ESP32用Wifi接続のための短いコードを書いて Wifi経由で TCP/IPを利用可能にします。(<a class="reference download internal" download="" href="../_downloads/f7150ca6c0d2eaf039735dc3bf6e2121/wifi.cpp"><span class="xref download myst">wifi.cpp</span></a>)</p>
+</section>
+<section id="elf">
+<h2>トラブル発生その１（ELFサイズ問題）<a class="headerlink" href="#elf" title="この見出しへのパーマリンク">#</a></h2>
+<p>上記を一通り作ってビルドすると、サイズオーバーで Flash書き込みできない問題が発生します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Build</span> <span class="n">files</span> <span class="n">have</span> <span class="n">been</span> <span class="n">written</span> <span class="n">to</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">esp</span><span class="o">-</span><span class="n">adf</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">started</span><span class="o">/</span><span class="n">hfp2</span><span class="o">/</span><span class="n">build</span>
+<span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">]</span> <span class="n">Generating</span> <span class="o">../../</span><span class="n">partition_table</span><span class="o">/</span><span class="n">partition</span><span class="o">-</span><span class="n">table</span><span class="o">.</span><span class="n">bin</span>
+<span class="n">Partition</span> <span class="n">table</span> <span class="n">binary</span> <span class="n">generated</span><span class="o">.</span> <span class="n">Contents</span><span class="p">:</span>
+<span class="o">*******************************************************************************</span>
+<span class="c1"># ESP-IDF Partition Table</span>
+<span class="c1"># Name, Type, SubType, Offset, Size, Flags</span>
+<span class="n">nvs</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">nvs</span><span class="p">,</span><span class="mh">0x9000</span><span class="p">,</span><span class="mi">24</span><span class="n">K</span><span class="p">,</span>
+<span class="n">phy_init</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">phy</span><span class="p">,</span><span class="mh">0xf000</span><span class="p">,</span><span class="mi">4</span><span class="n">K</span><span class="p">,</span>
+<span class="n">factory</span><span class="p">,</span><span class="n">app</span><span class="p">,</span><span class="n">factory</span><span class="p">,</span><span class="mh">0x10000</span><span class="p">,</span><span class="mh">0x13d620</span><span class="p">,</span>
+<span class="o">*******************************************************************************</span>
+<span class="p">[</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">]</span> <span class="n">cmd</span><span class="o">.</span><span class="n">exe</span> <span class="o">/</span><span class="n">C</span> <span class="s2">&quot;cd /D C:\src\esp-adf\exampl...ted/hfp2/build/a2dp_sink_and_hfp_example.bin&quot;</span>
+<span class="n">FAILED</span><span class="p">:</span> <span class="n">esp</span><span class="o">-</span><span class="n">idf</span><span class="o">/</span><span class="n">esptool_py</span><span class="o">/</span><span class="n">CMakeFiles</span><span class="o">/</span><span class="n">app_check_size</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">esp</span><span class="o">-</span><span class="n">adf</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">started</span><span class="o">/</span><span class="n">hfp2</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">esp</span><span class="o">-</span><span class="n">idf</span><span class="o">/</span><span class="n">esptool_py</span><span class="o">/</span><span class="n">CMakeFiles</span><span class="o">/</span><span class="n">app_check_size</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">exe</span> <span class="o">/</span><span class="n">C</span> <span class="s2">&quot;cd /D C:\src\esp-adf\examples\get-started\hfp2</span><span class="se">\b</span><span class="s2">uild\esp-idf\esptool_py &amp;&amp; C:</span><span class="se">\t</span><span class="s2">ools\Espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe C:/tools/Espressif/frameworks/esp-idf-v4.4.3/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/src/esp-adf/examples/get-started/hfp2/build/partition_table/partition-table.bin C:/src/esp-adf/examples/get-started/hfp2/build/a2dp_sink_and_hfp_example.bin&quot;</span>
+<span class="n">Error</span><span class="p">:</span> <span class="n">app</span> <span class="n">partition</span> <span class="ow">is</span> <span class="n">too</span> <span class="n">small</span> <span class="k">for</span> <span class="n">binary</span> <span class="n">a2dp_sink_and_hfp_example</span><span class="o">.</span><span class="n">bin</span> <span class="n">size</span> <span class="mh">0x18f720</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">Part</span> <span class="s1">&#39;factory&#39;</span> <span class="mi">0</span><span class="o">/</span><span class="mi">0</span> <span class="o">@</span> <span class="mh">0x10000</span> <span class="n">size</span> <span class="mh">0x13d620</span> <span class="p">(</span><span class="n">overflow</span> <span class="mh">0x52100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>これにはカスタム・パーテイションテーブル(partitions_bt_sink_example.csv)を作成して、factory/sizeフィールドを1300000 → 1800000に拡大することで、無事Flashできるようになりました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Espressif ESP32 Partition Table</span>
+<span class="c1">#</span>
+<span class="c1"># Note: if you change the phy_init or app partition offset</span>
+<span class="c1">#       make sure to change the offset in Kconfig.projbuild</span>
+<span class="c1">#</span>
+<span class="c1"># Name,   Type, SubType, Offset,  Size, Flags</span>
+<span class="n">nvs</span><span class="p">,</span>      <span class="n">data</span><span class="p">,</span> <span class="n">nvs</span><span class="p">,</span>     <span class="mh">0x9000</span><span class="p">,</span>  <span class="mh">0x6000</span><span class="p">,</span>
+<span class="n">phy_init</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">phy</span><span class="p">,</span>     <span class="mh">0xf000</span><span class="p">,</span>  <span class="mh">0x1000</span><span class="p">,</span>
+<span class="n">factory</span><span class="p">,</span>  <span class="n">app</span><span class="p">,</span>  <span class="n">factory</span><span class="p">,</span> <span class="mh">0x10000</span><span class="p">,</span> <span class="mi">1800000</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="udp">
+<h2>キャプチャ＆UDP送信モジュール作成<a class="headerlink" href="#udp" title="この見出しへのパーマリンク">#</a></h2>
+<p>発話データをキャプチャした後、それを音声認識サーバにUDP送信するモジュールを書きます (<a class="reference download internal" download="" href="../_downloads/49d640faef956867b442b226b46be555/reazon_speech.cpp"><span class="xref download myst">reazon_speech.cpp</span></a>)</p>
+<ol class="arabic simple">
+<li><p>語頭が切れるのを防ぐため、発話開始判定より少し遡ったデータを付与して送信</p></li>
+<li><p>音声パワーを計算して発話判定</p></li>
+<li><p>大きなデータはパケット分割して送信</p></li>
+</ol>
+<p>などを行っています。</p>
+<p><a class="reference download internal" download="" href="../_downloads/384d0a24dfbb75df4879e1b8c668d26f/a2dp_sink_and_hfp_example.c"><span class="xref download myst">a2dp_sink_and_hfp_example.c</span></a> の中にある bt_app_hf_client_outgoing_cb()/bt_app_hf_client_incoming_cb() に発話データがコールバックとして流れてくるので、ここに cloud_speech.cpp のキャプチャ用コールバックを挿入します。<br />
+（なお、uint8_t *buf という I/F ですが、中身は 16bit little endian である点にご注意）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">uint32_t</span> <span class="n">bt_app_hf_client_outgoing_cb</span><span class="p">(</span><span class="n">uint8_t</span> <span class="o">*</span><span class="n">p_buf</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">sz</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">is_get_hfp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">out_len_bytes</span> <span class="o">=</span> <span class="n">raw_stream_read</span><span class="p">(</span><span class="n">raw_read</span><span class="p">,</span> <span class="n">enc_buffer</span><span class="p">,</span> <span class="n">sz</span><span class="p">);</span>
+
+        <span class="n">cloud_speech_callback</span><span class="p">((</span><span class="n">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">enc_buffer</span><span class="p">,</span> <span class="n">out_len_bytes</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="o">//</span> <span class="o">&lt;--</span> <span class="n">キャプチャコード追加</span>
+    <span class="p">}</span>
+    <span class="p">:</span>
+<span class="p">}</span>
+
+<span class="n">static</span> <span class="n">void</span> <span class="n">bt_app_hf_client_incoming_cb</span><span class="p">(</span><span class="n">const</span> <span class="n">uint8_t</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">sz</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">cloud_speech_callback</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">sz</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="o">//</span> <span class="o">&lt;--</span> <span class="n">キャプチャコード追加</span>
+    <span class="p">:</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>トラブル発生その２（メモリ問題）<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">#</a></h2>
+<p>これらを組み込んで起動すると今度はメモリ不足で起動直後に停止する問題が発生します。<br />
+（そもそも、ESP32 にはメインメモリが512KB しかないため）</p>
+<p>LyraT の拡張RAM にメモリ確保を逃がす CONFIG設定を行うことで解決します。<br />
+これで、ESP32側が完成し、動作するようになりました。</p>
+<details>
+<summary>変更CONFIG一覧</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_BT_ALLOCATION_FROM_SPIRAM_FIRST</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_ESP32_SPIRAM_SUPPORT</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_TYPE_AUTO</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_BOOT_INIT</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_USE_MALLOC</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_MEMTEST</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL</span><span class="o">=</span><span class="mi">131072</span>
+<span class="n">CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_MALLOC_RESERVE_INTERNAL</span><span class="o">=</span><span class="mi">32768</span>
+<span class="n">CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_ALLOW_NOINIT_SEG_EXTERNAL_MEMORY</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_WORKAROUND</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBJMP_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBMATH_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBNUMPARSER_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBIO_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBTIME_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBCHAR_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBMEM_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBSTR_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBRAND_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBENV_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBFILE_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_CACHE_LIBMISC_IN_IRAM</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_SPIRAM_SUPPORT</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_WIFI_LWIP_ALLOCATION_FROM_SPIRAM_FIRST</span><span class="o">=</span><span class="n">y</span>
+</pre></div>
+</div>
+</details>
+</section>
+<section id="reazonspeech">
+<h2>音声認識サーバ (ReazonSpeech)<a class="headerlink" href="#reazonspeech" title="この見出しへのパーマリンク">#</a></h2>
+<p>ESP32から送られてくる発話データ(UDP)を受信、ReazonSpeech を呼び出して文字起こしし、そのデータを Slack（WebHook経由）に渡すサーバを書きます。(<span class="xref myst">2023-01-15-ReazonSpeech-ESP32/trans.py</span>)</p>
+<p>わずか数十行で、音声認識＆WebHookが可能となりました。<br />
+なお slack の WebHook用URLを取得して設定しておく必要があります。<br />
+https://api.slack.com/messaging/webhooks</p>
+<p>（ReazonSpeechのセットアップはこちら（URLを記述予定））</p>
+</section>
+<section id="id5">
+<h2>トラブル発生その３（音が歪む）<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">#</a></h2>
+<p>実際に通話してみると文字認識できるものの、音声が酷く歪むことに気付きました。<br />
+「こんにちは」と発音している例（昔のロボット映画みたいな音声）<br />
+<a href="yugami.wav" target="_blank">サンプル音声</a></p>
+<p>不思議なことにWifiをOFFにすると歪みません。<br />
+つまり何らかの理由で Wifi/通信が音声系に悪影響を与えていることが予想されました。</p>
+<p>同様の事例で解決例が無いかを探しつつ、通信のTCP化、音声コールバックと送信ルーチンの別スレッド化、各モジュール(IPスタック/Bluetooth/Wifi等)のCPUアフィニティ分散＆コア毎CPU使用率監視、SPIRAMとRAMの住み分け、各種CONFIG変更（2,000項目以上あります）等を色々試しましたが、なかなか解決しません。</p>
+<p>半分諦めつつもさらに探したところ「ESP32 には 2.4GHz RFモジュールが一つしかなく、Bluetooth と Wifi で競合することがある」という<a href="https://esp32.com/viewtopic.php?t=6707&start=30" target="_blank">掲示板記事</a>を見つけました。</p>
+<p>そこで、Bluetooth と Wifi をハードウェアで切り替えるモード（衝突時は Bluetooth優先）にCONFIGを変更(CONFIG_SW_COEXIST=n)したところ、無事、音声の歪みが取れました。</p>
+</section>
+<section id="id6">
+<h2>動作確認＆完成<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">#</a></h2>
+<p>一通り完成したところで、下記のような手順で動作確認を行います。</p>
+<ol class="arabic simple">
+<li><p>ESP32開発ボードを起動して、スマートフォンとペアリングします。</p></li>
+<li><p>音声認識サーバ(trans.py)を起動します。</p></li>
+<li><p>スマートフォンに電話をかけて、通話を始めます。</p></li>
+<li><p>Slackに、通話内容が文字起こしされた文章が転送され始めます。</p></li>
+</ol>
+<p>下記のように、動作することが確認できました。</p>
+</section>
+<section id="id7">
+<h2>実行画面<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">#</a></h2>
+<p>Slack受信とコンソール画面の様子
+<img alt="fig2" src="../_images/fig2.png" /></p>
+<p><a class="reference download internal" download="" href="../_downloads/954b011b9f8c7f3878cb4a9880a4426d/video.mp4"><span class="xref download myst">Slackでの受信動画</span></a></p>
+<p>備考: ReazonSpeech(in)=受話データ、ReazonSpeech(out)=発話データ</p>
+</section>
+<section id="id8">
+<h2>感想<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">#</a></h2>
+<p>ReazonSpeechとESP32開発ボードを使うと、比較的簡単に通話内容の文字起こしができることがわかりました。<br />
+発話データに比べ、受話データは圧縮/伸長後の劣化データのため若干精度が落ちることがあります。</p>
+</section>
+<section id="id9">
+<h2>さらなる発展<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">#</a></h2>
+<p>これを m5stack でも実現できると楽しそうです。ただし ESP32-ADF は m5stack は直接対応していません。<br />
+ですが、m5core2 で ESP32-ADF を組み込むための基礎を作って下さっている方がいました。<br />
+https://github.com/ropg/m5core2_adf</p>
+<p>これに加えて今回のサンプルの場合、下記の要件を追加できれば実現できそうです。</p>
+<ol class="arabic simple">
+<li><p>スピーカー出力のイヤホン化（ハウリング防止）</p></li>
+<li><p>外付けマイク装着（m5core2 は半二重マイク）＆それに対応した i2s等のCONFIG作成</p></li>
+</ol>
+<p>挑戦した方がいましたら、是非ご連絡ください。</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../publications.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Publications</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="2023-01-15-DDS-performance.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Human Interaction Laboratory
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a><ul>
+<li><a class="reference internal" href="#id1">概要</a></li>
+<li><a class="reference internal" href="#id2">構成</a></li>
+<li><a class="reference internal" href="#id3">開発の概要</a></li>
+<li><a class="reference internal" href="#esp32">ESP32部分の開発</a></li>
+<li><a class="reference internal" href="#elf">トラブル発生その１（ELFサイズ問題）</a></li>
+<li><a class="reference internal" href="#udp">キャプチャ＆UDP送信モジュール作成</a></li>
+<li><a class="reference internal" href="#id4">トラブル発生その２（メモリ問題）</a></li>
+<li><a class="reference internal" href="#reazonspeech">音声認識サーバ (ReazonSpeech)</a></li>
+<li><a class="reference internal" href="#id5">トラブル発生その３（音が歪む）</a></li>
+<li><a class="reference internal" href="#id6">動作確認＆完成</a></li>
+<li><a class="reference internal" href="#id7">実行画面</a></li>
+<li><a class="reference internal" href="#id8">感想</a></li>
+<li><a class="reference internal" href="#id9">さらなる発展</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/translations.js"></script>
+    </body>
+</html>

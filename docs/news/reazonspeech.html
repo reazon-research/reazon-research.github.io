@@ -1,0 +1,428 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="author" title="このドキュメントについて" href="../about.html" /><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Blog" href="../blog/index.html" /><link rel="prev" title="News" href="index.html" />
+        <link rel="canonical" href="https://research.reazon.jp/news/reazonspeech.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開 - Reazon Human Interaction Lab</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Reazon Human Interaction Lab</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../_static/logo.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../_static/logo-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="検索" name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects/index.html">Projects</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../projects/ReazonSpeech/index.html">ReazonSpeech</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ReazonSpeech/quickstart.html">クイックスタート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ReazonSpeech/howto.html">HowToガイド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../projects/ReazonSpeech/api.html">APIリファレンス</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">News</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../blog/index.html">Blog</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../blog/2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blog/2023-01-15-ReazonSpeech-ESP32.html">(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../careers.html">Careers</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/reazon-research/reazon-research.github.io/edit/main/source/news/reazonspeech.rst" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="reazonspeech">
+<h1>超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開<a class="headerlink" href="#reazonspeech" title="この見出しへのパーマリンク">#</a></h1>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/hilab_logo.png"><img alt="../_images/hilab_logo.png" src="../_images/hilab_logo.png" style="width: 300px;" /></a>
+</figure>
+<p>〜音声認識の新しい&quot;当たり前&quot;をひらく〜</p>
+<p>株式会社レアゾン・ホールディングス(本社：東京都新宿区、代表取締役：渡邉 真)は、2023年1月18日、世界最高レベルの高精度日本語音声認識モデルおよび世界最大19,000時間の日本語音声コーパス※「ReazonSpeech」を公開しました。</p>
+<blockquote>
+<div><p>※音声コーパス: 音声データとテキストデータを発話単位で対応付けて集めたもの。音声認識モデルを作成する材料として使用され、その規模と品質が音声認識の精度を大きく左右する。</p>
+</div></blockquote>
+<p>「ReazonSpeech」を用いた文字起こしサービスをプロジェクトwebサイトで実際に試すことができます。</p>
+<blockquote>
+<div><p>URL　　    <a class="reference external" href="https://research.reazon.jp/projects/ReazonSpeech/">https://research.reazon.jp/projects/ReazonSpeech/</a></p>
+</div></blockquote>
+<section id="id1">
+<h2>「ReazonSpeech」とは<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
+<p>「ReazonSpeech」は、レアゾン・ヒューマンインタラクション研究所が開発した高精度な音声認識モデルを中心とするプロダクト群で、それぞれ以下のような特徴があります。</p>
+<ul class="simple">
+<li><p>ReazonSpeech音声認識モデル: OpenAI Whisper※に匹敵する高精度な日本語音声認識モデル。商用利用可</p></li>
+<li><p>ReazonSpeechコーパス作成ツール: TV録画データ等から音声コーパスを自動抽出するソフトウェアツール。商用利用可</p></li>
+<li><p>ReazonSpeech音声コーパス: 世界最大19,000時間の高品質な日本語音声認識モデル学習用コーパス</p></li>
+<li><p>いずれも無償にて公開</p></li>
+</ul>
+<blockquote>
+<div><p>※OpenAI Whisper: ChatGPTなど最先端のAIプロダクトを次々に発表している米国の人工知能研究所OpenAIが2022年9月に公開した高精度な音声認識モデル。従来の多くの音声認識モデルの精度を凌駕しているとして大きな話題を呼んだ。</p>
+</div></blockquote>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/fig21.png"><img alt="../_images/fig21.png" src="../_images/fig21.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">[図] スマホの通話内容をReazonSpeechを使ってリアルタイムで自動文字起こししてslackに記録する例</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id2">
+<h2>開発の背景<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<p>近年、深層学習を用いた音声認識技術は飛躍的に精度が向上し、スマート端末等を通して多くの人がこの技術を利用できるようになりました。今後さらに技術が普及し、誰もがあらゆる端末やシチュエーションで最先端の音声認識技術を当たり前のように使えるようになれば、社会の様々な局面でコミュニケーションの質を高めたり、業務効率や生産性の改善に貢献することが期待されます。</p>
+<p>深層学習を用いた音声認識では、高精度な音声認識モデルを得るために、音声コーパスが大量に揃っていることが必要不可欠となります。誰もが自由に使える形で大規模な音声コーパスが公開されれば、当技術の迅速な発展に大きく寄与します。英語等ではこうした音声コーパスが多数公開されていますが、日本語では商用利用も含めて自由に利用可能なコーパスは量が少なく、日本語における音声認識技術の発展と普及を妨げる大きな要因となっていました。</p>
+</section>
+<section id="id3">
+<h2>「ReazonSpeech」の方式<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">#</a></h2>
+<p>「ReazonSpeech」では、ワンセグ放送の録画データから音声コーパスを自動抽出しています。
+録画データから音声コーパスを構築するためには、発話単位で音声と字幕テキストを対応付ける処理(アラインメント処理と呼びます)が必要になります。大規模なデータに対して手動でアラインメント処理を行うと膨大なコストがかってしまいます。既存の音声認識モデルを利用すればアラインメント処理を自動化することができますが、その結果として得られた音声コーパスは、元の音声認識モデルやその学習に用いた音声コーパスのライセンスの影響を受けてしまいます。</p>
+<p>そこで「ReazonSpeech」では、まず最初に小規模ではあるものの自由なライセンスで利用可能な <a class="reference external" href="https://commonvoice.mozilla.org/">Mozilla Common Voice</a> という音声コーパスから構築した音声認識モデルでアラインメント処理を行い、そこで得られた音声コーパスを元にして再度アラインメント処理を実行する、という過程を幾世代も重ねることによって少しずつ音声コーパスのサイズを増やしました。現在のサイズは19,000時間ですが、今後さらに規模を拡大する予定です。</p>
+</section>
+<section id="id4">
+<h2>関連技術との比較<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">#</a></h2>
+<p>「ReazonSpeech」コーパスを用いて構築した <a class="reference external" href="https://github.com/espnet/espnet">ESPnet</a> ※音声認識モデルと、他の主要な音声認識モデルである <a class="reference external" href="https://github.com/openai/whisper">OpenAI Whisper</a> , <a class="reference external" href="https://github.com/laboroai/LaboroTVSpeech">LaboroTVSpeech</a> との精度比較結果を示します。</p>
+<blockquote>
+<div><p>※ESPnet: E2E音声処理のためのオープンソースツールキット。渡部晋治氏をリーダーとして、様々な大学や研究機関、企業に属する日本人が中心となって開発。ライセンスはApache-2.0で、商用利用も可能。</p>
+</div></blockquote>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/reazonspeech_cer.jpg"><img alt="../_images/reazonspeech_cer.jpg" src="../_images/reazonspeech_cer.jpg" style="width: 500px;" /></a>
+</figure>
+<p>一般に音声認識モデルのパラメータ数と精度はトレードオフの関係にありますが、ESPnet ReazonSpeech は、少ないパラメータ数で Whisper large-v2 と同等の精度を達成しています。</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../_images/reazonspeech_modelparams.png"><img alt="../_images/reazonspeech_modelparams.png" src="../_images/reazonspeech_modelparams.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-text">[図] Common VoiceでのCER音声認識精度(小さいほど良い) vs モデルパラメータ数(少ないほど良い)</span><a class="headerlink" href="#id10" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id5">
+<h2>ライセンス<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">#</a></h2>
+<p>音声認識モデルと音声コーパス作成ツールはApacheライセンス2.0にて公開するので、商用・非商用を問わず、誰もが自由に利用・改変・再配布可能し、同様のコーパスの構築・共有活動に参加できるようになります。</p>
+<p>音声コーパスについては、 <a class="reference external" href="https://cdla.dev/sharing-1-0/">CDLA-Sharing-1.0</a> ライセンス(著作権法30条の4を含む適用法令を遵守し、現著作権者の権利を侵害しないことが前提※)を予定しています。</p>
+<p>※放送録画データに含まれる音声及び字幕データの権利は、元のテレビ放送の著作権者に帰属しますが、このデータを機械学習モデル構築のために使用することは、商用・非商用の目的を問わず著作権法30条の4によって認められています。</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/reazonspeech_license.jpg"><img alt="../_images/reazonspeech_license.jpg" src="../_images/reazonspeech_license.jpg" style="width: 500px;" /></a>
+</figure>
+</section>
+<section id="id6">
+<h2>今後の予定<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">#</a></h2>
+<ul class="simple">
+<li><p>言語処理学会第29回年次大会(NLP2023)で今回の成果について報告</p></li>
+<li><p>より大規模で高品質な音声コーパスの継続的なリリース</p></li>
+<li><p>多くの人が自由な音声コーパスの構築と共有に参加するための普及活動の実施</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>レアゾン・ヒューマンインタラクション研究所について<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">#</a></h2>
+<p>レアゾン・ヒューマンインタラクション研究所は株式会社レアゾン・ホールディングスの企業研究所です。</p>
+<p>音声・視線・手や身体を用いたジェスチャーの認識や、マニピュレータや道具・楽器等の操作、協働ロボット技術など あらゆるユーザがより効率的に情報伝達を行うための技術について幅広く研究し、その成果を速やかに公開して、当該分野の研究と実用化の迅速な発展に貢献することを目指しています。
+現在、研究員を募集しています。</p>
+<blockquote>
+<div><p>URL　　    <a class="reference external" href="https://research.reazon.jp">https://research.reazon.jp</a></p>
+</div></blockquote>
+</section>
+<section id="id8">
+<h2>レアゾン・ホールディングスについて<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">#</a></h2>
+<p>「新しい&quot;当たり前&quot;を作り続ける世界一の企業へ」を掲げ、「アドテク事業」、「ソーシャルゲーム事業」、「メディア事業」、「フードテック事業」の4つの領域を中心に事業を展開しています。各事業領域同士で事業シナジーを高めることで、他社にはない事業展開や新規事業を創出し続けます。</p>
+<div class="table-wrapper docutils container" id="id11">
+<table class="docutils align-left" id="id11">
+<caption><span class="caption-text">■会社概要</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">#</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>商号</p></td>
+<td><p>株式会社レアゾン・ホールディングス</p></td>
+</tr>
+<tr class="row-even"><td><p>代表者</p></td>
+<td><p>代表取締役　渡邉 真</p></td>
+</tr>
+<tr class="row-odd"><td><p>所在地</p></td>
+<td><p>〒164-0004　東京都新宿区四谷1-6-1</p></td>
+</tr>
+<tr class="row-even"><td><p>設立</p></td>
+<td><p>2019年2月</p></td>
+</tr>
+<tr class="row-odd"><td><p>事業内容</p></td>
+<td><p>グループの経営戦略、経営管理・事業支援</p></td>
+</tr>
+<tr class="row-even"><td><p>URL</p></td>
+<td><p><a class="reference external" href="https://reazon.jp/">https://reazon.jp/</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../blog/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Blog</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">News</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Human Interaction Laboratory
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a><ul>
+<li><a class="reference internal" href="#id1">「ReazonSpeech」とは</a></li>
+<li><a class="reference internal" href="#id2">開発の背景</a></li>
+<li><a class="reference internal" href="#id3">「ReazonSpeech」の方式</a></li>
+<li><a class="reference internal" href="#id4">関連技術との比較</a></li>
+<li><a class="reference internal" href="#id5">ライセンス</a></li>
+<li><a class="reference internal" href="#id6">今後の予定</a></li>
+<li><a class="reference internal" href="#id7">レアゾン・ヒューマンインタラクション研究所について</a></li>
+<li><a class="reference internal" href="#id8">レアゾン・ホールディングスについて</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/translations.js"></script>
+    </body>
+</html>
