@@ -41,7 +41,7 @@ ReazonSpeech
 日本語音声認識デモ
 ==================
 
-ReazonSpeechの音声認識モデルを、実際にブラウザで試すことができます  |colab|
+ReazonSpeechの音声認識モデルを、実際にブラウザで試すことができます [2]_ |colab|
 
 .. |colab| image:: https://colab.research.google.com/assets/colab-badge.svg 
     :target: https://colab.research.google.com/drive/1mcFngwmQK1Teurfiiv6XFD0uNvDjUd43#scrollTo=EWQjsbq9RXpR
@@ -68,6 +68,8 @@ ReazonSpeechの音声認識モデルを、実際にブラウザで試すこと�
         </tr>
       </table>
     </div>
+
+.. [2] アクセスが集中すると反応が遅れる場合があります。認識結果が表示されない時は時間をおいて再度お試しください。
 
 音声コーパスのサンプル
 ======================
