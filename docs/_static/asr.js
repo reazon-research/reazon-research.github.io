@@ -1,4 +1,5 @@
 const DURATION = 5000;
+const MIMETYPE = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "audio/mp4";
 const API_ENDPOINT = 'https:///asr.ceptord.net/api/transcribe';
 
 var ReazonSpeechDemo = {
@@ -13,7 +14,7 @@ var ReazonSpeechDemo = {
     },
 
     createMediaRecoder: function(stream) {
-        var mediaRecorder = new MediaRecorder(stream, {mimeType:  'audio/webm'});
+        var mediaRecorder = new MediaRecorder(stream, {mimeType: MIMETYPE});
         mediaRecorder.ondataavailable = (e) => {
             this.buffer.push(e.data);
         };
