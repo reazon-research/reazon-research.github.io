@@ -1,5 +1,5 @@
 const DURATION = 5000;
-const API_ENDPOINT = 'http:///13.114.209.74/api/transcribe';
+const API_ENDPOINT = 'https:///asr.ceptord.net/api/transcribe';
 
 var ReazonSpeechDemo = {
     init: function() {
@@ -51,7 +51,7 @@ var ReazonSpeechDemo = {
         xhr.onreadystatechange = () => {
           if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.status == 200) {
-              var resp = JSON.parse(this.response);
+              var resp = JSON.parse(xhr.response);
               if (resp.text) {
                   this.$message.innerText = resp.text;
               }
