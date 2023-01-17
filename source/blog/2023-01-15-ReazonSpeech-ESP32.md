@@ -138,7 +138,8 @@ https://api.slack.com/messaging/webhooks
 ## トラブル発生その３（音が歪む）
 実際に通話してみると文字認識できるものの、音声が酷く歪むことに気付きました。  
 「こんにちは」と発音している例（昔のロボット映画みたいな音声）  
-<a href="yugami.wav" target="_blank">サンプル音声</a>
+
+{download}`サンプル音声 <2023-01-15-ReazonSpeech-ESP32/yugami.wav>`
 
 不思議なことにWifiをOFFにすると歪みません。  
 つまり何らかの理由で Wifi/通信が音声系に悪影響を与えていることが予想されました。  
