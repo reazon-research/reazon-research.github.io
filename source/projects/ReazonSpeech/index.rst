@@ -10,9 +10,19 @@ ReazonSpeech
 
 学習済みESPnetモデル:
     https://huggingface.co/reazon-research/reazonspeech-espnet-v1
+     ライセンス: `Apache-2.0`_
 
 コーパス構築ツールキット:
     https://github.com/reazon-research/ReazonSpeech
+     ライセンス: `Apache-2.0`_
+
+日本語音声コーパス:
+    https://huggingface.co/datasets/reazon-research/reazonspeech (準備中)
+     ライセンス: `CDLA-Sharing-1.0`_ ただし利用目的は著作権法３０条の４に定める情報解析に限る
+
+.. _Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
+
+.. _CDLA-Sharing-1.0: https://cdla.dev/sharing-1-0/
 
 研究論文:
     http://research.reazon.jp/_static/reazonspeech_nlp2023.pdf
