@@ -7,8 +7,8 @@ HowToガイド
 
 .. important::
 
-   - 日本語音声コーパスの一般公開は、後日を予定しています。
-   - また、コーパスの利用目的は著作権法３０条の４に定める情報解析に限ります。
+   - 日本語音声コーパスは公開準備中です。
+   - コーパスの利用目的は著作権法３０条の４に定める情報解析に限ります。
 
 ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/datasets/>`_ ライブラリからアクセスできます。
 

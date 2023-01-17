@@ -97,7 +97,7 @@ ReazonSpeechの音声認識モデルを、実際にブラウザで試すこと�
 ======================
 
 日本語音声認識の研究に利用できることを示すために、
-ReazonSpeechでESPnetのConformer-Transformerモデルを訓練しました。
+ReazonSpeechでESPnetの音声認識モデルを訓練しました。
 
 JSUT・Common Voiceを検証データとして、他の主要な音声認識モデルと精度を比較した結果を以下に示します。
 
