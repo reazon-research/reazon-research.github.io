@@ -345,26 +345,6 @@ $ pip install datasets
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h2>Hugging Faceからデータをダウンロードする<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
-<p>全データセットをHugging Faceからダウンロードするには次のように実行します:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git lfs install
-$ git clone https://huggingface.co/datasets/reazon-research/reazonspeech
-</pre></div>
-</div>
-<p>Gitレポジトリには以下のデータが格納されています:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>reazonspeech/
-├── README.md
-├── all.tsv        ... 字幕データ (全件)
-├── small.tsv      ... 字幕データ (サブセット)
-└── data
-    ├── 000.tar    --+
-    ├── 001.tar      | flac音声ファイルは4096個のtarに
-    ├── ...          | 分割して格納しています。
-    └── fff.tar    --+
-</pre></div>
-</div>
-</section>
 </section>
 
         </article>
@@ -424,7 +404,6 @@ $ git clone https://huggingface.co/datasets/reazon-research/reazonspeech
             <ul>
 <li><a class="reference internal" href="#">HowToガイド</a><ul>
 <li><a class="reference internal" href="#python">日本語音声コーパスにPythonからアクセスする</a></li>
-<li><a class="reference internal" href="#id1">Hugging Faceからデータをダウンロードする</a></li>
 </ul>
 </li>
 </ul>
