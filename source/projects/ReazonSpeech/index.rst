@@ -26,7 +26,7 @@ ReazonSpeech
 
    * - 日本語音声コーパス
      - `CDLA-Sharing-1.0`_ (ただし利用目的は著作権法３０条の４に定める情報解析に限る)
-     - https://huggingface.co/datasets/reazon-research/reazonspeech [1]_
+     - https://huggingface.co/datasets/reazon-research/reazonspeech
 
    * - 研究論文
      -
@@ -35,8 +35,6 @@ ReazonSpeech
 .. _Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
 
 .. _CDLA-Sharing-1.0: https://cdla.dev/sharing-1-0/
-
-.. [1] 現在、公開準備中です。
 
 日本語音声認識デモ
 ==================
