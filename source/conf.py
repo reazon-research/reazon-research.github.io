@@ -29,6 +29,7 @@ author = 'Human Interaction Laboratory'
 # ones.
 extensions = [
   "sphinx.ext.githubpages",
+  "sphinxcontrib.googleanalytics",
   "myst_parser",
 ]
 
@@ -47,6 +48,8 @@ language = 'ja'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+googleanalytics_id = 'G-S1KMDX1V1H'
+googleanalytics_enabled = True
 
 # -- Options for HTML output -------------------------------------------------
 
