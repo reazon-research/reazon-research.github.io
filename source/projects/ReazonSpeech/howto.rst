@@ -75,22 +75,3 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
    # 全件データにストリームアクセスする
    ds = load_dataset("reazon-research/reazonspeech", "all", streaming=True)
 
-Hugging Faceからデータをダウンロードする
-========================================
-
-全データセットをHugging Faceからダウンロードするには次のように実行します::
-
-    $ git lfs install
-    $ git clone https://huggingface.co/datasets/reazon-research/reazonspeech
-
-Gitレポジトリには以下のデータが格納されています::
-
-    reazonspeech/
-    ├── README.md
-    ├── all.tsv        ... 字幕データ (全件)
-    ├── small.tsv      ... 字幕データ (サブセット)
-    └── data
-        ├── 000.tar    --+
-        ├── 001.tar      | flac音声ファイルは4096個のtarに
-        ├── ...          | 分割して格納しています。
-        └── fff.tar    --+
