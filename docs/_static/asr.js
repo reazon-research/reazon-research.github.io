@@ -16,10 +16,11 @@ var ReazonSpeechDemo = {
     createMediaRecoder: function(stream) {
         var mediaRecorder = new MediaRecorder(stream, {mimeType: MIMETYPE});
         mediaRecorder.ondataavailable = (e) => {
-            this.buffer.push(e.data);
+            if (e.data) {
+                this.buffer.push(e.data);
+            }
         };
         mediaRecorder.onstop = (e) => {
-            stream.getTracks()[0].stop();
             this.request();
         };
         return mediaRecorder;
@@ -32,10 +33,11 @@ var ReazonSpeechDemo = {
             this.buffer = [];
 
             this.mediaRecorder = this.createMediaRecoder(stream);
-            this.mediaRecorder.start();
+            this.mediaRecorder.start(1000);
 
             setTimeout(() => {
                 this.mediaRecorder.stop();
+                stream.getTracks().forEach(track => track.stop());
                 this.$button.innerText = '音声認識を試す';
                 this.$message.innerText = '推論中です ...';
             }, DURATION);
