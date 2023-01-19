@@ -46,7 +46,7 @@ ReazonSpeechを利用した音声認識
        import soundfile
        from espnet2.bin.asr_inference import Speech2Text
 
-       model = Speech2Text.from_pretrained(
+       speech2text = Speech2Text.from_pretrained(
          "reazon-research/reazonspeech-espnet-v1"
        )
 
