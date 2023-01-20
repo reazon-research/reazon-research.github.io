@@ -354,6 +354,148 @@ $ pip install datasets
 </pre></div>
 </div>
 </section>
+<section id="id1">
+<h2>放送データから字幕情報を抽出する<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
+<p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用すると、
+簡単に放送録画データから字幕情報を解析できます。</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><ol class="arabic simple">
+<li><p>ReazonSpeechをインストールします。</p></li>
+</ol>
+</td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install ffmpeg libsndfile1
+<span class="gp">$ </span>pip install <span class="se">\</span>
+    git+https://github.com/reazon-research/ReazonSpeech
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="2">
+<li><p>録画ファイルのパスを引数に与え、 <a class="reference internal" href="api.html#get_captions" title="get_captions"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_captions()</span></code></a> を呼び出します。</p></li>
+</ol>
+</td>
+<td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">reazonspeech</span> <span class="k">as</span> <span class="nn">rs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">captions</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">get_captions</span><span class="p">(</span><span class="s2">&quot;test.m2ts&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="3">
+<li><p>字幕情報が返却されれば成功です！</p></li>
+</ol>
+</td>
+<td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">captions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">Caption(start_seconds=3.1605,</span>
+<span class="go">        end_seconds=5.1291,</span>
+<span class="go">        text=&#39;今日のニュースをお伝えします&#39;)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h2>放送データからコーパスを作成する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用して、
+実際に録画データから音声コーパスを作成する方法を示します。</p>
+<ul class="simple">
+<li><p>以下の手順はUbuntu 20.04で動作を確認しています。</p></li>
+</ul>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><ol class="arabic simple">
+<li><p>ReazonSpeechとESPnetをインストールします。</p></li>
+</ol>
+</td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install ffmpeg libsndfile1 git-lfs
+<span class="gp">$ </span>pip install <span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.21.1
+<span class="gp">$ </span>pip install <span class="nv">espnet</span><span class="o">==</span><span class="m">202209</span>
+<span class="gp">$ </span>pip install <span class="se">\</span>
+    git+https://github.com/reazon-research/ReazonSpeech
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="2">
+<li><p>ReazonSpeechの音声認識モデルを取得します</p></li>
+</ol>
+</td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone <span class="se">\</span>
+  https://huggingface.co/reazon-research/reazonspeech-espnet-v1
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="3">
+<li><p>以下の <code class="file docutils literal notranslate"><span class="pre">create_corpus.py</span></code> を保存して実行します。</p></li>
+</ol>
+</td>
+<td><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 音声認識モデルのフォルダに移動します。</span>
+<span class="m">5</span> <span class="nb">cd</span> reazonspeech-espnet-v1
+
+<span class="c1"># 実際にコーパスを抽出します。</span>
+<span class="c1"># * CPUの場合、概ね再生時間の倍速で解析が進みます。</span>
+<span class="c1"># * GPUの場合、再生時間の5-6倍速で解析が完了します。</span>
+$ python3 create_corpus.py ../test.m2ts
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="4">
+<li><p>ZIPファイルが生成されれば成功です！</p></li>
+</ol>
+</td>
+<td><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># corpus.zip には音声データと、対応する字幕情報を</span>
+<span class="c1"># 収録したファイルが含まれています。</span>
+$ unzip -l corpus.zip
+<span class="m">0001</span>.flac      --+
+<span class="m">0002</span>.flac        <span class="p">|</span> 音声ファイル
+...            --+
+dataset.json   ... 各々の発話に対応する字幕
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="field-list">
+<dt class="field-odd">コーパス作成スクリプト (create_corpus.py)<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">reazonspeech</span> <span class="k">as</span> <span class="nn">rs</span>
+<span class="kn">from</span> <span class="nn">espnet2.bin.asr_align</span> <span class="kn">import</span> <span class="n">CTCSegmentation</span>
+
+<span class="c1"># ESPnetのCTCSegmentationを用意します</span>
+<span class="n">ctc_segmentation</span> <span class="o">=</span> <span class="n">CTCSegmentation</span><span class="p">(</span>
+    <span class="s2">&quot;exp/asr_train_asr_conformer_raw_jp_char/config.yaml&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exp/asr_train_asr_conformer_raw_jp_char/valid.acc.ave_10best.pth&quot;</span><span class="p">,</span>
+    <span class="n">kaldi_style_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fs</span><span class="o">=</span><span class="mi">16000</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># 発話情報（字幕と音声のペア）を抽出します</span>
+<span class="n">utterances</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">get_utterances</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ctc_segmentation</span><span class="p">)</span>
+
+<span class="c1"># 抽出した情報をZIP形式で保存します</span>
+<span class="n">rs</span><span class="o">.</span><span class="n">save_as_zip</span><span class="p">(</span><span class="n">utterances</span><span class="p">,</span> <span class="s2">&quot;corpus.zip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
 </section>
 
         </article>
@@ -413,6 +555,8 @@ $ pip install datasets
             <ul>
 <li><a class="reference internal" href="#">HowToガイド</a><ul>
 <li><a class="reference internal" href="#python">日本語音声コーパスにPythonからアクセスする</a></li>
+<li><a class="reference internal" href="#id1">放送データから字幕情報を抽出する</a></li>
+<li><a class="reference internal" href="#id2">放送データからコーパスを作成する</a></li>
 </ul>
 </li>
 </ul>
