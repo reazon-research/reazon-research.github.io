@@ -355,7 +355,7 @@ $ pip install datasets
 </div>
 </section>
 <section id="id1">
-<h2>放送データから字幕情報を抽出する<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
+<h2>録画データから字幕情報を抽出する<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
 <p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用すると、
 簡単に放送録画データから字幕情報を解析できます。</p>
 <div class="table-wrapper colwidths-given docutils container">
@@ -403,7 +403,7 @@ $ pip install datasets
 </div>
 </section>
 <section id="id2">
-<h2>放送データからコーパスを作成する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<h2>録画データからコーパスを作成する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
 <p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用して、
 実際に録画データから音声コーパスを作成する方法を示します。</p>
 <ul class="simple">
@@ -447,7 +447,7 @@ $ pip install datasets
 <span class="m">5</span> <span class="nb">cd</span> reazonspeech-espnet-v1
 
 <span class="c1"># 実際にコーパスを抽出します。</span>
-<span class="c1"># * CPUの場合、概ね再生時間の倍速で解析が進みます。</span>
+<span class="c1"># * CPUの場合、概ね再生時間の1-2倍速で解析が進みます。</span>
 <span class="c1"># * GPUの場合、再生時間の5-6倍速で解析が完了します。</span>
 $ python3 create_corpus.py ../test.m2ts
 </pre></div>
@@ -464,7 +464,7 @@ $ unzip -l corpus.zip
 <span class="m">0001</span>.flac      --+
 <span class="m">0002</span>.flac        <span class="p">|</span> 音声ファイル
 ...            --+
-dataset.json   ... 各々の発話に対応する字幕
+dataset.json   ... 各々の発話に対応する字幕データ
 </pre></div>
 </div>
 </td>
@@ -555,8 +555,8 @@ dataset.json   ... 各々の発話に対応する字幕
             <ul>
 <li><a class="reference internal" href="#">HowToガイド</a><ul>
 <li><a class="reference internal" href="#python">日本語音声コーパスにPythonからアクセスする</a></li>
-<li><a class="reference internal" href="#id1">放送データから字幕情報を抽出する</a></li>
-<li><a class="reference internal" href="#id2">放送データからコーパスを作成する</a></li>
+<li><a class="reference internal" href="#id1">録画データから字幕情報を抽出する</a></li>
+<li><a class="reference internal" href="#id2">録画データからコーパスを作成する</a></li>
 </ul>
 </li>
 </ul>
