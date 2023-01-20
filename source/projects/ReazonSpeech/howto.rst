@@ -76,7 +76,7 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
    ds = load_dataset("reazon-research/reazonspeech", "all", streaming=True)
 
 
-放送データから字幕情報を抽出する
+録画データから字幕情報を抽出する
 ================================
 
 `ReazonSpeech <https://github.com/reazon-research/ReazonSpeech>`_ ライブラリを利用すると、
@@ -106,7 +106,7 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
                text='今日のニュースをお伝えします')
 
 
-放送データからコーパスを作成する
+録画データからコーパスを作成する
 ================================
 
 `ReazonSpeech <https://github.com/reazon-research/ReazonSpeech>`_ ライブラリを利用して、
@@ -142,7 +142,7 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
           5 cd reazonspeech-espnet-v1
 
           # 実際にコーパスを抽出します。
-          # * CPUの場合、概ね再生時間の倍速で解析が進みます。
+          # * CPUの場合、概ね再生時間の1-2倍速で解析が進みます。
           # * GPUの場合、再生時間の5-6倍速で解析が完了します。
           $ python3 create_corpus.py ../test.m2ts
 
@@ -156,7 +156,7 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
           0001.flac      --+
           0002.flac        | 音声ファイル
           ...            --+
-          dataset.json   ... 各々の発話に対応する字幕
+          dataset.json   ... 各々の発話に対応する字幕データ
 
 :コーパス作成スクリプト (create_corpus.py):
     .. code-block::
