@@ -82,6 +82,8 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
    # 全件データにストリームアクセスする
    ds = load_dataset("reazon-research/reazonspeech", "all", streaming=True)
 
+なお、このデータセットは、雑音に強いロバストなデータを得るため、ReazonSpeechの ``strategy=lax`` で抽出しています。
+詳細はAPIリファレンス :func:`get_utterances` を参照ください。
 
 録画データから字幕情報を抽出する
 ================================
