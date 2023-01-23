@@ -254,7 +254,20 @@
 <col style="width: 50.0%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><ol class="arabic">
+<tr class="row-odd"><td><ol class="arabic simple" start="0">
+<li><p>データセットを参照するには、<a class="reference external" href="https://huggingface.co/datasets/reazon-research/reazonspeech">まずHugging Face上で規約に同意してください。</a></p>
+<ul class="simple">
+<li><p>以下の手順は規約に同意したアカウントに <a class="reference external" href="https://huggingface.co/docs/huggingface_hub/quick-start">huggingface-ctl login</a> でログインして行います。</p></li>
+</ul>
+</li>
+</ol>
+</td>
+<td><figure class="align-default">
+<a class="reference internal image-reference" href="_static/huggingface.png"><img alt="_static/huggingface.png" src="_static/huggingface.png" style="width: 80%;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="arabic">
 <li><p>最初にPythonのvirtualenvを作成します。</p>
 <p>インストールの詳しい手順は <a class="reference external" href="https://huggingface.co/docs/datasets/installation">Hugging Face公式ドキュメント</a> を参照ください。</p>
 </li>
@@ -268,7 +281,7 @@ $ pip install datasets
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><ol class="arabic simple" start="2">
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
 <li><p>Pythonを起動してデータをロードします。</p></li>
 </ol>
 </td>
@@ -279,7 +292,7 @@ $ pip install datasets
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><ol class="arabic simple" start="3">
+<tr class="row-even"><td><ol class="arabic simple" start="3">
 <li><p>ダウンロードが完了すれば成功です！</p></li>
 </ol>
 </td>
@@ -292,7 +305,7 @@ $ pip install datasets
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><ol class="arabic simple" start="4">
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
 <li><p>次のように音声データにアクセスできます。</p>
 <dl class="field-list simple">
 <dt class="field-odd">audio<span class="colon">:</span></dt>
@@ -354,8 +367,8 @@ $ pip install datasets
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h2>録画データから字幕情報を抽出する<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
+<section id="id2">
+<h2>録画データから字幕情報を抽出する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
 <p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用すると、
 簡単に放送録画データから字幕情報を解析できます。</p>
 <div class="table-wrapper colwidths-given docutils container">
@@ -402,8 +415,8 @@ $ pip install datasets
 </table>
 </div>
 </section>
-<section id="id2">
-<h2>録画データからコーパスを作成する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<section id="id3">
+<h2>録画データからコーパスを作成する<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">#</a></h2>
 <p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用して、
 実際に録画データから音声コーパスを作成する方法を示します。</p>
 <ul class="simple">
@@ -555,8 +568,8 @@ dataset.json   ... 各々の発話に対応する字幕データ
             <ul>
 <li><a class="reference internal" href="#">HowToガイド</a><ul>
 <li><a class="reference internal" href="#python">日本語音声コーパスにPythonからアクセスする</a></li>
-<li><a class="reference internal" href="#id1">録画データから字幕情報を抽出する</a></li>
-<li><a class="reference internal" href="#id2">録画データからコーパスを作成する</a></li>
+<li><a class="reference internal" href="#id2">録画データから字幕情報を抽出する</a></li>
+<li><a class="reference internal" href="#id3">録画データからコーパスを作成する</a></li>
 </ul>
 </li>
 </ul>
