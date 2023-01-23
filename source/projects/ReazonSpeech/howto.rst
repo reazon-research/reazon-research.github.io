@@ -31,7 +31,7 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
      - Datasetsのセットアップ例::
 
            $ python3 -m venv .env
-           $ . ./env/bin/activate
+           $ source .env/bin/activate
            $ pip install datasets
 
    * - 2. Pythonを起動してデータをロードします。
