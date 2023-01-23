@@ -366,6 +366,8 @@ $ pip install datasets
 <span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">streaming</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>なお、このデータセットは、雑音に強いロバストなデータを得るため、ReazonSpeechの <code class="docutils literal notranslate"><span class="pre">strategy=lax</span></code> で抽出しています。
+詳細はAPIリファレンス <a class="reference internal" href="api.html#get_utterances" title="get_utterances"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_utterances()</span></code></a> を参照ください。</p>
 </section>
 <section id="id2">
 <h2>録画データから字幕情報を抽出する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
