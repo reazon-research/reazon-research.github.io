@@ -17,6 +17,13 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
 .. list-table::
    :widths: 5 5
 
+   * - 0. データセットを参照するには、`まずHugging Face上で規約に同意してください。 <https://huggingface.co/datasets/reazon-research/reazonspeech>`_
+
+          * 以下の手順は規約に同意したアカウントに `huggingface-ctl login <https://huggingface.co/docs/huggingface_hub/quick-start>`_ でログインして行います。
+
+     - .. figure:: ../../_static/huggingface.png
+          :width: 80%
+
    * - 1. 最初にPythonのvirtualenvを作成します。
 
           インストールの詳しい手順は `Hugging Face公式ドキュメント <https://huggingface.co/docs/datasets/installation>`_ を参照ください。
