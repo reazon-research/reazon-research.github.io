@@ -51,6 +51,7 @@ ReazonSpeechを利用した音声認識
        )
 
        speech, rate = soundfile.read(sys.argv[1])
+       assert rate == 16000, f"Invalid sampling rate: {rate}"
        print(speech2text(speech)[0][0])
 
 :サンプル音声 (speech-001.wav):
