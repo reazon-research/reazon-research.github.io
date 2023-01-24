@@ -299,6 +299,7 @@ $ . activate_python.sh
 <span class="p">)</span>
 
 <span class="n">speech</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">soundfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">rate</span> <span class="o">==</span> <span class="mi">16000</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Invalid sampling rate: </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">speech2text</span><span class="p">(</span><span class="n">speech</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
