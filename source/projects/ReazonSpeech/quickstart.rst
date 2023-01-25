@@ -43,15 +43,14 @@ ReazonSpeechを利用した音声認識
     .. code-block::
 
        import sys
-       import soundfile
+       import librosa
        from espnet2.bin.asr_inference import Speech2Text
 
        speech2text = Speech2Text.from_pretrained(
          "reazon-research/reazonspeech-espnet-v1"
        )
 
-       speech, rate = soundfile.read(sys.argv[1])
-       assert rate == 16000, f"Invalid sampling rate: {rate}"
+       speech, rate = librosa.load(sys.argv[1], sr=16000)
        print(speech2text(speech)[0][0])
 
 :サンプル音声 (speech-001.wav):
