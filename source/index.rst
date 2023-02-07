@@ -9,7 +9,7 @@ Reazon Human Interaction Laboratory
 .. toctree::
    :maxdepth: 1
 
-   about.md
+   about.rst
    projects/index.rst
    news/index.rst
    blog/index.rst
