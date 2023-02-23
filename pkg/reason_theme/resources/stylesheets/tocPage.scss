@@ -1,0 +1,44 @@
+body#search,
+body#projects-index,
+body#news-index,
+body#blog-index {
+  .Page {
+    .toctree-wrapper,
+    #search-results {
+      ul {
+        @apply list-none;
+
+        li {
+          @apply mt-6 pr-12 border-l-7 border-gray-50 dark:border-gray-800 relative;
+
+          &:first-child {
+            @apply mt-0;
+          }
+
+          &::after {
+            @apply absolute w-6 h-6;
+
+            content: '';
+            background: var(--toc-list-arrow);
+            background-repeat: no-repeat;
+            background-position: center;
+            top: calc(50% - 0.75rem);
+            right: 0.75rem;
+          }
+
+          &:hover {
+            @apply bg-gray-50 dark:bg-gray-800;
+          }
+
+          a {
+            @apply block w-full h-full pl-6 pr-5 py-2 text-black dark:text-white bg-white dark:bg-black font-bold text-xl leading-normal no-underline;
+
+            &:hover {
+              @apply opacity-100;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html class="no-js" {% if language is not none %} lang="{{ language }}" {% endif %}>
+
+<head>
+  {%- block site_meta -%}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  {%- if metatags %}{{ metatags }}
+  {% endif -%}
+  {%- block linktags %}
+  {%- if hasdoc('about') -%}
+  <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
+  {%- endif -%}
+  {%- if hasdoc('genindex') -%}
+  <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
+  {%- endif -%}
+  {%- if hasdoc('search') -%}
+  <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+  {%- endif -%}
+  {%- if hasdoc('copyright') -%}
+  <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
+  {%- endif -%}
+  {%- if next -%}
+  <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+  {%- endif -%}
+  {%- if prev -%}
+  <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+  {%- endif -%}
+  {#- rel="canonical" (set by html_baseurl) -#}
+  {%- if pageurl %}
+  <link rel="canonical" href="{{ pageurl|e }}" />{%- endif %}
+  {%- endblock linktags %}
+  {# Favicon #}
+  {%- if favicon_url -%}
+  <link rel="shortcut icon" href="{{ favicon_url }}" />
+  {%- endif -%}
+  {%- endblock site_meta -%}
+  {#- Site title -#}
+  {%- block htmltitle -%}
+  {% if not docstitle %}
+  <title>{{ title|striptags|e }}</title>
+  {% elif pagename == master_doc %}
+  <title>{{ docstitle|striptags|e }}</title>
+  {% else %}
+  <title>{{ title|striptags|e }} - {{ docstitle|striptags|e }}</title>
+  {% endif %}
+  {%- endblock -%}
+  {%- block styles -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  {# Custom stylesheets #}
+  {%- block regular_styles -%}
+  {%- for css in css_files -%}
+  {% if css|attr("filename") -%}
+  {{ css_tag(css) }}
+  {%- else -%}
+  <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+  {%- endif %}
+  {% endfor -%}
+  {%- endblock regular_styles -%}
+  {%- block extra_styles %}
+  {%- endblock -%}
+  {%- endblock styles -%}
+  {#- Custom front matter #}
+  {%- block extrahead -%}{%- endblock -%}
+</head>
+
+<body id="{{ pagename.replace('/', '-') }}">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-arrow" viewBox="0 0 14 8">
+      <svg viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 2.82801L2.05 7.77801L0.635998 6.36401L7 1.47024e-05L13.364 6.36402L11.95 7.77802L7 2.82801Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-toc-menu">
+      <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19 15V17H1V15H19ZM4.596 0.903999L6.01 2.318L2.828 5.5L6.01 8.682L4.596 10.096L0 5.5L4.596 0.903999ZM19 8V10H10V8H19ZM19 0.999999V3H10V0.999999H19Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8 6.2225L14.2225 0L16 1.7775L9.7775 8L16 14.2225L14.2225 16L8 9.7775L1.7775 16L0 14.2225L6.2225 8L0 1.7775L1.7775 0L8 6.2225Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-left">
+      <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.6359 8.5L10 15.1114L8.18205 17L5.82128e-07 8.5L8.18205 -7.9465e-08L10 1.88859L3.6359 8.5Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+  </svg>
+  <div id="global_nav"></div>
+  <div class="Container">
+    {% include "components/sidebar.html" %}
+    <div class="Container__inner">
+      {% block body %}
+      <script>document.body.dataset.theme = localStorage.getItem("theme") || "auto";</script>{% endblock %}
+    </div>
+  </div>
+  {% include "components/footer.html" %}
+  {%- block scripts -%}
+  {# Custom JS #}
+  {%- block regular_scripts -%}
+  {% for path in script_files -%}
+  {{ js_tag(path) }}
+  {% endfor -%}
+  {%- endblock regular_scripts -%}
+  {# Theme-related JavaScript code #}
+  {%- block theme_scripts -%}
+  <!-- <script type="module" crossorigin src="http://localhost:3000/javascripts/main.ts"></script> -->
+  <script src="{{ pathto('_static/main.js', 1)}}" defer></script>
+  {%- endblock -%}
+  {%- endblock scripts -%}
+</body>
+
+</html>

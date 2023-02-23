@@ -1,0 +1,22 @@
+.Search {
+  @apply border-b-3 border-gray-50 dark:border-gray-800 p-2 flex items-center;
+
+  &__icon {
+    @apply text-black dark:text-white mr-2;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  &__form {
+    @apply flex-1;
+
+    &Text {
+      @apply bg-transparent w-full outline-none;
+
+      &::placeholder {
+        @apply text-base text-gray-400 dark:text-gray-300;
+      }
+    }
+  }
+}

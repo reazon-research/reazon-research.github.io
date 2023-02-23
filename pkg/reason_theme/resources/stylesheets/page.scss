@@ -1,0 +1,447 @@
+body#index {
+  .Page {
+    &__header {
+      height: 316px;
+
+      @screen lg {
+        height: 340px;
+      }
+    }
+
+    &__body > section {
+      @apply mt-10 lg:mt-8;
+
+      .toctree-wrapper {
+        @apply hidden;
+      }
+    }
+
+    &__toc {
+      @apply hidden;
+    }
+  }
+}
+
+body[id^='news-'],
+body[id^='blog-'] {
+  .Page__header {
+    background: var(--main-visual-sp-bg-url);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+
+    @screen lg {
+      background: var(--main-visual-sp-bg-url);
+    }
+  }
+}
+
+.Page {
+  @screen lg {
+    @apply grid grid-cols-[minmax(auto,_850px)_minmax(200px,1fr)] auto-rows-auto gap-0;
+  }
+
+  &__header {
+    @apply col-span-2 font-bold px-5 pb-5 pt-36 lg:p-24 text-titleSm lg:text-titleLg leading-normal;
+
+    background: linear-gradient(180deg, #313cd2 0%, #1983e7 100%),
+      var(--main-visual-sp-bg-url);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    background-blend-mode: var(--main-visual-blend-mode);
+    min-height: 200px;
+
+    @screen lg {
+      background: linear-gradient(180deg, #313cd2 0%, #1983e7 100%),
+        var(--main-visual-bg-url);
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: cover;
+      min-height: 240px;
+    }
+
+    &Parent {
+      @apply text-lg mb-3 lg:mb-1;
+    }
+  }
+
+  &__body {
+    @apply px-5 lg:pr-5 min-w-0 text-base lg:text-sm;
+
+    & > section {
+      @apply mt-20 lg:mt-10;
+
+      & > * {
+        @apply lg:ml-24;
+      }
+
+      & > section {
+        @apply mt-10 lg:mt-20 pt-7 relative;
+
+        &::before {
+          @apply absolute bg-gray-50 dark:bg-gray-800 -left-5;
+
+          height: 7px;
+          top: 0;
+          content: '';
+          width: 66%;
+
+          @screen lg {
+            width: 80%;
+            max-width: 560px;
+            left: -6rem;
+          }
+        }
+
+        blockquote {
+          @apply ml-11;
+        }
+      }
+    }
+
+    h1 {
+      @apply hidden;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-black dark:text-white leading-normal font-bold;
+    }
+
+    h2 {
+      @apply text-2xl mb-4;
+    }
+
+    h3 {
+      @apply text-xl border-gray-50 dark:border-gray-800 border-l-7 pl-5 mt-10 mb-2;
+    }
+
+    h4 {
+      @apply text-lg mt-10 mb-3;
+    }
+
+    h5 {
+      @apply text-sm mt-10 mb-2;
+    }
+
+    p {
+      @apply text-gray-800 text-base lg:text-sm font-medium leading-relaxed mb-4 dark:text-gray-100;
+    }
+
+    a {
+      @apply underline text-blue-500 transition duration-300;
+
+      &:hover {
+        @apply opacity-80;
+      }
+    }
+
+    blockquote {
+      @apply py-3 px-5 mb-5 lg:ml-36 bg-zinc-100 dark:bg-gray-900 relative break-words;
+
+      &::before {
+        @apply absolute block border-solid border-t-gray-50 border-l-gray-50 border-b-transparent border-r-transparent top-0 left-0
+          dark:border-t-gray-550 dark:border-l-gray-550;
+
+        content: '';
+        border-width: 7px 7px 6px 6px;
+      }
+
+      p {
+        @apply mb-0;
+      }
+    }
+
+    ul {
+      @apply list-disc pl-4 mb-5;
+
+      li {
+        @apply mt-1;
+
+        &:first-child {
+          @apply mt-0;
+        }
+      }
+
+      p {
+        @apply mb-0;
+      }
+    }
+
+    .table-wrapper {
+      @apply overflow-auto;
+
+      &.container {
+        @apply w-auto;
+      }
+    }
+
+    table {
+      @apply border-gray-100 dark:border-gray-700 border-t-3 border-b mb-5;
+
+      caption {
+        @apply text-black dark:text-white leading-normal font-bold text-sm;
+
+        padding: 10px;
+      }
+
+      tr {
+        @apply border-gray-100 dark:border-gray-700 border-t;
+
+        &:first-child {
+          @apply border-t-0;
+        }
+
+        th,
+        td {
+          @apply border-gray-100 dark:border-gray-700 border-l;
+
+          padding: 10px;
+
+          &:first-child {
+            @apply border-0;
+          }
+        }
+
+        th {
+          @apply bg-gray-50 dark:bg-gray-700;
+        }
+
+        &.row-odd {
+          td {
+            @apply bg-zinc-200 dark:bg-gray-900;
+          }
+        }
+      }
+
+      p {
+        @apply mb-0;
+      }
+    }
+
+    figure {
+      @apply bg-zinc-50 dark:bg-gray-900 mb-5 inline-block max-w-full;
+
+      padding: 10px;
+
+      figcaption {
+        @apply pt-2;
+
+        p {
+          @apply mb-0 text-xs dark:text-gray-300;
+        }
+      }
+    }
+
+    button {
+      @apply bg-gray-50 py-3 pr-6 relative dark:bg-gray-800 dark:text-white;
+
+      padding-left: calc(0.5rem + 37px) !important;
+
+      &::before {
+        @apply w-6 h-6 absolute block;
+
+        top: 9px;
+        left: 12px;
+        content: '';
+        background: var(--button-arrow);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 8px 14px;
+
+        @screen lg {
+          top: 5px;
+        }
+      }
+
+      &:hover {
+        @apply text-white dark:text-black;
+
+        background: linear-gradient(180deg, #1983e7 0%, #1393eb 100%);
+
+        &::before {
+          background: var(--button-arrow-hover);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 8px 14px;
+        }
+      }
+    }
+
+    aside {
+      p {
+        @apply inline-block;
+      }
+    }
+
+    dl {
+      &.class {
+        @apply mt-10;
+      }
+
+      &.field-list {
+        dd {
+          @apply mt-5;
+        }
+      }
+
+      dt.sig {
+        @apply bg-slate-100 text-black py-4 px-7 mb-2 dark:bg-slate-800 dark:text-white rounded-lg font-bold text-xl;
+
+        .sig-name,
+        .descname {
+          @apply text-red-600;
+        }
+      }
+
+      dd {
+        @apply pl-10;
+
+        .sig-name,
+        .descname,
+        .property {
+          @apply text-sm;
+        }
+
+        dl.field-list {
+          @apply py-4 pt-5 text-base font-bold;
+
+          dt {
+            @apply pt-4;
+
+            &:first-child {
+              @apply pt-0;
+            }
+          }
+
+          dd {
+            @apply pt-3 pb-4 border-b border-gray-50 dark:border-gray-800 mt-0;
+
+            ul {
+              @apply mb-0;
+            }
+
+            p {
+              @apply m-0;
+            }
+          }
+        }
+
+        dl.attribute {
+          @apply mt-8;
+
+          &:first-child {
+            @apply mt-10;
+          }
+
+          dt {
+            @apply flex items-center text-sm py-2 px-5 bg-zinc-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100 leading-normal;
+
+            line-height: 1.875;
+          }
+
+          dl {
+            p {
+              @apply m-0;
+            }
+          }
+        }
+
+        dd {
+          @apply pl-8;
+        }
+      }
+    }
+
+    .highlight {
+      @apply mb-5;
+    }
+
+    .highlight pre,
+    code {
+      @apply text-xs font-medium p-1 bg-zinc-100 border-gray-50 border rounded dark:bg-gray-800 dark:border-gray-500;
+    }
+
+    .highlight pre {
+      @apply w-0 min-w-full overflow-auto;
+
+      @screen lg {
+        overflow: w-auto auto;
+      }
+    }
+
+    .caption {
+      @apply text-sm font-bold mt-6 pt-3 border-t-4 border-gray-50 dark:border-gray-800;
+    }
+
+    audio {
+      max-width: 150px;
+
+      @screen lg {
+        @apply max-w-none;
+      }
+    }
+  }
+
+  &__toc {
+    @apply hidden lg:block;
+  }
+
+  .Toc {
+    &__inner {
+      @apply pt-3 pb-6 border-l-8 border-gray-50 dark:border-gray-800;
+
+      width: 180px;
+
+      &--fixed {
+        @apply fixed top-0;
+      }
+    }
+
+    &__title {
+      @apply text-base text-gray-200 font-normal pl-2 dark:text-gray-500 font-roboto tracking-wide;
+    }
+
+    &__tree {
+      @apply text-xs;
+
+      > ul > li {
+        ul {
+          @apply pl-3;
+        }
+
+        &:first-child > a {
+          @apply hidden;
+        }
+      }
+
+      li {
+        @apply pt-2;
+
+        a {
+          @apply block pl-3 text-gray-500 font-medium dark:text-gray-100 leading-tight;
+
+          &.current {
+            @apply relative text-blue-500;
+
+            &::before {
+              @apply absolute block border-solid border-l-blue-500 border-y-transparent left-0;
+
+              content: '';
+              border-width: 6px 0 6px 6px;
+              top: 2px;
+            }
+          }
+
+          &:hover {
+            @apply underline;
+          }
+        }
+      }
+    }
+  }
+}
