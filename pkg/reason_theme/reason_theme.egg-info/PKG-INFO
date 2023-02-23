@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: reason-theme
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: 
+License: UNKNOWN
+Project-URL: Documentation, 
+Project-URL: Source, 
+Project-URL: Tracker, 
+Description: UNKNOWN
+Keywords: sphinx doc theme vue.js
+Platform: UNKNOWN
+Classifier: Framework :: Sphinx
+Classifier: Framework :: Sphinx :: Theme
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Description-Content-Type: text/markdown

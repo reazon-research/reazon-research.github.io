@@ -1,0 +1,37 @@
+{
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-prettier-scss"
+    ],
+    "plugins": [
+        "stylelint-selector-bem-pattern"
+    ],
+    "rules": {
+        "indentation": 2,
+        "selector-class-pattern": null,
+        "scss/at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "tailwind",
+                    "apply",
+                    "variants",
+                    "responsive",
+                    "screen",
+                    "import"
+                ]
+            }
+        ],
+        "declaration-block-trailing-semicolon": null,
+        "no-descending-specificity": null,
+        "plugin/selector-bem-pattern": {
+            "preset": "suit",
+            "componentName": "[A-Z]+",
+            "componentSelectors": {
+                "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+                "combined": "^\\.combined-{componentName}-[a-z]+$"
+            },
+            "utilitySelectors": "^\\.util-[a-z]+$"
+        }
+    }
+}
