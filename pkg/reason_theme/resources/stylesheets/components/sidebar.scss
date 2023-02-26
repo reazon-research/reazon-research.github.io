@@ -11,6 +11,16 @@
 
   &__logo {
     width: 241px;
+
+    &Image {
+      &--light {
+        @apply block dark:hidden;
+      }
+
+      &--dark {
+        @apply hidden dark:block;
+      }
+    }
   }
 
   &__menuList {

@@ -1,0 +1,152 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark">
+    <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="svg-arrow" viewBox="0 0 24 24">
+            <svg viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 2.82801L2.05 7.77801L0.635998 6.36401L7 1.47024e-05L13.364 6.36402L11.95 7.77802L7 2.82801Z"
+                    fill="currentColor" />
+            </svg>
+        </symbol>
+    </svg>
+    <main>
+        <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
+            aria-controls="default-sidebar" type="button"
+            class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+            <span class="sr-only">Open sidebar</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" fill-rule="evenodd"
+                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                </path>
+            </svg>
+        </button>
+        <aside class="Sidebar" aria-label="Sidebar">
+            <div class="Sidebar__container">
+                <div class="Sidebar__inner">
+                    <a class="Sidebar__logo" href="#">
+
+                        <h1>
+                            <img class="Sidebar__logoImage--light" src="_static/logo.png" />
+                            <img class="Sidebar__logoImage--dark" src="_static/logo-dark.png" />
+                        </h1>
+
+                    </a>
+                    <div class="Tree">
+                        <ul>
+                            <li class="toctree-l1 Tree__item"><a class="reference internal" href="about.html">About</a>
+                            </li>
+                            <li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal"
+                                    href="projects/index.html">Projects</a><input class="Tree_itemToggleCheckbox"
+                                    id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox" /><label
+                                    class="Tree__itemToggle" for="toctree-checkbox-1"><i
+                                        class="Tree__itemToggleIcon"><svg>
+                                            <use href="#svg-arrow"></use>
+                                        </svg></i></label>
+                                <ul>
+                                    <li class="toctree-l2 Tree__item Tree__item--has-children"><a
+                                            class="reference internal"
+                                            href="projects/ReazonSpeech/index.html">ReazonSpeech</a><input
+                                            class="Tree_itemToggleCheckbox" id="toctree-checkbox-2"
+                                            name="toctree-checkbox-2" type="checkbox" /><label class="Tree__itemToggle"
+                                            for="toctree-checkbox-2"><i class="Tree__itemToggleIcon"><svg>
+                                                    <use href="#svg-arrow"></use>
+                                                </svg></i></label>
+                                        <ul>
+                                            <li class="toctree-l3 Tree__item"><a class="reference internal"
+                                                    href="projects/ReazonSpeech/quickstart.html">ReazonSpeechクイックスタート</a>
+                                            </li>
+                                            <li class="toctree-l3 Tree__item"><a class="reference internal"
+                                                    href="projects/ReazonSpeech/howto.html">ReazonSpeech HowToガイド</a>
+                                            </li>
+                                            <li class="toctree-l3 Tree__item"><a class="reference internal"
+                                                    href="projects/ReazonSpeech/api.html">ReazonSpeech APIリファレンス</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal"
+                                    href="news/index.html">News</a><input class="Tree_itemToggleCheckbox"
+                                    id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox" /><label
+                                    class="Tree__itemToggle" for="toctree-checkbox-3"><i
+                                        class="Tree__itemToggleIcon"><svg>
+                                            <use href="#svg-arrow"></use>
+                                        </svg></i></label>
+                                <ul>
+                                    <li class="toctree-l2 Tree__item"><a class="reference internal"
+                                            href="news/reazonspeech.html">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal"
+                                    href="blog/index.html">Blog</a><input class="Tree_itemToggleCheckbox"
+                                    id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox" /><label
+                                    class="Tree__itemToggle" for="toctree-checkbox-4"><i
+                                        class="Tree__itemToggleIcon"><svg>
+                                            <use href="#svg-arrow"></use>
+                                        </svg></i></label>
+                                <ul>
+                                    <li class="toctree-l2 Tree__item"><a class="reference internal"
+                                            href="blog/2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2
+                                            FastDDS/CycloneDDS のパフォーマンス評価</a></li>
+                                    <li class="toctree-l2 Tree__item"><a class="reference internal"
+                                            href="blog/2023-01-15-ReazonSpeech-ESP32.html">(2023-01-15)
+                                            スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a></li>
+                                </ul>
+                            </li>
+                            <li class="toctree-l1 Tree__item"><a class="reference internal"
+                                    href="publications.html">Publications</a></li>
+                            <li class="toctree-l1 Tree__item"><a class="reference internal"
+                                    href="careers.html">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div class="Contents">
+
+            <section id="reazon-human-interaction-laboratory">
+                <h1>Reazon Human Interaction Laboratory<a class="headerlink" href="#reazon-human-interaction-laboratory"
+                        title="この見出しへのパーマリンク">¶</a></h1>
+                <div class="toctree-wrapper compound">
+                    <ul>
+                        <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+                        <li class="toctree-l1"><a class="reference internal" href="projects/index.html">Projects</a>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="news/index.html">News</a></li>
+                        <li class="toctree-l1"><a class="reference internal" href="blog/index.html">Blog</a></li>
+                        <li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+            </section>
+
+
+        </div>
+    </main>
+    <footer class="Footer">
+        <div class="Footer__copyright">
+            Copyright &copy; 2023, Human Interaction Laboratory
+        </div>
+        <div class="Footer__toolButton ToolButton">
+            <div class="ToolButton__viewMode">
+                <div class="ToolButton__viewModeLabel">View Mode</div>
+                <button class="ToolButton__viewModeButton ToolButton__viewModeButton--dark">Night Mode</button>
+                <button class="ToolButton__viewModeButton ToolButton__viewModeButton--light">Day Mode</button>
+            </div>
+        </div>
+    </footer>
+    <script type="module" crossorigin src="./javascripts/main.ts"></script>
+</body>
+
+</html>

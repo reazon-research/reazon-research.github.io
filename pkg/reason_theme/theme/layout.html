@@ -74,10 +74,12 @@
       </svg>
     </symbol>
   </svg>
-  {% include "components/sidebar.html" %}
   <main>
-    {% block body %}
-    <script>document.body.dataset.theme = localStorage.getItem("theme") || "auto";</script>{% endblock %}
+    {% include "components/sidebar.html" %}
+    <div class="Contents">
+      {% block body %}
+      <script>document.body.dataset.theme = localStorage.getItem("theme") || "auto";</script>{% endblock %}
+    </div>
   </main>
   {% include "components/footer.html" %}
   {%- block scripts -%}
@@ -91,6 +93,7 @@
   {%- block theme_scripts -%}
   {%- endblock -%}
   <script type="module" crossorigin src="http://localhost:3000/javascripts/main.ts"></script>
+  <!-- <script src="{{ pathto('_static/main.js', 1)}}" defer></script> -->
   {%- endblock scripts -%}
 </body>
 

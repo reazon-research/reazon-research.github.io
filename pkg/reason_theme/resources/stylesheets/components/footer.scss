@@ -1,0 +1,47 @@
+.Footer {
+  background: var(--footer-bg-url) repeat-y top;
+  @apply pt-4 pb-5;
+
+  &__copyright {
+    @apply text-xs text-center;
+  }
+}
+
+.ToolButton {
+  @apply text-center flex flex-row items-center justify-center mt-4;
+
+  &__viewMode {
+    @apply text-center flex flex-row items-center justify-center;
+
+    &Label {
+      @apply text-xs font-bold text-gray-400 mr-2;
+    }
+
+    &Button {
+      @apply text-xs text-black text-left rounded-full relative;
+
+      width: 130px;
+      height: 40px;
+      padding-left: 50px;
+
+      &::before {
+        @apply block absolute top-0 left-0;
+
+        content: '';
+        background: var(--view-mode-icon-url) no-repeat center;
+        width: 23px;
+        height: 23px;
+        top: 8px;
+        left: 18px;
+      }
+
+      &--light {
+        @apply bg-gray-50 dark:hidden;
+      }
+
+      &--dark {
+        @apply text-white bg-gray-800 hidden dark:block;
+      }
+    }
+  }
+}

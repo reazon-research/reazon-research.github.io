@@ -1,69 +1,63 @@
 .Tree {
-    margin-top: 73px;
+  margin-top: 73px;
 
-    &__item {
-        @apply text-sm leading-7 relative;
+  &__item {
+    @apply text-sm leading-7 relative;
 
-        &.toctree-l1 {
-            @apply text-lg font-bold mt-4;
+    &.toctree-l1 {
+      @apply text-lg font-bold mt-4;
 
-            &:first-child {
-                @apply mt-0;
-            }
-        }
-
-        &.toctree-l2 {
-            @apply font-medium;
-        }
-
-        & > ul {
-            @apply pl-5;
-        }
-
-        & > a {
-            @apply w-full block;
-        }
+      &:first-child {
+        @apply mt-0;
+      }
     }
 
-    &_itemToggleCheckbox {
-        @apply hidden;
-
-        & ~ .Tree__itemToggle {
-            @apply rotate-180;
-        }
-
-        &:checked ~ .Tree__itemToggle {
-            @apply rotate-0;
-        }
-
-        & ~ ul {
-            @apply hidden;
-        }
-
-        &:checked ~ ul {
-            @apply block;
-        }
+    &.toctree-l2 {
+      @apply font-medium;
     }
 
-    &__itemToggle {
-        @apply absolute top-0 right-0 inline-flex justify-center items-center cursor-pointer;
-        width: 24px;
-        height: 24px;
-
-        &Icon {
-            width: 13px;
-            height: 8px;
-            @apply inline-block text-black dark:text-white;
-
-            svg {
-                @apply w-full h-full;
-            }
-        }
+    & > ul {
+      @apply pl-5;
     }
 
-    @media (prefers-color-scheme: dark) {
-        &__itemToggle {
-            @apply bg-black bg-opacity-60;
-        }
+    & > a {
+      @apply w-full block;
     }
+  }
+
+  &_itemToggleCheckbox {
+    @apply hidden;
+
+    & ~ .Tree__itemToggle {
+      @apply rotate-180;
+    }
+
+    &:checked ~ .Tree__itemToggle {
+      @apply rotate-0;
+    }
+
+    & ~ ul {
+      @apply hidden;
+    }
+
+    &:checked ~ ul {
+      @apply block;
+    }
+  }
+
+  &__itemToggle {
+    @apply absolute top-0 right-0 inline-flex justify-center items-center cursor-pointer dark:bg-black dark:bg-opacity-60;
+    width: 24px;
+    height: 24px;
+
+    &Icon {
+      width: 13px;
+      height: 8px;
+      @apply inline-block text-black dark:text-white;
+
+      svg {
+        @apply w-full h-full;
+      }
+    }
+  }
 }

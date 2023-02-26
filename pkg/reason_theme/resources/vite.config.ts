@@ -4,12 +4,13 @@ import { resolve } from 'path'
 export default {
     // config
     root: './',
-    base: '/',
+    base: process.env.NODE_ENV === 'production' ? './_static/' : '/',
 
     build: {
         // output dir for production build
         outDir: '../theme/static',
         emptyOutDir: true,
+        cssCodeSplit: false,
 
         // emit manifest so PHP can find the hashed files
         manifest: false,
@@ -51,7 +52,6 @@ export default {
         hmr: {
             host: 'localhost',
             //port: 443
-        },
-
+        }
     },
 }
