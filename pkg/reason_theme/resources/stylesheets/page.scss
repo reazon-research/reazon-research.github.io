@@ -16,7 +16,7 @@
   }
 
   &__body {
-    @apply pt-10 pr-5;
+    @apply pt-10 pr-5 min-w-0;
 
     > section > * {
       @apply ml-24;
@@ -201,6 +201,10 @@
             ul {
               @apply mb-0;
             }
+
+            p {
+              @apply m-0;
+            }
           }
         }
 
@@ -214,28 +218,35 @@
           dt {
             @apply bg-zinc-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100;
           }
+
+          dl {
+            p {
+              @apply m-0;
+            }
+          }
         }
 
         dd {
           @apply pl-8;
         }
       }
-
-      p {
-        @apply m-0;
-      }
     }
 
+    .highlight {
+      @apply mb-5;
+    }
+
+    .highlight pre,
     code {
       @apply text-xs font-medium p-1 bg-zinc-100 border-gray-50 border rounded dark:bg-gray-800 dark:border-gray-500;
     }
 
-    a.headerlink {
-      @apply inline-block ml-2 no-underline;
+    .highlight pre {
+      overflow: auto;
     }
 
-    pre {
-      overflow-x: auto;
+    a.headerlink {
+      @apply inline-block ml-2 no-underline;
     }
   }
 
