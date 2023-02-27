@@ -2,7 +2,7 @@
   margin-top: 73px;
 
   &__item {
-    @apply text-sm leading-7 relative;
+    @apply text-sm leading-6 relative break-all;
 
     &.toctree-l1 {
       @apply text-lg font-bold mt-4;
@@ -21,7 +21,7 @@
     }
 
     & > a {
-      @apply w-full block;
+      @apply w-full block pr-14;
     }
   }
 
@@ -46,9 +46,11 @@
   }
 
   &__itemToggle {
-    @apply absolute top-0 right-0 inline-flex justify-center items-center cursor-pointer dark:bg-black dark:bg-opacity-60;
+    @apply absolute top-0 right-0 inline-flex justify-center items-center cursor-pointer bg-white rounded-full bg-opacity-60 dark:bg-black dark:rounded-none;
+
     width: 24px;
     height: 24px;
+    backdrop-filter: blur(2px);
 
     &Icon {
       width: 13px;

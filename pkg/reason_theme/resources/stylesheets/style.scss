@@ -1,15 +1,18 @@
 @import './components/sidebar.scss';
 @import './components/tree.scss';
 @import './components/footer.scss';
+@import './page.scss';
+@import './components/pygments.scss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: '游ゴシック', YuGothic, 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3',
+    'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
   color-scheme: light dark;
   color: rgb(255 255 255 / 87%);
   background-color: #242424;
@@ -19,28 +22,32 @@
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
 
+  --main-visual-bg-url: url('/images/main_visual_light.png');
+  --main-visual-blend-mode: color-burn;
   --footer-bg-url: url('/images/footer_bg_light.png');
   --view-mode-icon-url: url('/images/sun.svg');
 }
 
 :root.dark {
+  --main-visual-bg-url: url('/images/main_visual_dark.png');
+  --main-visual-blend-mode: overlay;
   --footer-bg-url: url('/images/footer_bg_dark.png');
   --view-mode-icon-url: url('/images/moon.svg');
 }
 
 html,
 body {
-  @apply h-full;
+  @apply min-h-screen;
 }
 
 body {
-  @apply bg-white dark:bg-black text-black dark:text-white flex flex-col min-h-screen;
-
-  main {
-    @apply flex-grow;
-  }
+  @apply bg-white dark:bg-black text-black dark:text-white flex flex-col;
 }
 
-.Contents {
-  padding-left: 228px;
+.Container {
+  @apply flex-grow;
+
+  &__inner {
+    @apply pl-56 pb-14;
+  }
 }

@@ -35,6 +35,10 @@ module.exports = {
           400: '#61B2FF',
           500: '#1983E7',
         }
+      },
+      borderWidth: {
+        '3': '3px',
+        '7': '7px'
       }
     },
   },
