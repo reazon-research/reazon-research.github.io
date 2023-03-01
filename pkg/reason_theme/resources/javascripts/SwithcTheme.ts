@@ -11,7 +11,7 @@ export default class SwitchTheme {
 
   darkClassName: string = THEMES['DARK'];
 
-  constructor(buttons: HTMLCollectionOf<Element>) {
+  constructor(buttons: Array<Element>) {
     this.onInitEvent(buttons);
 
     const mode = this.getLocalStorageItem();
@@ -27,7 +27,7 @@ export default class SwitchTheme {
     this.setTheme(this.mode);
   }
 
-  private onInitEvent(buttons: HTMLCollectionOf<Element>) {
+  private onInitEvent(buttons: Array<Element>) {
     Array.from(buttons).forEach((btn) => {
       btn.addEventListener('click', this.toggleTheme.bind(this));
     });
