@@ -11,9 +11,7 @@
   }
 
   &__inner {
-    @screen lg {
-      @apply h-full pl-7 py-10;
-    }
+    @apply lg:h-full lg:pl-7 lg:py-10;
   }
 
   &__logo {

@@ -1,6 +1,16 @@
 .Footer {
-  background: var(--footer-bg-url) repeat-y top;
-  @apply pt-4 pb-5;
+  @apply flex justify-center items-center lg:z-50;
+
+  background: var(--footer-sp-bg-url) no-repeat center;
+  background-size: cover;
+  height: 100px;
+
+  @screen lg {
+    @apply pt-4 pb-5 block;
+
+    background: var(--footer-bg-url) no-repeat center;
+    height: auto;
+  }
 
   &__copyright {
     @apply text-xs text-center;

@@ -11,30 +11,34 @@
 @tailwind utilities;
 
 :root {
+  @apply leading-normal font-medium bg-white;
+
   font-family: '游ゴシック', YuGothic, 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3',
     'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-  line-height: 1.5;
-  font-weight: 500;
   color-scheme: light dark;
-  color: rgb(255 255 255 / 87%);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
 
-  --main-visual-bg-url: url('/images/main_visual_light.png');
+  --main-visual-bg-url: url('/images/bg_main_visual_light.png');
+  --main-visual-sp-bg-url: url('/images/bg_main_visual_light_sp.png');
+  --footer-bg-url: url('/images/bg_footer_light.png');
+  --footer-sp-bg-url: url('/images/bg_footer_light_sp.png');
   --main-visual-blend-mode: color-burn;
-  --footer-bg-url: url('/images/footer_bg_light.png');
   --view-mode-icon-url: url('/images/sun.svg');
   --page-body-left-margin: 6rem;
 }
 
 :root.dark {
-  --main-visual-bg-url: url('/images/main_visual_dark.png');
+  @apply bg-black;
+
+  --main-visual-bg-url: url('/images/bg_main_visual_dark.png');
+  --main-visual-sp-bg-url: url('/images/bg_main_visual_dark_sp.png');
+  --footer-bg-url: url('/images/bg_footer_dark.png');
+  --footer-sp-bg-url: url('/images/bg_footer_dark_sp.png');
   --main-visual-blend-mode: overlay;
-  --footer-bg-url: url('/images/footer_bg_dark.png');
   --view-mode-icon-url: url('/images/moon.svg');
 }
 
@@ -51,6 +55,10 @@ body {
   @apply flex-grow;
 
   &__inner {
-    @apply lg:pl-56 pb-14;
+    @apply pl-0 lg:pl-56 pb-14;
   }
+}
+
+.headerlink {
+  @apply hidden;
 }

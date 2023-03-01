@@ -28,22 +28,20 @@
   &_itemToggleCheckbox {
     @apply hidden;
 
-    @screen lg {
-      & ~ .Tree__itemToggle {
-        @apply rotate-180;
-      }
+    & ~ .Tree__itemToggle {
+      @apply lg:rotate-180;
+    }
 
-      &:checked ~ .Tree__itemToggle {
-        @apply rotate-0;
-      }
+    &:checked ~ .Tree__itemToggle {
+      @apply lg:rotate-0;
+    }
 
-      & ~ ul {
-        @apply hidden;
-      }
+    & ~ ul {
+      @apply lg:hidden;
+    }
 
-      &:checked ~ ul {
-        @apply block;
-      }
+    &:checked ~ ul {
+      @apply lg:block;
     }
   }
 
