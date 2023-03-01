@@ -1,15 +1,24 @@
 .Sidebar {
-  @apply fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0;
+  @apply fixed top-0 left-0 z-40 w-full lg:w-64 h-screen transition-transform -translate-x-full lg:translate-x-0
+    bg-white text-black dark:bg-black dark:text-white pl-16 pr-6 lg:pl-0 lg:pr-0;
+
+  &.show {
+    @apply translate-x-0;
+  }
 
   &__container {
     @apply h-full overflow-y-auto;
   }
 
   &__inner {
-    @apply h-full pl-7 py-10;
+    @screen lg {
+      @apply h-full pl-7 py-10;
+    }
   }
 
   &__logo {
+    @apply hidden lg:block;
+
     width: 241px;
 
     &Image {
@@ -23,15 +32,7 @@
     }
   }
 
-  &__menuList {
-    @apply space-y-2;
-
-    &Item {
-      @apply flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700;
-
-      &Icon {
-        @apply w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white;
-      }
-    }
+  &__search {
+    @apply mt-8;
   }
 }

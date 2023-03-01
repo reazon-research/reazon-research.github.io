@@ -1,10 +1,13 @@
 import { resolve } from 'path';
+import vue from '@vitejs/plugin-vue';
 
 /** @type {import('vite').UserConfig} */
 export default {
   // config
   root: './',
   base: process.env.NODE_ENV === 'production' ? '' : '/',
+
+  plugins: [vue()],
 
   build: {
     // output dir for production build

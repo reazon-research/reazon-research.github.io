@@ -8,7 +8,7 @@
 }
 
 .ToolButton {
-  @apply text-center flex flex-row items-center justify-center mt-4;
+  @apply text-center flex flex-row items-center justify-center mt-4 hidden lg:block;
 
   &__viewMode {
     @apply text-center flex flex-row items-center justify-center;

@@ -2,22 +2,22 @@
   margin-top: 73px;
 
   &__item {
-    @apply text-sm leading-6 relative break-all;
+    @apply text-sm lg:leading-6 relative break-all mt-5 lg:mt-0;
 
     &.toctree-l1 {
-      @apply text-lg font-bold mt-4;
+      @apply lg:text-lg lg:font-bold lg:mt-4;
 
       &:first-child {
-        @apply mt-0;
+        @apply lg:mt-0;
       }
     }
 
     &.toctree-l2 {
-      @apply font-medium;
+      @apply lg:font-medium;
     }
 
     & > ul {
-      @apply pl-5;
+      @apply hidden lg:block lg:pl-5;
     }
 
     & > a {
@@ -28,20 +28,22 @@
   &_itemToggleCheckbox {
     @apply hidden;
 
-    & ~ .Tree__itemToggle {
-      @apply rotate-180;
-    }
+    @screen lg {
+      & ~ .Tree__itemToggle {
+        @apply rotate-180;
+      }
 
-    &:checked ~ .Tree__itemToggle {
-      @apply rotate-0;
-    }
+      &:checked ~ .Tree__itemToggle {
+        @apply rotate-0;
+      }
 
-    & ~ ul {
-      @apply hidden;
-    }
+      & ~ ul {
+        @apply hidden;
+      }
 
-    &:checked ~ ul {
-      @apply block;
+      &:checked ~ ul {
+        @apply block;
+      }
     }
   }
 

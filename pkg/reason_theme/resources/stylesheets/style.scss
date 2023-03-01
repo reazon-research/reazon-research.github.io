@@ -1,8 +1,10 @@
 @import './components/sidebar.scss';
 @import './components/tree.scss';
+@import './components/search.scss';
 @import './components/footer.scss';
 @import './page.scss';
 @import './components/pygments.scss';
+@import './components/animation.scss';
 
 @tailwind base;
 @tailwind components;
@@ -49,6 +51,6 @@ body {
   @apply flex-grow;
 
   &__inner {
-    @apply pl-56 pb-14;
+    @apply lg:pl-56 pb-14;
   }
 }

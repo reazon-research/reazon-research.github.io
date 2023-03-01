@@ -1,11 +1,11 @@
 .Page {
-  @apply grid grid-cols-[1fr_250px] auto-rows-auto gap-0;
+  @screen lg {
+    @apply grid grid-cols-[1fr_250px] auto-rows-auto gap-0;
+  }
 
   &__header {
-    @apply col-span-2 font-bold p-24;
+    @apply col-span-2 font-bold px-5 pb-5 pt-36 lg:p-24 text-titleSm lg:text-titleLg leading-normal;
 
-    font-size: 38px;
-    line-height: 1.5;
     background: linear-gradient(180deg, #313cd2 0%, #1983e7 100%),
       var(--main-visual-bg-url);
     background-repeat: no-repeat;
@@ -251,7 +251,7 @@
   }
 
   &__toc {
-    width: 180px;
+    @apply hidden lg:block;
   }
 
   .Toc {
