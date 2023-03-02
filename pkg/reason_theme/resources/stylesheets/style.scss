@@ -6,6 +6,7 @@
 @import './components/pygments.scss';
 @import './components/animation.scss';
 @import './searchPage.scss';
+@import './tocPage.scss';
 
 @tailwind base;
 @tailwind components;
@@ -33,6 +34,7 @@
   --button-arrow: url('/images/arrow_right.svg'), #fff;
   --button-arrow-hover: url('/images/arrow_right_dark.svg'),
     linear-gradient(180deg, #1983e7 0%, #1393eb 100%);
+  --toc-list-arrow: url('/images/arrow_right.svg'), #fff;
   --sidebar-width: 248px;
   --sidebar-container-width: 270px;
   --sidebar-animation-bg-width: 296px;
@@ -50,6 +52,7 @@
   --button-arrow: url('/images/arrow_right_dark.svg'), #000;
   --button-arrow-hover: url('/images/arrow_right.svg'),
     linear-gradient(180deg, #1983e7 0%, #1393eb 100%);
+  --toc-list-arrow: url('/images/arrow_right_dark.svg'), rgb(0 0 0 / 60%);
 }
 
 :root.auto {
