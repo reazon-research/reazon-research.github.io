@@ -167,6 +167,14 @@ body[id^='blog-'] {
       }
     }
 
+    .table-wrapper {
+      @apply overflow-auto;
+
+      &.container {
+        @apply w-auto;
+      }
+    }
+
     table {
       @apply border-gray-100 dark:border-gray-700 border-t-3 border-b mb-5;
 
@@ -348,7 +356,11 @@ body[id^='blog-'] {
     }
 
     .highlight pre {
-      overflow: auto;
+      @apply w-0 min-w-full overflow-auto;
+
+      @screen lg {
+        overflow: w-auto auto;
+      }
     }
 
     .caption {

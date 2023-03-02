@@ -1,6 +1,7 @@
 __version__ = ""
 
 import os
+from docutils import nodes
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Iterator, Optional
@@ -8,8 +9,38 @@ from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.environment.adapters.toctree import TocTree
 
 import sphinx.application
+from sphinx.transforms.post_transforms import SphinxPostTransform
 
 from .navigation import get_navigation_tree
+
+
+class WrapTableAndMathInAContainerTransform(SphinxPostTransform):
+    """A Sphinx post-transform that wraps `table` and `div.math` in a container `div`.
+    This makes it possible to handle these overflowing the content-width, which is
+    necessary in a responsive theme.
+    """
+
+    formats = ("html",)
+    default_priority = 500
+
+    def run(self, **kwargs: Any) -> None:
+        """Perform the post-transform on `self.document`."""
+        get_nodes = (
+            self.document.findall  # docutils 0.18+
+            if hasattr(self.document, "findall")
+            else self.document.traverse  # docutils <= 0.17.x
+        )
+        for node in list(get_nodes(nodes.table)):
+            new_node = nodes.container(classes=["table-wrapper"])
+            new_node.update_all_atts(node)
+            node.parent.replace(node, new_node)
+            new_node.append(node)
+
+        for node in list(get_nodes(nodes.math_block)):
+            new_node = nodes.container(classes=["math-wrapper"])
+            new_node.update_all_atts(node)
+            node.parent.replace(node, new_node)
+            new_node.append(node)
 
 
 def has_not_enough_items_to_show_toc(
@@ -87,6 +118,8 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
 
     app.add_html_theme(
         'reason_theme', os.path.abspath(os.path.dirname(__file__)))
+
+    app.add_post_transform(WrapTableAndMathInAContainerTransform)
 
     app.connect("html-page-context", _html_page_context)
 
