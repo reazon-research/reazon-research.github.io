@@ -168,7 +168,7 @@ body[id^='blog-'] {
     }
 
     table {
-      @apply border-gray-100 dark:border-gray-700 border-t-3 border-b;
+      @apply border-gray-100 dark:border-gray-700 border-t-3 border-b mb-5;
 
       caption {
         @apply text-black dark:text-white leading-normal font-bold text-sm;
