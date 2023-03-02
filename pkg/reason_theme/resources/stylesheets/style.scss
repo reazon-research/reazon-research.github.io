@@ -59,6 +59,11 @@
 
     &--system {
       @apply bg-gray-50 block;
+
+      &::before {
+        background: url('/images/system.svg') no-repeat center;
+        background-size: 100% 100%;
+      }
     }
   }
 
@@ -66,6 +71,11 @@
     .ToolButton__viewModeButton--system,
     .ViewModeButton__button--system {
       @apply text-white bg-gray-800;
+
+      &::before {
+        background: url('/images/system_dark.svg') no-repeat center;
+        background-size: 100% 100%;
+      }
     }
   }
 }
