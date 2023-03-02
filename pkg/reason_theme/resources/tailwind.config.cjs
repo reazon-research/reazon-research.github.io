@@ -16,6 +16,7 @@ module.exports = {
           300: '#aaaaaa',
           400: '#999999',
           500: '#666666',
+          550: '#555555',
           600: '#424242',
           700: '#444444',
           800: '#333333',
@@ -24,6 +25,7 @@ module.exports = {
         zinc: {
           50: '#f9f9f9',
           100: '#f8f8f8',
+          200: '#fcfcfc',
         },
         red: {
           600: '#C50000',
@@ -32,6 +34,9 @@ module.exports = {
           400: '#61B2FF',
           500: '#1983E7',
         },
+      },
+      fontFamily: {
+        roboto: ['Roboto Condensed', 'sans-serif'],
       },
       fontSize: {
         titleSm: '28px',
