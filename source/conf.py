@@ -28,9 +28,9 @@ author = 'Human Interaction Laboratory'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-  "sphinx.ext.githubpages",
-  "sphinxcontrib.googleanalytics",
-  "myst_parser",
+    "sphinx.ext.githubpages",
+    "sphinxcontrib.googleanalytics",
+    "myst_parser",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -41,7 +41,10 @@ templates_path = ['_templates']
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
+locale_dirs = ['locale/']
 language = 'ja'
+
+gettext_compact = False
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -57,22 +60,29 @@ googleanalytics_enabled = True
 # a list of builtin themes.
 #
 root_doc = 'index'
-html_theme = 'furo'
+html_theme = 'reason_theme'
 html_title = 'Reazon Human Interaction Lab'
 html_baseurl = 'https://research.reazon.jp'
-html_css_files = ['custom.css']
+# html_css_files = ['custom.css']
 html_copy_source = False
 
 html_theme_options = {
-  "sidebar_hide_name": True,
-  "source_repository": "https://github.com/reazon-research/reazon-research.github.io/",
-  "source_branch": "main",
-  "source_directory": "source/",
-  "light_logo": "logo.png",
-  "dark_logo": "logo-dark.png",
+    # "sidebar_hide_name": True,
+    # "source_repository": "https://github.com/reazon-research/reazon-research.github.io/",
+    # "source_branch": "main",
+    # "source_directory": "source/",
+    "light_logo": "logo.png",
+    "dark_logo": "logo-dark.png",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_context = {
+    'support_languages': {
+        'ja': 'JP',
+        'en': 'EN'
+    }
+}

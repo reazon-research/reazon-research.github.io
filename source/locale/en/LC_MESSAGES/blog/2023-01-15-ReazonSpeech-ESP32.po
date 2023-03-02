@@ -1,0 +1,296 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Human Interaction Laboratory
+# This file is distributed under the same license as the Reazon Research
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Reazon Research \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-02 05:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:1
+msgid "(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:3
+msgid "概要"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:4
+msgid "スマートフォンの通話内容を ReazonSpeechを使って音声認識させ、文字起こしした内容をSlackに転送する実験です。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:6
+msgid "構成"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:7
+msgid "![fig1](2023-01-15-ReazonSpeech-ESP32/fig1.png)"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:7
+msgid "fig1"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:9
+msgid ""
+"上記のような構成で、スマートフォンの通話内容を "
+"Bluetoothヘッドセット（ESP32開発ボード）で受け取り、その発話データを音声認識サーバに送り込み、文字起こししたデータを "
+"WebHook経由でSlack端末に流す、という流れとなります。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:11
+msgid "開発の概要"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:12
+msgid ""
+"ESP32開発ボード(ESP32-LyraT-mini)上で "
+"bluetooth/Wifモジュールを動作させ、発話データをキャプチャして音声認識サーバにUDP送信するコードを追加します。(C/C++)"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:13
+msgid ""
+"音声認識サーバ(ReazonSpeech)上で、発話データをUDP受信して ReazonSpeech を呼び出して文字起こしし、そのデータを "
+"Slack（WebHook経由）に渡すサーバを作ります。(Python)"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:15
+msgid "ESP32部分の開発"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:16
+msgid ""
+"ESP32開発ボード開発元の espressif が提供している ESP32-ADF の pipeline_a2dp_sink_and_hfp "
+"をベースにします。   https://github.com/espressif/esp-adf/tree/master/examples"
+"/get-started/pipeline_a2dp_sink_and_hfp"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:19
+msgid ""
+"これをビルドするだけで bluetoothヘッドセット(HFP)として、スマートフォン等からペアリングできるようになります。   さらに ESP-"
+"IDF のサンプルコード群を参考にしつつ、ESP32用Wifi接続のための短いコードを書いて Wifi経由で "
+"TCP/IPを利用可能にします。([wifi.cpp](2023-01-15-ReazonSpeech-"
+"ESP32/pipeline_a2dp_sink_and_hfp/main/wifi.cpp))"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:22
+msgid "トラブル発生その１（ELFサイズ問題）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:24
+msgid "上記を一通り作ってビルドすると、サイズオーバーで Flash書き込みできない問題が発生します。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:43
+msgid ""
+"これにはカスタム・パーテイションテーブル(partitions_bt_sink_example.csv)を作成して、factory/sizeフィールドを1300000"
+" → 1800000に拡大することで、無事Flashできるようになりました。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:56
+msgid "キャプチャ＆UDP送信モジュール作成"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:57
+msgid ""
+"発話データをキャプチャした後、それを音声認識サーバにUDP送信するモジュールを書きます "
+"([reazon_speech.cpp](2023-01-15-ReazonSpeech-"
+"ESP32/pipeline_a2dp_sink_and_hfp/main/reazon_speech.cpp))"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:58
+msgid "語頭が切れるのを防ぐため、発話開始判定より少し遡ったデータを付与して送信"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:59
+msgid "音声パワーを計算して発話判定"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:60
+msgid "大きなデータはパケット分割して送信"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:62
+msgid "などを行っています。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:64
+msgid ""
+"[a2dp_sink_and_hfp_example.c](2023-01-15-ReazonSpeech-"
+"ESP32/pipeline_a2dp_sink_and_hfp/main/a2dp_sink_and_hfp_example.c) の中にある "
+"bt_app_hf_client_outgoing_cb()/bt_app_hf_client_incoming_cb() "
+"に発話データがコールバックとして流れてくるので、ここに cloud_speech.cpp のキャプチャ用コールバックを挿入します。   "
+"（なお、uint8_t *buf という I/F ですが、中身は 16bit little endian である点にご注意）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:88
+msgid "トラブル発生その２（メモリ問題）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:89
+msgid ""
+"これらを組み込んで起動すると今度はメモリ不足で起動直後に停止する問題が発生します。   （そもそも、ESP32 にはメインメモリが512KB "
+"しかないため）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:92
+msgid ""
+"LyraT の拡張RAM にメモリ確保を逃がす CONFIG設定を行うことで解決します。   "
+"これで、ESP32側が完成し、動作するようになりました。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:129
+msgid "音声認識サーバ (ReazonSpeech)"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:130
+msgid ""
+"ESP32から送られてくる発話データ(UDP)を受信、ReazonSpeech を呼び出して文字起こしし、そのデータを "
+"Slack（WebHook経由）に渡すサーバを書きます。([2023-01-15-ReazonSpeech-"
+"ESP32/trans.py](trans.py))"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:132
+msgid ""
+"わずか数十行で、音声認識＆WebHookが可能となりました。   なお slack の "
+"WebHook用URLを取得して設定しておく必要があります。   https://api.slack.com/messaging/webhooks"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:136
+msgid "（ReazonSpeechのセットアップは[こちら](https://research.reazon.jp/projects/ReazonSpeech/quickstart.html)）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:138
+msgid "トラブル発生その３（音が歪む）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:139
+msgid "実際に通話してみると文字認識できるものの、音声が酷く歪むことに気付きました。   「こんにちは」と発音している例（昔のロボット映画みたいな音声）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:142
+msgid ""
+"{download}`サンプル音声 <2023-01-15-ReazonSpeech-ESP32/yugami.wav>`   <audio "
+"controls "
+"src=\"/_downloads\\3ca69532dd5b6fca108c04f895b56001/yugami.wav\"></audio>"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:145
+msgid "不思議なことにWifiをOFFにすると歪みません。   つまり何らかの理由で Wifi/通信が音声系に悪影響を与えていることが予想されました。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:148
+msgid "同様の事例で解決例が無いかを探しつつ、通信のTCP化、音声コールバックと送信ルーチンの別スレッド化、各モジュール(IPスタック/Bluetooth/Wifi等)のCPUアフィニティ分散＆コア毎CPU使用率監視、SPIRAMとRAMの住み分け、各種CONFIG変更（2,000項目以上あります）等を色々試しましたが、なかなか解決しません。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:150
+msgid ""
+"半分諦めつつもさらに探したところ「ESP32 には 2.4GHz RFモジュールが一つしかなく、Bluetooth と Wifi "
+"で競合することがある」という<a href=\"https://esp32.com/viewtopic.php?t=6707&start=30\""
+" target=\"_blank\">掲示板記事</a>を見つけました。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:152
+msgid ""
+"そこで、Bluetooth と Wifi をハードウェアで切り替えるモード（衝突時は "
+"Bluetooth優先）にCONFIGを変更(CONFIG_SW_COEXIST=n)したところ、無事、音声の歪みが取れました。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:155
+msgid "動作確認＆完成"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:156
+msgid "一通り完成したところで、下記のような手順で動作確認を行います。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:157
+msgid "ESP32開発ボードを起動して、スマートフォンとペアリングします。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:158
+msgid "音声認識サーバ(trans.py)を起動します。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:159
+msgid "スマートフォンに電話をかけて、通話を始めます。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:160
+msgid "Slackに、通話内容が文字起こしされた文章が転送され始めます。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:162
+msgid "下記のように、動作することが確認できました。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:164
+msgid "実行画面"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:165
+msgid "Slack受信とコンソール画面の様子 ![fig2](2023-01-15-ReazonSpeech-ESP32/fig2.png)"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:165
+msgid "fig2"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:168
+msgid "[Slackでの受信動画](2023-01-15-ReazonSpeech-ESP32/video.mp4)"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:170
+msgid "備考: ReazonSpeech(in)=受話データ、ReazonSpeech(out)=発話データ"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:173
+msgid "感想"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:174
+msgid ""
+"ReazonSpeechとESP32開発ボードを使うと、比較的簡単に通話内容の文字起こしができることがわかりました。   "
+"発話データに比べ、受話データは圧縮/伸長後の劣化データのため若干精度が落ちることがあります。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:178
+msgid "さらなる発展"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:179
+msgid ""
+"これを m5stack でも実現できると楽しそうです。ただし ESP32-ADF は m5stack は直接対応していません。   "
+"ですが、m5core2 で ESP32-ADF を組み込むための基礎を作って下さっている方がいました。   "
+"https://github.com/ropg/m5core2_adf"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:183
+msgid "これに加えて今回のサンプルの場合、下記の要件を追加できれば実現できそうです。"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:185
+msgid "スピーカー出力のイヤホン化（ハウリング防止）"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:186
+msgid "外付けマイク装着（m5core2 は半二重マイク）＆それに対応した i2s等のCONFIG作成"
+msgstr ""
+
+#: ../../source/blog/2023-01-15-ReazonSpeech-ESP32.md:188
+msgid "挑戦した方がいましたら、是非ご連絡ください。"
+msgstr ""
+

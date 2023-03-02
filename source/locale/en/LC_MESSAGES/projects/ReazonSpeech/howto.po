@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Human Interaction Laboratory
+# This file is distributed under the same license as the Reazon Research
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Reazon Research \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-02 05:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../source/projects/ReazonSpeech/howto.rst:-1
+msgid "このガイドではReazonSpeech日本語音声コーパスの利用方法を解説します。また、コーパス構築ツールキットの使い方等についても説明します。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:6
+msgid "ReazonSpeech HowToガイド"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:9
+msgid "日本語音声コーパスにPythonからアクセスする"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:13
+msgid "コーパスの利用目的は著作権法３０条の４に定める情報解析に限ります。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:15
+msgid ""
+"ReazonSpeechにはHugging Faceの `Datasets "
+"<https://huggingface.co/docs/datasets/>`_ ライブラリからアクセスできます。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:17
+msgid "データのダウンロードが自動化され、またストリームアクセスもサポートしています。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:18
+msgid "「とりあえずデータを見てみたい・Pythonで音声処理がしたい」という場合におすすめです。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:23
+msgid ""
+"データセットを参照するには、`まずHugging Face上で規約に同意してください。 "
+"<https://huggingface.co/datasets/reazon-research/reazonspeech>`_"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:25
+msgid ""
+"以下の手順は規約に同意したアカウントに `huggingface-ctl login "
+"<https://huggingface.co/docs/huggingface_hub/quick-start>`_ でログインして行います。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:30
+msgid "最初にPythonのvirtualenvを作成します。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:32
+msgid ""
+"インストールの詳しい手順は `Hugging Face公式ドキュメント "
+"<https://huggingface.co/docs/datasets/installation>`_ を参照ください。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:34
+msgid "Datasetsのセットアップ例::"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:40
+msgid "Pythonを起動してデータをロードします。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:46
+msgid "ダウンロードが完了すれば成功です！"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:54
+msgid "次のように音声データにアクセスできます。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst
+msgid "audio"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:56
+msgid "音声データ・ファイルパス・サンプリングレートを格納"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst
+msgid "transcription"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:57
+msgid "対応する字幕テキストを格納"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:68
+msgid "なお、参照の便宜を踏まえて、データセットは `small` と `all` の二種類を用意しています。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:71
+msgid "種別"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:71
+msgid "サイズ"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:71
+msgid "収録時間数"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:71
+msgid "説明"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:73
+msgid "small"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:73
+msgid "350MB"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:73
+msgid "約5時間"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:73
+msgid "確認用のサブセットデータ（既定）"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:74
+msgid "all"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:74
+msgid "1.3TB"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:74
+msgid "約19,000時間"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:74
+msgid "ReazonSpeechの全件データ"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:77
+msgid "デフォルトでは `small` が選択されます。 1.3TBの全件データにアクセスしたい場合は、次のように実行してください。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:88
+msgid ""
+"なお、このデータセットは、雑音に強いロバストなデータを得るため、ReazonSpeechの ``strategy=lax`` で抽出しています。 "
+"詳細はAPIリファレンス :func:`get_utterances` を参照ください。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:92
+msgid "録画データから字幕情報を抽出する"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:94
+msgid ""
+"`ReazonSpeech <https://github.com/reazon-research/ReazonSpeech>`_ "
+"ライブラリを利用すると、 簡単に放送録画データから字幕情報を解析できます。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:100
+msgid "ReazonSpeechをインストールします。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:108
+msgid "録画ファイルのパスを引数に与え、 :func:`get_captions()` を呼び出します。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:113
+msgid "字幕情報が返却されれば成功です！"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:122
+msgid "録画データからコーパスを作成する"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:124
+msgid ""
+"`ReazonSpeech <https://github.com/reazon-research/ReazonSpeech>`_ "
+"ライブラリを利用して、 実際に録画データから音声コーパスを作成する方法を示します。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:127
+msgid "以下の手順はUbuntu 20.04で動作を確認しています。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:132
+msgid "ReazonSpeechとESPnetをインストールします。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:142
+msgid "ReazonSpeechの音声認識モデルを取得します"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:149
+msgid "以下の :file:`create_corpus.py` を保存して実行します。"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst:161
+msgid "ZIPファイルが生成されれば成功です！"
+msgstr ""
+
+#: ../../source/projects/ReazonSpeech/howto.rst
+msgid "コーパス作成スクリプト (create_corpus.py)"
+msgstr ""
+
