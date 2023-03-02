@@ -7,6 +7,17 @@
             <div class="ToolButton__viewModeLabel">View Mode</div>
             <button class="ToolButton__viewModeButton ToolButton__viewModeButton--dark">Night Mode</button>
             <button class="ToolButton__viewModeButton ToolButton__viewModeButton--light">Day Mode</button>
+            <button class="ToolButton__viewModeButton ToolButton__viewModeButton--system">System Setting</button>
+        </div>
+        <div class="ToolButton__languageMode">
+            <div class="ToolButton__languageModeLabel">Language</div>
+            <div class="ToolButton__languageModeButtons">
+                <a class="ToolButton__languageModeButton" {%- if 'ja'==language %} disabled{%- endif %}
+                    href="{{ pathto('../', 1) }}{{ pathto(pagename, 0, '.') }}">JP</a>
+                /
+                <a class="ToolButton__languageModeButton" {%- if 'en'==language %} disabled{%- endif %}
+                    href="{{ pathto('./en/', 1) }}{{ pathto(pagename, 0, '.') }}">EN</a>
+            </div>
         </div>
     </div>
 </footer>

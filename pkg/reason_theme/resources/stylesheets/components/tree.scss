@@ -2,10 +2,14 @@
   margin-top: 73px;
 
   &__item {
-    @apply text-sm lg:leading-6 relative break-all mt-5 lg:mt-0;
+    @apply text-xs lg:leading-6 relative break-all mt-3;
 
     &.toctree-l1 {
       @apply lg:text-lg lg:font-bold lg:mt-4;
+
+      > a {
+        @apply font-roboto tracking-widest leading-relaxed;
+      }
 
       &:first-child {
         @apply lg:mt-0;
@@ -14,14 +18,20 @@
 
     &.toctree-l2 {
       @apply lg:font-medium;
+
+      & > ul {
+        @apply mt-3;
+      }
     }
 
     & > ul {
       @apply hidden lg:block lg:pl-5;
+
+      margin-top: 15px;
     }
 
     & > a {
-      @apply w-full block pr-14;
+      @apply w-full block pr-14 leading-normal;
     }
   }
 

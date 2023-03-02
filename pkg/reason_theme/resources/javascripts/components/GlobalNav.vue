@@ -36,6 +36,18 @@ defineProps({
     type: String,
     default: '',
   },
+  urlJa: {
+    type: String,
+    required: true,
+  },
+  urlEn: {
+    type: String,
+    required: true,
+  },
+  currentLanguage: {
+    type: String,
+    required: true,
+  },
 });
 
 const showNav = ref(false);
@@ -111,9 +123,12 @@ const showToc = ref(false);
       :toc-items="tocItems"
       :search-url="searchUrl"
       :search-place-holder="searchPlaceHolder"
-      title="Inbox"
+      title="Index"
       :is-root="true"
       :is-show="showToc"
+      :url-ja="urlJa"
+      :url-en="urlEn"
+      :current-language="currentLanguage"
       @close="showToc = false"
     ></TocList>
   </div>
@@ -121,7 +136,7 @@ const showToc = ref(false);
 
 <style lang="scss" scope>
 .Nav {
-  @apply fixed w-full flex justify-around items-center flex-row py-6 px-5 lg:hidden z-50;
+  @apply fixed w-full flex justify-between items-center flex-row py-6 px-5 lg:hidden z-50;
 
   & &__button {
     @apply inline-flex items-center p-3 w-10 h-10 text-gray-500 focus:outline-none text-black dark:text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30;

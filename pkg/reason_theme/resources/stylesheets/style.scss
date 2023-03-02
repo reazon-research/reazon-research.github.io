@@ -5,6 +5,7 @@
 @import './page.scss';
 @import './components/pygments.scss';
 @import './components/animation.scss';
+@import './searchPage.scss';
 
 @tailwind base;
 @tailwind components;
@@ -29,6 +30,9 @@
   --main-visual-blend-mode: color-burn;
   --view-mode-icon-url: url('/images/sun.svg');
   --page-body-left-margin: 6rem;
+  --button-arrow: url('/images/arrow_right.svg'), #fff;
+  --button-arrow-hover: url('/images/arrow_right_dark.svg'),
+    linear-gradient(180deg, #1983e7 0%, #1393eb 100%);
 }
 
 :root.dark {
@@ -40,6 +44,30 @@
   --footer-sp-bg-url: url('/images/bg_footer_dark_sp.png');
   --main-visual-blend-mode: overlay;
   --view-mode-icon-url: url('/images/moon.svg');
+  --button-arrow: url('/images/arrow_right_dark.svg'), #000;
+  --button-arrow-hover: url('/images/arrow_right.svg'),
+    linear-gradient(180deg, #1983e7 0%, #1393eb 100%);
+}
+
+:root.auto {
+  .ToolButton__viewModeButton,
+  .ViewModeButton__button {
+    &--light,
+    &--dark {
+      @apply hidden;
+    }
+
+    &--system {
+      @apply bg-gray-50 block;
+    }
+  }
+
+  &.dark {
+    .ToolButton__viewModeButton--system,
+    .ViewModeButton__button--system {
+      @apply text-white bg-gray-800;
+    }
+  }
 }
 
 html,

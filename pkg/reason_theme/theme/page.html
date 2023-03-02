@@ -1,4 +1,40 @@
 {% extends "!layout.html" %}
-{% block body %}
-{{ body }}
+{% block body -%}
+{{ super() }}
+
+{% if theme_announcement -%}
+<div class="announcement">
+    <aside class="announcement-content">
+        {% block announcement %} {{ theme_announcement }} {% endblock announcement %}
+    </aside>
+</div>
+{%- endif %}
+
+<main class="Page">
+    <header class="Page__header">
+        {% if parent %}
+        <div class="Page__headerParent">{{ parent.title }}：</div>
+        {%- endif %}
+        {% block pagetitle %}
+        <h1>{{ title }} </h1>
+        {% endblock %}
+    </header>
+    <article class="Page__body">
+        {% block content %}{{ body }}{% endblock %}
+    </article>
+    <aside class="Page__toc Toc{% if hide_toc %} Page__toc--hidden{% endif %}">
+        {% block right_sidebar %}
+        {% if not hide_toc %}
+        <div class="Toc__inner">
+            <div class="Toc__title">
+                <span>Index</span>
+            </div>
+            <div class="Toc__tree">
+                {{ toc }}
+            </div>
+        </div>
+        {% endif %}
+        {% endblock right_sidebar %}
+    </aside>
+</main>
 {% endblock body %}

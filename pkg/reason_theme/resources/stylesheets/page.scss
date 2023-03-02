@@ -10,6 +10,24 @@ body#index {
 
     &__body > section {
       @apply mt-10 lg:mt-8;
+
+      .toctree-wrapper {
+        @apply hidden;
+      }
+    }
+  }
+}
+
+body[id^='news-'],
+body[id^='blog-'] {
+  .Page__header {
+    background: var(--main-visual-sp-bg-url);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+
+    @screen lg {
+      background: var(--main-visual-sp-bg-url);
     }
   }
 }
@@ -38,10 +56,14 @@ body#index {
       background-size: cover;
       min-height: 240px;
     }
+
+    &Parent {
+      @apply text-lg mb-3 lg:mb-1;
+    }
   }
 
   &__body {
-    @apply px-5 lg:pr-5 min-w-0;
+    @apply px-5 lg:pr-5 min-w-0 text-base lg:text-sm;
 
     & > section {
       @apply mt-20 lg:mt-10;
@@ -65,6 +87,10 @@ body#index {
             width: calc(100% + 6rem);
             left: -6rem;
           }
+        }
+
+        blockquote {
+          @apply ml-11;
         }
       }
     }
@@ -102,11 +128,23 @@ body#index {
     }
 
     a {
-      @apply underline text-blue-500;
+      @apply underline text-blue-500 transition duration-300;
+
+      &:hover {
+        @apply opacity-80;
+      }
     }
 
     blockquote {
-      @apply border-gray-50 border-l-7 pl-5 py-5 mb-5 bg-zinc-100 dark:border-gray-800 dark:bg-gray-900;
+      @apply py-3 px-5 mb-5 lg:ml-36 bg-zinc-100 dark:bg-gray-900 relative break-words;
+
+      &::before {
+        @apply absolute block border-solid border-t-gray-50 border-l-gray-50 border-b-transparent border-r-transparent top-0 left-0
+          dark:border-t-gray-550 dark:border-l-gray-550;
+
+        content: '';
+        border-width: 7px 7px 6px 6px;
+      }
 
       p {
         @apply mb-0;
@@ -115,6 +153,14 @@ body#index {
 
     ul {
       @apply list-disc pl-4 mb-5;
+
+      li {
+        @apply mt-1;
+
+        &:first-child {
+          @apply mt-0;
+        }
+      }
 
       p {
         @apply mb-0;
@@ -154,7 +200,7 @@ body#index {
 
         &.row-odd {
           td {
-            @apply bg-zinc-50 dark:bg-gray-900;
+            @apply bg-zinc-200 dark:bg-gray-900;
           }
         }
       }
@@ -165,7 +211,7 @@ body#index {
     }
 
     figure {
-      @apply bg-zinc-50 dark:bg-gray-900 mb-5;
+      @apply bg-zinc-50 dark:bg-gray-900 mb-5 inline-block max-w-full;
 
       padding: 10px;
 
@@ -179,18 +225,37 @@ body#index {
     }
 
     button {
-      @apply bg-gray-50 py-3 pr-6 pl-10 relative dark:bg-gray-800 dark:text-white;
+      @apply bg-gray-50 py-3 pr-6 relative dark:bg-gray-800 dark:text-white;
+
+      padding-left: calc(0.5rem + 37px) !important;
 
       &::before {
         @apply w-6 h-6 absolute block;
 
-        top: 6px;
+        top: 9px;
         left: 12px;
         content: '';
-        background: url('/images/arrow_right.svg'), #fff;
+        background: var(--button-arrow);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 8px 14px;
+
+        @screen lg {
+          top: 5px;
+        }
+      }
+
+      &:hover {
+        @apply text-white dark:text-black;
+
+        background: linear-gradient(180deg, #1983e7 0%, #1393eb 100%);
+
+        &::before {
+          background: var(--button-arrow-hover);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 8px 14px;
+        }
       }
     }
 
@@ -216,6 +281,12 @@ body#index {
 
       dd {
         @apply pl-10;
+
+        .sig-name,
+        .descname,
+        .property {
+          @apply text-sm;
+        }
 
         dl.field-list {
           @apply py-4 pt-5 text-base font-bold;
@@ -295,7 +366,7 @@ body#index {
     }
 
     &__title {
-      @apply text-base text-gray-200 font-normal pl-2 dark:text-gray-500;
+      @apply text-base text-gray-200 font-normal pl-2 dark:text-gray-500 font-roboto tracking-wide;
     }
 
     &__tree {

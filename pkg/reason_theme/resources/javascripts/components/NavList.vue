@@ -63,7 +63,9 @@ const transitionName = `slide-${props.animationDirection || 'left'}`;
 
 <style lang="scss" scoped>
 .Nav {
-  @apply flex flex-col justify-start items-center w-full h-full z-10 top-0 left-0 bg-white dark:bg-black;
+  @apply flex flex-col justify-start items-center w-full h-full top-0 left-0 bg-white dark:bg-black;
+
+  z-index: 100;
 
   &__list {
     @apply flex flex-col justify-start items-center w-full mt-10 pl-16 pr-6;

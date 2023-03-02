@@ -1,6 +1,7 @@
 const THEMES = {
   LIGHT: 'light',
   DARK: 'dark',
+  AUTO: 'auto',
 } as const;
 
 type THEME_NAMES = keyof typeof THEMES;
@@ -11,16 +12,14 @@ export default class SwitchTheme {
 
   darkClassName: string = THEMES['DARK'];
 
+  autoClassName: string = THEMES['AUTO'];
+
   constructor(buttons: Array<Element>) {
     this.onInitEvent(buttons);
 
     const mode = this.getLocalStorageItem();
     if (!mode) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.mode = THEMES['DARK'];
-      } else {
-        this.mode = THEMES['LIGHT'];
-      }
+      this.mode = THEMES['AUTO'];
     } else {
       this.mode = mode;
     }
@@ -53,8 +52,17 @@ export default class SwitchTheme {
   setTheme(mode: THEME_VALUES) {
     if (mode === THEMES['LIGHT']) {
       document.documentElement.classList.remove(this.darkClassName);
+      document.documentElement.classList.remove(this.autoClassName);
+    } else if (mode === THEMES['AUTO']) {
+      document.documentElement.classList.add(this.autoClassName);
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add(this.darkClassName);
+      } else {
+        document.documentElement.classList.remove(this.darkClassName);
+      }
     } else {
       document.documentElement.classList.add(this.darkClassName);
+      document.documentElement.classList.remove(this.autoClassName);
     }
 
     this.mode = mode;
@@ -64,6 +72,8 @@ export default class SwitchTheme {
   toggleTheme() {
     if (this.mode === THEMES['LIGHT']) {
       this.setTheme(THEMES['DARK']);
+    } else if (this.mode === THEMES['DARK']) {
+      this.setTheme(THEMES['AUTO']);
     } else {
       this.setTheme(THEMES['LIGHT']);
     }

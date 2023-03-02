@@ -11,23 +11,11 @@ const props = defineProps<{
 const emit = defineEmits(['close']);
 
 const isShow = ref(false);
-
-const isChild = props.children.length > 0;
-const href = isChild ? '#' : props.url;
-
-const onClickLink = (event: Event) => {
-  if (isChild) {
-    isShow.value = true;
-    event.stopPropagation();
-  } else {
-    emit('close');
-  }
-};
 </script>
 
 <template>
   <li class="NavListItem">
-    <a :href="href" @click="onClickLink">{{ title }}</a>
+    <a :href="url" @click="emit('close')">{{ title }}</a>
     <label
       v-if="children.length > 0"
       class="Nav__ToggleButton"
@@ -60,7 +48,7 @@ const onClickLink = (event: Event) => {
 
 <style lang="scss" scoped>
 .NavListItem {
-  @apply w-full h-8 mt-8 flex justify-between items-center;
+  @apply w-full mt-8 flex justify-between items-center;
 
   & > a {
     @apply text-xl text-black dark:text-white leading-normal block;

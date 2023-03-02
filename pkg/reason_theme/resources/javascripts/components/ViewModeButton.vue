@@ -4,8 +4,13 @@ import SwitchTheme from '../SwithcTheme';
 
 const lightButton = ref<HTMLButtonElement>();
 const darkButton = ref<HTMLButtonElement>();
+const autoButton = ref<HTMLButtonElement>();
 onMounted(() => {
-  new SwitchTheme([lightButton.value as Element, darkButton.value as Element]);
+  new SwitchTheme([
+    lightButton.value as Element,
+    darkButton.value as Element,
+    autoButton.value as Element,
+  ]);
 });
 </script>
 <template>
@@ -23,6 +28,12 @@ onMounted(() => {
     >
       Day Mode
     </button>
+    <button
+      ref="autoButton"
+      class="ViewModeButton__button ViewModeButton__button--system"
+    >
+      System Setting
+    </button>
   </div>
 </template>
 
@@ -31,11 +42,11 @@ onMounted(() => {
   @apply text-center flex flex-row items-center justify-center;
 
   &__label {
-    @apply text-xs font-bold text-gray-400 mr-2;
+    @apply text-xs font-bold text-gray-400 mr-2 font-roboto tracking-widest;
   }
 
   &__button {
-    @apply text-xs text-black text-left rounded-full relative;
+    @apply text-xs text-black text-left rounded-full relative font-roboto;
 
     width: 130px;
     height: 40px;
@@ -59,6 +70,10 @@ onMounted(() => {
 
     &--dark {
       @apply text-white bg-gray-800 hidden dark:block;
+    }
+
+    &--system {
+      @apply hidden;
     }
   }
 }

@@ -1,6 +1,8 @@
 .Sidebar {
-  @apply fixed top-0 left-0 z-40 w-full lg:w-64 h-screen transition-transform -translate-x-full lg:translate-x-0
+  @apply fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full lg:translate-x-0
     bg-white text-black dark:bg-black dark:text-white pl-16 pr-6 lg:pl-0 lg:pr-0;
+
+  width: 270px;
 
   &.show {
     @apply translate-x-0;

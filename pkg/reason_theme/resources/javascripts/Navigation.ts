@@ -1,5 +1,4 @@
-import { createApp, h, ComponentPublicInstance, defineExpose, ref } from 'vue';
-import { NavItem } from './components/NavList.vue';
+import { createApp } from 'vue';
 import GlobalNav from './components/GlobalNav.vue';
 
 export default class Navigation {
@@ -20,6 +19,12 @@ export default class Navigation {
       '#sidebar .Search__formText'
     );
 
+    const languagesButton = document.querySelectorAll(
+      '.ToolButton__languageModeButton'
+    );
+    const jaButton = languagesButton[0];
+    const enButton = languagesButton[1];
+
     createApp(GlobalNav, {
       lightLogoUrl: document
         .querySelector('.Sidebar__logoImage--light')
@@ -33,11 +38,14 @@ export default class Navigation {
       tocItems: tocTarget ? this.searchTreeItem(tocTarget as HTMLElement) : [],
       searchUrl: searchForm?.getAttribute('action'),
       searchPlaceHolder: searchInputField?.getAttribute('placeholder'),
+      urlJa: jaButton?.getAttribute('href'),
+      urlEn: enButton?.getAttribute('href'),
+      currentLanguage: jaButton?.getAttribute('disabled') === '' ? 'ja' : 'en',
     }).mount('#global_nav');
   }
 
-  private searchTreeItem(parentElement: HTMLElement): NavItem[] {
-    const results: NavItem[] = [];
+  private searchTreeItem(parentElement: HTMLElement): any[] {
+    const results: any[] = [];
 
     parentElement.querySelectorAll(':scope > li').forEach((target) => {
       const link = target.querySelector(':scope > a');
@@ -45,7 +53,7 @@ export default class Navigation {
         return;
       }
 
-      const result: NavItem = {
+      const result: any = {
         title: link.textContent || '',
         url: link?.getAttribute('href') || '',
         children: [],

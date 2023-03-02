@@ -35,7 +35,6 @@
   {%- if favicon_url -%}
   <link rel="shortcut icon" href="{{ favicon_url }}" />
   {%- endif -%}
-  <!-- Generated with Sphinx {{ sphinx_version }} and Furo {{ furo_version }} -->
   {%- endblock site_meta -%}
   {#- Site title -#}
   {%- block htmltitle -%}
@@ -48,6 +47,9 @@
   {% endif %}
   {%- endblock -%}
   {%- block styles -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   {# Custom stylesheets #}
   {%- block regular_styles -%}
   {%- for css in css_files -%}
@@ -65,7 +67,7 @@
   {%- block extrahead -%}{%- endblock -%}
 </head>
 
-<body>
+<body id="{{ pagename.replace('/', '-') }}">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="svg-arrow" viewBox="0 0 24 24">
       <svg viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,14 +75,35 @@
           fill="currentColor" />
       </svg>
     </symbol>
+    <symbol id="svg-toc-menu">
+      <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19 15V17H1V15H19ZM4.596 0.903999L6.01 2.318L2.828 5.5L6.01 8.682L4.596 10.096L0 5.5L4.596 0.903999ZM19 8V10H10V8H19ZM19 0.999999V3H10V0.999999H19Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8 6.2225L14.2225 0L16 1.7775L9.7775 8L16 14.2225L14.2225 16L8 9.7775L1.7775 16L0 14.2225L6.2225 8L0 1.7775L1.7775 0L8 6.2225Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-left">
+      <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.6359 8.5L10 15.1114L8.18205 17L5.82128e-07 8.5L8.18205 -7.9465e-08L10 1.88859L3.6359 8.5Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
   </svg>
-  <main>
+  <div id="global_nav"></div>
+  <div class="Container">
     {% include "components/sidebar.html" %}
-    <div class="Contents">
+    <div class="Container__inner">
       {% block body %}
       <script>document.body.dataset.theme = localStorage.getItem("theme") || "auto";</script>{% endblock %}
     </div>
-  </main>
+  </div>
   {% include "components/footer.html" %}
   {%- block scripts -%}
   {# Custom JS #}
@@ -91,9 +114,9 @@
   {%- endblock regular_scripts -%}
   {# Theme-related JavaScript code #}
   {%- block theme_scripts -%}
+  <!-- <script type="module" crossorigin src="http://localhost:3000/javascripts/main.ts"></script> -->
+  <script src="{{ pathto('_static/main.js', 1)}}" defer></script>
   {%- endblock -%}
-  <script type="module" crossorigin src="http://localhost:3000/javascripts/main.ts"></script>
-  <!-- <script src="{{ pathto('_static/main.js', 1)}}" defer></script> -->
   {%- endblock scripts -%}
 </body>
 

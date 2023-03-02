@@ -5,6 +5,7 @@ import NavListItem from './NavListItem.vue';
 import NavToolbar from './NavToolbar.vue';
 import SearchForm from './SearchForm.vue';
 import ViewModeButton from './ViewModeButton.vue';
+import LanguageModeButton from './LanguageModeButton.vue';
 
 type AnimatioDirection = 'right' | 'left';
 
@@ -36,6 +37,18 @@ const props = defineProps({
   searchPlaceHolder: {
     type: String,
     default: '',
+  },
+  urlJa: {
+    type: String,
+    required: true,
+  },
+  urlEn: {
+    type: String,
+    required: true,
+  },
+  currentLanguage: {
+    type: String,
+    required: true,
   },
 });
 const emit = defineEmits(['close', 'back']);
@@ -72,6 +85,12 @@ const transitionName = `slide-${props.animationDirection || 'left'}`;
       <div class="Nav__footer">
         <hr />
         <ViewModeButton class="Nav__footerViewModeButton"></ViewModeButton>
+        <LanguageModeButton
+          :url-ja="urlJa"
+          :url-en="urlEn"
+          :current-language="currentLanguage"
+          class="Nav__footerLanguageModeButton"
+        ></LanguageModeButton>
       </div>
     </div>
   </transition>
@@ -79,7 +98,9 @@ const transitionName = `slide-${props.animationDirection || 'left'}`;
 
 <style lang="scss" scoped>
 .Nav {
-  @apply flex flex-col justify-start items-center w-full h-full z-10 top-0 left-0 bg-white dark:bg-black;
+  @apply flex flex-col justify-start items-center w-full h-full top-0 left-0 bg-white dark:bg-black;
+
+  z-index: 100;
 
   &__list {
     @apply flex flex-col justify-start items-center w-full mt-10 pl-16 pr-6;
@@ -97,6 +118,10 @@ const transitionName = `slide-${props.animationDirection || 'left'}`;
 
     &ViewModeButton {
       @apply pt-5;
+    }
+
+    &LanguageModeButton {
+      @apply mt-4;
     }
   }
 }

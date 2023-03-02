@@ -18,17 +18,17 @@
 }
 
 .ToolButton {
-  @apply text-center flex flex-row items-center justify-center mt-4 hidden lg:block;
+  @apply text-center flex-row items-center justify-center mt-4 hidden lg:flex;
 
   &__viewMode {
     @apply text-center flex flex-row items-center justify-center;
 
     &Label {
-      @apply text-xs font-bold text-gray-400 mr-2;
+      @apply text-xs font-bold text-gray-400 mr-2 font-roboto tracking-widest;
     }
 
     &Button {
-      @apply text-xs text-black text-left rounded-full relative;
+      @apply text-xs text-black text-left rounded-full relative font-roboto;
 
       width: 130px;
       height: 40px;
@@ -52,6 +52,45 @@
 
       &--dark {
         @apply text-white bg-gray-800 hidden dark:block;
+      }
+
+      &--system {
+        @apply hidden;
+
+        &::before {
+          background: url('/images/system.svg') no-repeat center;
+          background-size: 100% 100%;
+          top: 8px;
+          left: 18px;
+        }
+      }
+    }
+  }
+
+  &__languageMode {
+    @apply text-center flex flex-row items-center justify-center ml-6;
+
+    &Label {
+      @apply text-xs font-bold text-gray-400 mr-3 font-roboto tracking-widest;
+    }
+
+    &Buttons {
+      @apply flex flex-row items-center justify-center;
+    }
+
+    &Button {
+      @apply block text-xs text-black dark:text-white underline;
+
+      &[disabled] {
+        @apply font-bold no-underline pointer-events-none cursor-default;
+      }
+
+      &:nth-child(1) {
+        @apply mr-1;
+      }
+
+      &:nth-child(2) {
+        @apply ml-1;
       }
     }
   }
