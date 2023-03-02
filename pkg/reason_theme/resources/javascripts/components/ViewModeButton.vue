@@ -74,6 +74,13 @@ onMounted(() => {
 
     &--system {
       @apply hidden;
+
+      &::before {
+        background: url('/images/system.svg') no-repeat center;
+        background-size: 100% 100%;
+        top: 8px;
+        left: 18px;
+      }
     }
   }
 }

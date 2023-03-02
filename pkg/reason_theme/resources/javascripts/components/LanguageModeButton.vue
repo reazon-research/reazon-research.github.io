@@ -50,7 +50,7 @@ defineProps({
   }
 
   &__Button {
-    @apply block text-black underline;
+    @apply block text-black dark:text-white underline;
 
     font-size: 22px;
 
