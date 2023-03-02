@@ -20,7 +20,9 @@
 				"samuelcolvin.jinjahtml",
 				"monosans.djlint",
 				"stylelint.vscode-stylelint",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"Vue.volar",
+				"Vue.vscode-typescript-vue-plugin"
 			]
 		}
 	}
