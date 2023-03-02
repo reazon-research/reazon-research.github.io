@@ -34,7 +34,7 @@ body[id^='blog-'] {
 
 .Page {
   @screen lg {
-    @apply grid grid-cols-[1fr_250px] auto-rows-auto gap-0;
+    @apply grid grid-cols-[minmax(auto,_850px)_minmax(200px,1fr)] auto-rows-auto gap-0;
   }
 
   &__header {
@@ -84,7 +84,8 @@ body[id^='blog-'] {
           width: 66%;
 
           @screen lg {
-            width: calc(100% + 6rem);
+            width: 80%;
+            max-width: 560px;
             left: -6rem;
           }
         }
