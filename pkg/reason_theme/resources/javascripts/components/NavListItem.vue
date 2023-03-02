@@ -54,6 +54,10 @@ const isShow = ref(false);
     @apply text-xl text-black dark:text-white leading-normal block;
 
     flex: 1;
+
+    &:hover {
+      @apply underline;
+    }
   }
 
   &__button {

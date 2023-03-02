@@ -32,6 +32,10 @@
 
     & > a {
       @apply w-full block pr-14 leading-normal;
+
+      &:hover {
+        @apply underline;
+      }
     }
   }
 

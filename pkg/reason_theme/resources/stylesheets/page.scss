@@ -422,6 +422,10 @@ body[id^='blog-'] {
               top: 2px;
             }
           }
+
+          &:hover {
+            @apply underline;
+          }
         }
       }
     }

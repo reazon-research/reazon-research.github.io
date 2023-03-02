@@ -104,6 +104,10 @@ const transitionName = `slide-${props.animationDirection || 'left'}`;
 
   &__list {
     @apply flex flex-col justify-start items-center w-full mt-10 pl-16 pr-6;
+
+    a:hover {
+      @apply underline;
+    }
   }
 
   &__searchForm {
