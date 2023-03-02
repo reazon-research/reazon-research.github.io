@@ -1,19 +1,32 @@
 .Sidebar {
-  @apply fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full lg:translate-x-0
-    bg-white text-black dark:bg-black dark:text-white pl-16 pr-6 lg:pl-0 lg:pr-0;
+  @apply fixed top-0 left-0 z-40 h-screen bg-white text-black dark:bg-black dark:text-white pl-16 pr-6 lg:pl-0 lg:pr-0;
 
-  width: 270px;
+  width: var(--sidebar-width);
 
   &.show {
     @apply translate-x-0;
   }
 
   &__container {
-    @apply h-full overflow-y-auto;
+    @apply h-full overflow-y-auto relative z-20;
+
+    width: var(--sidebar-container-width);
   }
 
   &__inner {
     @apply lg:h-full lg:pl-7 lg:py-10;
+  }
+
+  &__animationBg {
+    @apply absolute top-0 left-0 z-10 opacity-0 transition-opacity duration-100 h-full bg-white dark:bg-black pointer-events-none;
+
+    width: var(--sidebar-animation-bg-width);
+  }
+
+  &:hover {
+    .Sidebar__animationBg {
+      @apply opacity-100;
+    }
   }
 
   &__logo {

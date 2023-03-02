@@ -33,6 +33,9 @@
   --button-arrow: url('/images/arrow_right.svg'), #fff;
   --button-arrow-hover: url('/images/arrow_right_dark.svg'),
     linear-gradient(180deg, #1983e7 0%, #1393eb 100%);
+  --sidebar-width: 248px;
+  --sidebar-container-width: 270px;
+  --sidebar-animation-bg-width: 296px;
 }
 
 :root.dark {
