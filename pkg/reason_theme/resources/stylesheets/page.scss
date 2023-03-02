@@ -73,7 +73,7 @@ body[id^='blog-'] {
       }
 
       & > section {
-        @apply mt-10 lg:mt-20 pt-6 relative;
+        @apply mt-10 lg:mt-20 pt-7 relative;
 
         &::before {
           @apply absolute bg-gray-50 dark:bg-gray-800 -left-5;
