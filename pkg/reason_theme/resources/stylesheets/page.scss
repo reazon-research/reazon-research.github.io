@@ -15,6 +15,10 @@ body#index {
         @apply hidden;
       }
     }
+
+    &__toc {
+      @apply hidden;
+    }
   }
 }
 
