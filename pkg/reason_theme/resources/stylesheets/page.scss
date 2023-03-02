@@ -348,6 +348,10 @@ body[id^='blog-'] {
     .highlight pre {
       overflow: auto;
     }
+
+    .caption {
+      @apply text-sm font-bold mt-6;
+    }
   }
 
   &__toc {
