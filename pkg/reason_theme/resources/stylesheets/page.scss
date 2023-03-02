@@ -320,7 +320,9 @@ body[id^='blog-'] {
           }
 
           dt {
-            @apply bg-zinc-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100;
+            @apply flex items-center text-sm py-2 px-5 bg-zinc-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100 leading-normal;
+
+            line-height: 1.875;
           }
 
           dl {
