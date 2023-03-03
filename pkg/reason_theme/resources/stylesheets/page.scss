@@ -382,7 +382,7 @@ body[id^='blog-'] {
       max-width: 150px;
 
       @screen lg {
-        @apply w-auto;
+        @apply max-w-none;
       }
     }
   }
