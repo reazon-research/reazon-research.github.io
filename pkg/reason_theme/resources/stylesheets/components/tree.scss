@@ -60,7 +60,7 @@
   }
 
   &__itemToggle {
-    @apply absolute top-0 right-0 inline-flex justify-center items-center cursor-pointer bg-white rounded-full bg-opacity-60 dark:bg-black dark:rounded-none;
+    @apply absolute top-0 right-0 inline-flex justify-center items-center cursor-pointer bg-white bg-opacity-60 dark:bg-black dark:rounded-none;
 
     width: 24px;
     height: 24px;
