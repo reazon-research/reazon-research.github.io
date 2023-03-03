@@ -283,6 +283,12 @@ body[id^='blog-'] {
         @apply mt-10;
       }
 
+      &.field-list {
+        dd {
+          @apply mt-5;
+        }
+      }
+
       dt.sig {
         @apply bg-slate-100 text-black py-4 px-7 mb-2 dark:bg-slate-800 dark:text-white rounded-lg font-bold text-xl;
 
@@ -313,7 +319,7 @@ body[id^='blog-'] {
           }
 
           dd {
-            @apply pt-3 pb-4 border-b border-gray-50 dark:border-gray-800;
+            @apply pt-3 pb-4 border-b border-gray-50 dark:border-gray-800 mt-0;
 
             ul {
               @apply mb-0;
@@ -370,6 +376,14 @@ body[id^='blog-'] {
 
     .caption {
       @apply text-sm font-bold mt-6;
+    }
+
+    audio {
+      max-width: 150px;
+
+      @screen lg {
+        @apply w-auto;
+      }
     }
   }
 
