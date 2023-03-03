@@ -4,4 +4,4 @@ myst-parser==0.18.1
 furo==2022.12.7
 sphinxcontrib-googleanalytics
 djlint
-
+-e ./pkg/reason_theme
