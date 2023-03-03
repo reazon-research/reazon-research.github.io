@@ -26,7 +26,6 @@ Reazonヒューマンインタラクション研究所は、音声・視線・�
 .. toctree::
    :maxdepth: 1
 
-   about.rst
    projects/index.rst
    news/index.rst
    blog/index.rst
