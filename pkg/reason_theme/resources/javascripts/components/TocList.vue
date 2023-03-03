@@ -51,7 +51,7 @@ const props = defineProps({
     required: true,
   },
 });
-const emit = defineEmits(['close', 'back']);
+const emit = defineEmits(['back']);
 
 const transitionName = `slide-${props.animationDirection || 'left'}`;
 </script>
@@ -63,7 +63,6 @@ const transitionName = `slide-${props.animationDirection || 'left'}`;
         :title="title"
         :is-root="isRoot"
         @back="emit('back')"
-        @close="emit('close')"
       ></NavToolbar>
       <div class="Nav__searchForm">
         <SearchForm
@@ -79,7 +78,6 @@ const transitionName = `slide-${props.animationDirection || 'left'}`;
           :title="item.title"
           :url="item.url"
           :children="item.children"
-          @close="emit('close')"
         ></NavListItem>
       </ul>
       <div class="Nav__footer">

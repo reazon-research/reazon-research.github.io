@@ -2,6 +2,7 @@
 import { defineProps, ref } from 'vue';
 import NavList, { NavItem } from './NavList.vue';
 import TocList from './TocList.vue';
+import CloseButton from './CloseButton.vue';
 
 defineProps({
   lightLogoUrl: {
@@ -52,6 +53,11 @@ defineProps({
 
 const showNav = ref(false);
 const showToc = ref(false);
+
+const onClickCloseButton = () => {
+  showNav.value = false;
+  showToc.value = false;
+};
 </script>
 
 <template>
@@ -131,12 +137,23 @@ const showToc = ref(false);
       :current-language="currentLanguage"
       @close="showToc = false"
     ></TocList>
+    <transition :name="`slide-${showToc ? 'left' : showNav ? 'right' : ''}`">
+      <CloseButton
+        v-if="showToc || showNav"
+        class="Nav__closeButton"
+        @close="onClickCloseButton"
+      ></CloseButton>
+    </transition>
   </div>
 </template>
 
 <style lang="scss" scope>
 .Nav {
   @apply fixed w-full flex justify-between items-center flex-row py-6 px-5 lg:hidden z-50;
+
+  &__buttonWrapper {
+    @apply w-full;
+  }
 
   & &__button {
     @apply inline-flex items-center p-3 w-10 h-10 text-gray-500 focus:outline-none text-black dark:text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30;
