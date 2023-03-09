@@ -60,7 +60,7 @@ googleanalytics_enabled = True
 # a list of builtin themes.
 #
 root_doc = 'index'
-html_theme = 'reason_theme'
+html_theme = 'reazon_theme'
 html_title = 'Reazon Human Interaction Lab'
 html_baseurl = 'https://research.reazon.jp'
 # html_css_files = ['custom.css']

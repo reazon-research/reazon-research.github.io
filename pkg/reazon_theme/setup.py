@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="reason_theme",
+    name="reazon_theme",
     version="0.0.1",
     url="",
     license="",
@@ -11,7 +11,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=["theme"],
     package_data={
-        "reason_theme": [
+        "reazon_theme": [
             "theme.conf",
             "*.html",
             "components/*.html",
@@ -19,7 +19,7 @@ setup(
             "static/*.js",
         ]
     },
-    entry_points={"sphinx.html_themes": ["reason_theme = theme"]},
+    entry_points={"sphinx.html_themes": ["reazon_theme = theme"]},
     install_requires=["sphinx>=4.0.1"],
     classifiers=[
         "Framework :: Sphinx",

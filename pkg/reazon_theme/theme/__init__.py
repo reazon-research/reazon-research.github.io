@@ -117,7 +117,7 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
     app.require_sphinx("3.0")
 
     app.add_html_theme(
-        'reason_theme', os.path.abspath(os.path.dirname(__file__)))
+        'reazon_theme', os.path.abspath(os.path.dirname(__file__)))
 
     app.add_post_transform(WrapTableAndMathInAContainerTransform)
 
