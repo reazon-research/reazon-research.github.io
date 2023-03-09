@@ -2,7 +2,7 @@
    :description: ReazonSpeechライブラリのリファレンスマニュアルです。放送データを解析するためのPythonインターフェイスを提供します。
 
 ============================
-APIリファレンス
+ReazonSpeech APIリファレンス
 ============================
 
 * このリファレンスマニュアルでは `ReazonSpeech <https://github.com/reazon-research/ReazonSpeech>`_ ライブラリについて解説します。
