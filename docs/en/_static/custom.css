@@ -1,0 +1,38 @@
+body {
+  font-size: 0.9em;
+}
+
+article {
+  line-height: 1.8;
+}
+
+.content h1 {
+  font-size: 2em;
+}
+.content h2 {
+  font-size: 1.7em;
+}
+.content h3 {
+  font-size: 1.5em;
+}
+.content h4 {
+  font-size: 1.3em;
+}
+
+p.caption {
+  padding-bottom: 0.7em;
+}
+
+p.caption span {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+table {
+  font-size: 0.9em;
+}
+
