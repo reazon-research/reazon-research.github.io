@@ -1,0 +1,24 @@
+{% extends "page.html" %}
+
+{%- block regular_scripts -%}
+{{ super() }}
+<script src="{{ pathto('_static/searchtools.js', 1) }}"></script>
+<script src="{{ pathto('_static/language_data.js', 1) }}"></script>
+{%- endblock regular_scripts-%}
+
+{%- block htmltitle -%}
+<title>{{ _("Search") }} - {{ docstitle }}</title>
+{%- endblock htmltitle -%}
+
+{%- block pagetitle -%}
+<h1>検索結果</h1>
+{%- endblock pagetitle -%}
+
+{% block content %}
+<div id="search-results"></div>
+{% endblock %}
+
+{% block scripts -%}
+{{ super() }}
+<script src="{{ pathto('searchindex.js', 1) }}"></script>
+{%- endblock scripts %}

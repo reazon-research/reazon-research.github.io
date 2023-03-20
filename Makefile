@@ -18,6 +18,15 @@ docs: html
 
 .PHONY: help Makefile
 
+html_ja:
+	@$(SPHINXBUILD) -D language="ja" -b html "$(SOURCEDIR)" "$(BUILDDIR)/html" $(0)
+
+html_en:
+	@$(SPHINXBUILD) -D language="en" -b html "$(SOURCEDIR)" "$(BUILDDIR)/html/en" $(0)
+
+# orverride default html target
+html: html_ja html_en
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
