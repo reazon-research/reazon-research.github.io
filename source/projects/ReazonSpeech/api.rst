@@ -35,11 +35,46 @@ ReazonSpeech APIリファレンス
    省略した場合 :attr:`Utterance.asr` と :attr:`Utterance.cer` は :code:`None` になります。
 
    :param str path: MPEG2-TSファイルのパス
-   :param CTCSegmentation ctc_segmentation: ESPNet2のCTCSegmentationインスタンス
-   :param Speech2Text speech2text: ESPNet2のSpeech2Textインスタンス（省略可）
+   :param CTCSegmentation ctc_segmentation: ESPnet2のCTCSegmentationインスタンス
+   :param Speech2Text speech2text: ESPnet2のSpeech2Textインスタンス（省略可）
    :param str strategy: `optim` または `lax` （既定値は `optim` ）
    :rtype: List
    :return:  :class:`Utterance` のリスト
+
+.. function:: transcribe(path, speech2text, config=None)
+
+   音声ファイルを解析し、文字起こしの結果を返却します。
+
+   任意の長さの音声データに対応しており、自動的に音声を区切ってストリーム処理する機能を備えています。
+   具体的な使い方を以下に示します。
+
+   .. code-block::
+
+      import reazonspeech as rs
+      from espnet2.bin.asr_inference import Speech2Text
+
+      speech2text = Speech2Text.from_pretrained(
+         "reazon-research/reazonspeech-espnet-v1"
+      )
+
+      for caption in rs.transcribe("test.wav", speech2text):
+          print(caption)
+
+   音声認識の結果は次のように :class:`Caption` として返却されます。
+
+   .. code-block::
+
+      Caption(start_seconds=1.53, end_seconds=3.26, text="むかしむかし")
+      Caption(start_seconds=3.26, end_seconds=7.48, text="丹後国水の江の浦に浦島太郎という漁師がありました")
+      Caption(start_seconds=8.68, end_seconds=12.71, text="浦島太郎は毎日釣りざおを担いでは海へ出かけて")
+
+   .. versionadded:: 2.0
+
+   :param str path: 音声ファイルのパス
+   :param Speech2Text speech2text: ESPnet2のSpeech2Textインスタンス
+   :param TranscriberConfig config: 音声認識のオプション（省略可）
+   :rtype: Iterator[:class:`Caption`]
+
 
 補助関数
 ========
@@ -145,4 +180,44 @@ ReazonSpeech APIリファレンス
 
       Speech2Textの認識結果の文字誤り率 (speech2textを省略した場合はNone)
 
+.. class:: TranscriberConfig
 
+   :func:`transcribe` 関数の処理を細かく調整するための設定値クラス
+
+   .. versionadded:: 2.0
+
+   .. attribute:: samplerate
+      :type: int
+      :value: 16000
+
+      音声認識モデルに渡す際のサンプリング周波数
+
+      利用する音声認識モデルが訓練されたサンプルレートに応じて変更してください。
+      既定値は `16000` (16khz) です。
+
+   .. attribute:: window
+      :type: int
+      :value: 320000
+
+      音声処理のウィンドウの長さ
+
+      長い音声については、このウィンドウ単位で分割して認識を行います。
+      既定値は `320000` (20秒) です。
+
+   .. attribute:: blank_threshold
+      :type: float
+      :value: 0.98
+
+      発話区間を推定する際の閾値
+
+      この設定値で、無発話区間とみなす閾値を変更することができます。
+      既定値は `0.98` (98%) です。
+
+   .. attribute:: padding
+      :type: tuple
+      :value: (16000, 4000)
+
+      入力音声に追加されるパディング
+
+      音声認識の際に、入力音声の前後に追加する余白を調整できます。
+      既定値は、前に1000ms、後に250msのパディングを補足して認識を行います。
