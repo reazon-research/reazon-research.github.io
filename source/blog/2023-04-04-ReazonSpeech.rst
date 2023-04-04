@@ -34,6 +34,7 @@ v1のフィードバックを反映して、なるべく手軽に使えるよう
    $ . ./venv/bin/activate
 
    # ReazonSpeechをインストール
+   $ pip install wheel
    $ pip install git+https://github.com/reazon-research/reazonspeech.git
 
    # reazonspeechコマンドで音声を文字起こしできます
