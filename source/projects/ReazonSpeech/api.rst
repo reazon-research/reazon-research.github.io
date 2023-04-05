@@ -41,7 +41,7 @@ ReazonSpeech APIリファレンス
    :rtype: List
    :return:  :class:`Utterance` のリスト
 
-.. function:: transcribe(path, speech2text, config=None)
+.. function:: transcribe(audio, speech2text=None, config=None)
 
    音声ファイルを解析し、文字起こしの結果を返却します。
 
@@ -51,13 +51,8 @@ ReazonSpeech APIリファレンス
    .. code-block::
 
       import reazonspeech as rs
-      from espnet2.bin.asr_inference import Speech2Text
 
-      speech2text = Speech2Text.from_pretrained(
-         "reazon-research/reazonspeech-espnet-v1"
-      )
-
-      for caption in rs.transcribe("test.wav", speech2text):
+      for caption in rs.transcribe("test.wav"):
           print(caption)
 
    音声認識の結果は次のように :class:`Caption` として返却されます。
@@ -68,10 +63,10 @@ ReazonSpeech APIリファレンス
       Caption(start_seconds=3.26, end_seconds=7.48, text="丹後国水の江の浦に浦島太郎という漁師がありました")
       Caption(start_seconds=8.68, end_seconds=12.71, text="浦島太郎は毎日釣りざおを担いでは海へ出かけて")
 
-   .. versionadded:: 2.0
+   .. versionadded:: 1.1.0
 
-   :param str path: 音声ファイルのパス
-   :param Speech2Text speech2text: ESPnet2のSpeech2Textインスタンス
+   :param str, np.array audio: 音声ファイルのパス（または音声データ）
+   :param Speech2Text speech2text: ESPnet2のSpeech2Textインスタンス（省略可）
    :param TranscriberConfig config: 音声認識のオプション（省略可）
    :rtype: Iterator[:class:`Caption`]
 
@@ -184,7 +179,7 @@ ReazonSpeech APIリファレンス
 
    :func:`transcribe` 関数の処理を細かく調整するための設定値クラス
 
-   .. versionadded:: 2.0
+   .. versionadded:: 1.1.0
 
    .. attribute:: samplerate
       :type: int
@@ -215,9 +210,9 @@ ReazonSpeech APIリファレンス
 
    .. attribute:: padding
       :type: tuple
-      :value: (16000, 4000)
+      :value: (16000, 8000)
 
       入力音声に追加されるパディング
 
       音声認識の際に、入力音声の前後に追加する余白を調整できます。
-      既定値は、前に1000ms、後に250msのパディングを補足して認識を行います。
+      既定値は、前に1000ms、後に500msのパディングを補足して認識を行います。

@@ -13,48 +13,58 @@ ReazonSpeechを利用した音声認識
 .. list-table::
    :widths: 5 5
 
-   * - 1. 最初にESPnetが利用できる環境を構築します。
+   * - 1. ReazonSpeechをインストールします。
 
-          詳しい手順は `ESPnet公式ドキュメント <https://espnet.github.io/espnet/installation.html>`_ を参照ください。
+     - .. code-block:: bash
 
-     - ESPnetのセットアップ例::
+           # Virtual Environmentを作成
+           $ python3 -m venv venv
+           $ . ./venv/bin/activate
 
-           $ git clone https://github.com/espnet/espnet
-           $ cd espnet/tools
-           $ ./setup_anaconda.sh anaconda espnet 3.8
-           $ make
-           $ . activate_python.sh
+           # ReazonSpeechをインストール
+           $ pip install wheel
+           $ pip install git+https://github.com/reazon-research/reazonspeech.git
 
-   * - 2. 以下のサンプルコード・音声ファイルをローカルに保存し、次のように実行します。
+   * - 2. サンプル音声 :download:`speech-001.wav <../../_static/speech-001.wav>` を取得し、
+          右のコマンドを実行します。
 
-     - ::
+     - .. code-block:: console
 
-          $ python3 decode.py speech-001.wav
+          $ reazonspeech speech-001.wav
 
    * - 3. 認識結果が出力された成功です！
 
-     - 音声認識結果の例::
+     - 音声認識結果の出力例:
 
-          気象庁は雪や路面の凍結による交通への影響暴風雪や
-          高波に警戒するとともに雪崩や屋根からの落雪にも
-          十分注意するよう呼びかけています
+       .. code-block:: json
 
-:サンプルコード (decode.py):
-    .. code-block::
+          {"start_seconds": 0.528,
+           "end_seconds": 5.325,
+           "text": "気象庁は雪や路面の凍結による交通への影響"}
 
-       import sys
-       import librosa
-       from espnet2.bin.asr_inference import Speech2Text
+.. hint::
 
-       speech2text = Speech2Text.from_pretrained(
-         "reazon-research/reazonspeech-espnet-v1"
-       )
+   ReazonSpeechは複数の出力フォーマットをサポートしています（デフォルトはJSON形式です）。
 
-       speech, rate = librosa.load(sys.argv[1], sr=16000)
-       print(speech2text(speech)[0][0])
+   例えば、次のように実行すると、字幕をWebVTT形式で出力できます。
 
-:サンプル音声 (speech-001.wav):
-    :download:`speech-001.wav <../../_static/speech-001.wav>` からダウンロードできます。
+   .. code-block:: console
+
+      $ reazonspeech --to=vtt speech-001.wav
+      WEBVTT
+
+      00:00:00.527 --> 00:00:05.325
+      気象庁は雪や路面の凍結による交通への影響
+
+      00:00:05.325 --> 00:00:12.521
+      暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています
+
+   利用可能なフォーマットの一覧などはヘルプから確認できます。
+
+   .. code-block:: console
+
+     $ reazonspeech --help
+
 
 次のステップ
 ============

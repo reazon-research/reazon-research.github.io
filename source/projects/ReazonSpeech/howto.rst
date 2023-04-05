@@ -10,7 +10,7 @@ ReazonSpeech HowToガイド
 
 .. important::
 
-   - コーパスの利用目的は著作権法３０条の４に定める情報解析に限ります。
+   コーパスの利用目的は著作権法３０条の４に定める情報解析に限ります。
 
 ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/datasets/>`_ ライブラリからアクセスできます。
 

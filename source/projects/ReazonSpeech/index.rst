@@ -21,9 +21,10 @@ ReazonSpeech
 
    * - 学習済みESPnetモデル
      - `Apache-2.0`_
-     - https://huggingface.co/reazon-research/reazonspeech-espnet-v1
+     - * `reazonspeech-espnet-v1`_ （安定版）
+       * `reazonspeech-espnet-next`_ （最新版）
 
-   * - コーパス構築ツールキット
+   * - 音声処理ライブラリ
      - `Apache-2.0`_
      - https://github.com/reazon-research/ReazonSpeech
 
@@ -36,8 +37,9 @@ ReazonSpeech
      - http://research.reazon.jp/_static/reazonspeech_nlp2023.pdf
 
 .. _Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
-
 .. _CDLA-Sharing-1.0: https://cdla.dev/sharing-1-0/
+.. _reazonspeech-espnet-v1: https://huggingface.co/reazon-research/reazonspeech-espnet-v1
+.. _reazonspeech-espnet-next: https://huggingface.co/reazon-research/reazonspeech-espnet-next
 
 日本語音声認識デモ
 ==================
@@ -96,31 +98,21 @@ ReazonSpeechの音声認識モデルを、実際にブラウザで試すこと�
 
           <audio controls src="../../_static/speech-003.wav">
 
-音声認識技術への応用性
-======================
+学習済み音声認識モデルの精度
+============================
 
-日本語音声認識の研究に利用できることを示すために、
-ReazonSpeechでESPnetの音声認識モデルを訓練しました。
+ReazonSpeechモデルは最先端の大規模モデルに匹敵する精度を実現しています。
 
-JSUT・Common Voiceを検証データとして、他の主要な音声認識モデルと精度を比較した結果を以下に示します。
+以下に、 `JSUT`_ ・ `Common Voice`_ ・ `TEDx`_ の3つのに対して精度を測定した結果を示します。
+このグラフは、縦軸が文字誤り率（CER）を表しており、低ければ低いほど高い精度であることを示しています。
 
-*表： 主な音声認識モデルの認識精度 (CER/Character Error Rate)*
+.. figure:: ../../_static/blog/2023-04-04-ReazonSpeech/cer.png
+   :width: 600
 
-+------------------------+----------------+--------------+
-|                        | JSUT Basic5000 | Common Voice |
-+========================+================+==============+
-| Whisper small          |          14.4% |        15.2% |
-+------------------------+----------------+--------------+
-| ESPnet LaboroTVSpeech  |          11.7% |        12.6% |
-+------------------------+----------------+--------------+
-| Whisper medium         |           9.9% |        11.4% |
-+------------------------+----------------+--------------+
-| Whisper large-v2       |           8.2% |         9.7% |
-+------------------------+----------------+--------------+
-| ESPnet ReazonSpeech    |           8.2% |         9.9% |
-+------------------------+----------------+--------------+
+.. _JSUT: https://sites.google.com/site/shinnosuketakamichi/publication/jsut
+.. _Common Voice: https://commonvoice.mozilla.org/
+.. _TEDx: https://github.com/laboroai/TEDxJP-10K
 
-最先端の大規模モデルに匹敵する高い認識精度が実現できています。
 
 .. toctree::
    :maxdepth: 1
