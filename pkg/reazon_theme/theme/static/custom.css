@@ -1,0 +1,74 @@
+/*
+ * Copyright (c) 2020 Pradyun Gedam <mail@pradyunsg.me>
+ *
+ * Permissionis hereby granted, free of charge, to any person obtaining a copy
+ * ofthis software and associated documentation files (the "Software"), to
+ * dealin the Software without restriction, including without limitation the
+ * rightsto use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sellcopies of the Software, and to permit persons to whom the Software is
+ * furnishedto do so, subject to the following conditions:
+ *
+ * Theabove copyright notice and this permission notice shall be included in
+ * allcopies or substantial portions of the Software.
+ *
+ * THESOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESSFOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORSOR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY,WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ * INTHE SOFTWARE.
+ */
+
+.admonition, .topic {
+    background: var(--color-admonition-background);
+    border-radius: .2rem;
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,.05),0 0 .0625rem rgba(0,0,0,.5);
+    font-size: var(--admonition-font-size);
+    margin: 1rem auto;
+    overflow: hidden;
+    padding: 0 .5rem .5rem;
+    page-break-inside: avoid;
+}
+
+p.admonition-title, p.topic-title {
+    font-size: var(--admonition-title-font-size);
+    margin: 0 -.5rem .5rem;
+    padding: .5rem;
+    position: relative;
+}
+
+p.admonition-title {
+    background-color: var(--color-admonition-title-background);
+}
+
+.admonition.hint > .admonition-title {
+    background-color: var(--color-admonition-title-background--hint);
+}
+
+body {
+    --color-admonition-title--caution: #ff9100;
+    --color-admonition-title-background--caution: rgba(255,145,0,.2);
+    --color-admonition-title--warning: #ff9100;
+    --color-admonition-title-background--warning: rgba(255,145,0,.2);
+    --color-admonition-title--danger: #ff5252;
+    --color-admonition-title-background--danger: rgba(255,82,82,.2);
+    --color-admonition-title--attention: #ff5252;
+    --color-admonition-title-background--attention: rgba(255,82,82,.2);
+    --color-admonition-title--error: #ff5252;
+    --color-admonition-title-background--error: rgba(255,82,82,.2);
+    --color-admonition-title--hint: #00c852;
+    --color-admonition-title-background--hint: rgba(0,200,82,.2);
+    --color-admonition-title--tip: #00c852;
+    --color-admonition-title-background--tip: rgba(0,200,82,.2);
+    --color-admonition-title--important: #00bfa5;
+    --color-admonition-title-background--important: rgba(0,191,165,.2);
+    --color-admonition-title--note: #00b0ff;
+    --color-admonition-title-background--note: rgba(0,176,255,.2);
+    --color-admonition-title--seealso: #448aff;
+    --color-admonition-title-background--seealso: rgba(68,138,255,.2);
+    --color-admonition-title--admonition-todo: grey;
+    --color-admonition-title-background--admonition-todo: hsla(0,0%,50%,.2);
+    --color-admonition-title: #651fff;
+    --color-admonition-title-background: rgba(101,31,255,.2);
+}
