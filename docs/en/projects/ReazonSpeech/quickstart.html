@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
   <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
   </head>
 
 <body id="projects-ReazonSpeech-quickstart">
@@ -141,27 +142,27 @@
 <col style="width: 50.0%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><ol class="arabic">
-<li><p>最初にESPnetが利用できる環境を構築します。</p>
-<p>詳しい手順は <a class="reference external" href="https://espnet.github.io/espnet/installation.html">ESPnet公式ドキュメント</a> を参照ください。</p>
-</li>
+<tr class="row-odd"><td><ol class="arabic simple">
+<li><p>ReazonSpeechをインストールします。</p></li>
 </ol>
 </td>
-<td><p>ESPnetのセットアップ例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/espnet/espnet
-$ cd espnet/tools
-$ ./setup_anaconda.sh anaconda espnet 3.8
-$ make
-$ . activate_python.sh
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Virtual Environmentを作成</span>
+$ python3 -m venv venv
+$ . ./venv/bin/activate
+
+<span class="c1"># ReazonSpeechをインストール</span>
+$ pip install wheel
+$ pip install git+https://github.com/reazon-research/reazonspeech.git
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><ol class="arabic simple" start="2">
-<li><p>以下のサンプルコード・音声ファイルをローカルに保存し、次のように実行します。</p></li>
+<li><p>サンプル音声 <a class="reference download internal" download="" href="../../_downloads/a8f2c35bb3d351a76212b2257d5bfc85/speech-001.wav"><code class="xref download docutils literal notranslate"><span class="pre">speech-001.wav</span></code></a> を取得し、
+右のコマンドを実行します。</p></li>
 </ol>
 </td>
-<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 decode.py speech-001.wav
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>reazonspeech speech-001.wav
 </pre></div>
 </div>
 </td>
@@ -170,10 +171,10 @@ $ . activate_python.sh
 <li><p>認識結果が出力された成功です！</p></li>
 </ol>
 </td>
-<td><p>音声認識結果の例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">気象庁は雪や路面の凍結による交通への影響暴風雪や</span>
-<span class="n">高波に警戒するとともに雪崩や屋根からの落雪にも</span>
-<span class="n">十分注意するよう呼びかけています</span>
+<td><p>音声認識結果の出力例:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;start_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.528</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;end_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.325</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;気象庁は雪や路面の凍結による交通への影響&quot;</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </td>
@@ -181,25 +182,25 @@ $ . activate_python.sh
 </tbody>
 </table>
 </div>
-<dl class="field-list">
-<dt class="field-odd">サンプルコード (decode.py)<span class="colon">:</span></dt>
-<dd class="field-odd"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">librosa</span>
-<span class="kn">from</span> <span class="nn">espnet2.bin.asr_inference</span> <span class="kn">import</span> <span class="n">Speech2Text</span>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>ReazonSpeechは複数の出力フォーマットをサポートしています（デフォルトはJSON形式です）。</p>
+<p>例えば、次のように実行すると、字幕をWebVTT形式で出力できます。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>reazonspeech --to<span class="o">=</span>vtt speech-001.wav
+<span class="go">WEBVTT</span>
 
-<span class="n">speech2text</span> <span class="o">=</span> <span class="n">Speech2Text</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
-  <span class="s2">&quot;reazon-research/reazonspeech-espnet-v1&quot;</span>
-<span class="p">)</span>
+<span class="go">00:00:00.527 --&gt; 00:00:05.325</span>
+<span class="go">気象庁は雪や路面の凍結による交通への影響</span>
 
-<span class="n">speech</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sr</span><span class="o">=</span><span class="mi">16000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">speech2text</span><span class="p">(</span><span class="n">speech</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">00:00:05.325 --&gt; 00:00:12.521</span>
+<span class="go">暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています</span>
 </pre></div>
 </div>
-</dd>
-<dt class="field-even">サンプル音声 (speech-001.wav)<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference download internal" download="" href="../../_downloads/a8f2c35bb3d351a76212b2257d5bfc85/speech-001.wav"><code class="xref download docutils literal notranslate"><span class="pre">speech-001.wav</span></code></a> からダウンロードできます。</p>
-</dd>
-</dl>
+<p>利用可能なフォーマットの一覧などはヘルプから確認できます。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>reazonspeech --help
+</pre></div>
+</div>
+</div>
 </section>
 <section id="id2">
 <h2>次のステップ<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>

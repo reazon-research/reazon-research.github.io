@@ -24,6 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
   <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
   </head>
 
 <body id="projects-ReazonSpeech-api">
@@ -184,18 +185,13 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="transcribe">
-<span class="sig-name descname"><span class="pre">transcribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speech2text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transcribe" title="この定義へのパーマリンク">¶</a></dt>
+<span class="sig-name descname"><span class="pre">transcribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speech2text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transcribe" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>音声ファイルを解析し、文字起こしの結果を返却します。</p>
 <p>任意の長さの音声データに対応しており、自動的に音声を区切ってストリーム処理する機能を備えています。
 具体的な使い方を以下に示します。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">reazonspeech</span> <span class="k">as</span> <span class="nn">rs</span>
-<span class="kn">from</span> <span class="nn">espnet2.bin.asr_inference</span> <span class="kn">import</span> <span class="n">Speech2Text</span>
 
-<span class="n">speech2text</span> <span class="o">=</span> <span class="n">Speech2Text</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
-   <span class="s2">&quot;reazon-research/reazonspeech-espnet-v1&quot;</span>
-<span class="p">)</span>
-
-<span class="k">for</span> <span class="n">caption</span> <span class="ow">in</span> <span class="n">rs</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;test.wav&quot;</span><span class="p">,</span> <span class="n">speech2text</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">caption</span> <span class="ow">in</span> <span class="n">rs</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;test.wav&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -206,13 +202,13 @@
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 2.0 で追加.</span></p>
+<p><span class="versionmodified added">バージョン 1.1.0 で追加.</span></p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<em>str</em>) -- 音声ファイルのパス</p></li>
-<li><p><strong>speech2text</strong> (<em>Speech2Text</em>) -- ESPnet2のSpeech2Textインスタンス</p></li>
+<li><p><strong>audio</strong> (<em>str</em><em>, </em><em>np.array</em>) -- 音声ファイルのパス（または音声データ）</p></li>
+<li><p><strong>speech2text</strong> (<em>Speech2Text</em>) -- ESPnet2のSpeech2Textインスタンス（省略可）</p></li>
 <li><p><strong>config</strong> (<a class="reference internal" href="#TranscriberConfig" title="TranscriberConfig"><em>TranscriberConfig</em></a>) -- 音声認識のオプション（省略可）</p></li>
 </ul>
 </dd>
@@ -363,7 +359,7 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TranscriberConfig</span></span><a class="headerlink" href="#TranscriberConfig" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><a class="reference internal" href="#transcribe" title="transcribe"><code class="xref py py-func docutils literal notranslate"><span class="pre">transcribe()</span></code></a> 関数の処理を細かく調整するための設定値クラス</p>
 <div class="versionadded">
-<p><span class="versionmodified added">バージョン 2.0 で追加.</span></p>
+<p><span class="versionmodified added">バージョン 1.1.0 で追加.</span></p>
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="TranscriberConfig.samplerate">
@@ -391,10 +387,10 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="TranscriberConfig.padding">
-<span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(16000,</span> <span class="pre">4000)</span></em><a class="headerlink" href="#TranscriberConfig.padding" title="この定義へのパーマリンク">¶</a></dt>
+<span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(16000,</span> <span class="pre">8000)</span></em><a class="headerlink" href="#TranscriberConfig.padding" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>入力音声に追加されるパディング</p>
 <p>音声認識の際に、入力音声の前後に追加する余白を調整できます。
-既定値は、前に1000ms、後に250msのパディングを補足して認識を行います。</p>
+既定値は、前に1000ms、後に500msのパディングを補足して認識を行います。</p>
 </dd></dl>
 
 </dd></dl>

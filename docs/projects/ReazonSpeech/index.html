@@ -24,6 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
   <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
   </head>
 
 <body id="projects-ReazonSpeech-index">
@@ -148,9 +149,13 @@
 <tbody>
 <tr class="row-even"><td><p>学習済みESPnetモデル</p></td>
 <td><p><a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a></p></td>
-<td><p><a class="reference external" href="https://huggingface.co/reazon-research/reazonspeech-espnet-v1">https://huggingface.co/reazon-research/reazonspeech-espnet-v1</a></p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/reazon-research/reazonspeech-espnet-v1">reazonspeech-espnet-v1</a> （安定版）</p></li>
+<li><p><a class="reference external" href="https://huggingface.co/reazon-research/reazonspeech-espnet-next">reazonspeech-espnet-next</a> （最新版）</p></li>
+</ul>
+</td>
 </tr>
-<tr class="row-odd"><td><p>コーパス構築ツールキット</p></td>
+<tr class="row-odd"><td><p>音声処理ライブラリ</p></td>
 <td><p><a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a></p></td>
 <td><p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">https://github.com/reazon-research/ReazonSpeech</a></p></td>
 </tr>
@@ -222,44 +227,13 @@
 </div>
 </section>
 <section id="id5">
-<h2>音声認識技術への応用性<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
-<p>日本語音声認識の研究に利用できることを示すために、
-ReazonSpeechでESPnetの音声認識モデルを訓練しました。</p>
-<p>JSUT・Common Voiceを検証データとして、他の主要な音声認識モデルと精度を比較した結果を以下に示します。</p>
-<p><em>表： 主な音声認識モデルの認識精度 (CER/Character Error Rate)</em></p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"><p>JSUT Basic5000</p></th>
-<th class="head"><p>Common Voice</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Whisper small</p></td>
-<td><p>14.4%</p></td>
-<td><p>15.2%</p></td>
-</tr>
-<tr class="row-odd"><td><p>ESPnet LaboroTVSpeech</p></td>
-<td><p>11.7%</p></td>
-<td><p>12.6%</p></td>
-</tr>
-<tr class="row-even"><td><p>Whisper medium</p></td>
-<td><p>9.9%</p></td>
-<td><p>11.4%</p></td>
-</tr>
-<tr class="row-odd"><td><p>Whisper large-v2</p></td>
-<td><p>8.2%</p></td>
-<td><p>9.7%</p></td>
-</tr>
-<tr class="row-even"><td><p>ESPnet ReazonSpeech</p></td>
-<td><p>8.2%</p></td>
-<td><p>9.9%</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>最先端の大規模モデルに匹敵する高い認識精度が実現できています。</p>
+<h2>学習済み音声認識モデルの精度<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
+<p>ReazonSpeechモデルは最先端の大規模モデルに匹敵する精度を実現しています。</p>
+<p>以下に、 <a class="reference external" href="https://sites.google.com/site/shinnosuketakamichi/publication/jsut">JSUT</a> ・ <a class="reference external" href="https://commonvoice.mozilla.org/">Common Voice</a> ・ <a class="reference external" href="https://github.com/laboroai/TEDxJP-10K">TEDx</a> の3つのに対して精度を測定した結果を示します。
+このグラフは、縦軸が文字誤り率（CER）を表しており、低ければ低いほど高い精度であることを示しています。</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/cer.png"><img alt="../../_images/cer.png" src="../../_images/cer.png" style="width: 600px;" /></a>
+</figure>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">コンテンツリンク</span></p>
 <ul>
@@ -284,7 +258,7 @@ ReazonSpeechでESPnetの音声認識モデルを訓練しました。</p>
 <li><a class="reference internal" href="#">ReazonSpeech</a><ul>
 <li><a class="reference internal" href="#id1">日本語音声認識デモ</a></li>
 <li><a class="reference internal" href="#id4">音声コーパスのサンプル</a></li>
-<li><a class="reference internal" href="#id5">音声認識技術への応用性</a></li>
+<li><a class="reference internal" href="#id5">学習済み音声認識モデルの精度</a></li>
 </ul>
 </li>
 </ul>
