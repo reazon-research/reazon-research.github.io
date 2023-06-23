@@ -6,8 +6,10 @@ Reazon Human Interaction Laboratory
 
 .. list-table::
 
+   * - 2023年6月15日
+     - Tokyo BISH bash #08 で `ReazonSpeechに関する講演を行いました。 <https://tokyo-bish-bash.connpass.com/event/283268/>`_
    * - 2023年3月16日
-     - 言語処理学会・第29回年次大会で `ReazonSpeech論文が優秀賞を受賞しました。 <https://www.anlp.jp/nlp2023/award.html>`_
+     - 言語処理学会・第29回年次大会で `ReazonSpeech論文が優秀賞を受賞しました。 <https://www.anlp.jp/nlp2023/award.html#A5-3>`_
    * - 2023年1月15日
      - オープン日本語コーパス・音声認識モデルの :any:`ReazonSpeech <news/reazonspeech>` をリリースしました。
 
