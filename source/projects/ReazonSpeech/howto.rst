@@ -35,7 +35,7 @@ ReazonSpeechにはHugging Faceの `Datasets <https://huggingface.co/docs/dataset
 
            $ python3 -m venv .env
            $ source .env/bin/activate
-           $ pip install datasets
+           $ pip install datasets soundfile librosa
 
    * - 2. Pythonを起動してデータをロードします。
 
