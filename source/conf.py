@@ -45,6 +45,7 @@ locale_dirs = ['locale/']
 language = 'ja'
 
 gettext_compact = False
+add_module_names = False
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
