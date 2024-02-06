@@ -6,6 +6,8 @@ Reazon Human Interaction Laboratory
 
 .. list-table::
 
+   * - 2024年2月14日
+     - :any:`ReazonSpeechの最新バージョン v2.0 をリリースしました。 <blog/2024-02-14-ReazonSpeech>`
    * - 2023年6月15日
      - Tokyo BISH bash #08 で `ReazonSpeechに関する講演を行いました。 <https://tokyo-bish-bash.connpass.com/event/283268/>`_
    * - 2023年3月16日
@@ -16,6 +18,7 @@ Reazon Human Interaction Laboratory
 最新記事
 --------
 
+* :any:`blog/2024-02-14-ReazonSpeech`
 * :any:`blog/2023-04-04-ReazonSpeech`
 * :any:`blog/2023-01-15-DDS-performance`
 * :any:`blog/2023-01-15-ReazonSpeech-ESP32`
