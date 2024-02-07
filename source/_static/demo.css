@@ -1,0 +1,27 @@
+#demo {border: 1px solid #aaa; padding:1em;margin:2em;}
+#demo section {margin: 1em 0;}
+#demo label {display: inline-block; border-radius: 5px; background: #eee; border: 1px solid #333; padding: 0.4em; margin-right:1em;}
+#demo table {display: none; width: 100%;}
+#demo a.sample {text-decoration:none;font-size:0.8em;}
+
+/* unset */
+#demo .progress {display: none; margin: 1em 0; border-radius:5px; border:1px solid #ccc; overflow: hidden; width: 100%; }
+#demo .progress span {background: steelblue; display:block; padding:5px; transition: width 0.5s linear;}
+#demo .message {display: none; color: #aa0000;}
+
+/* loading */
+#demo.loading label {opacity: 0.5;}
+#demo.loading table {display: none;}
+#demo.loading .progress {display: block;}
+#demo.loading .message {display: none;}
+
+/* done */
+#demo.done table {display: table;}
+#demo.done .progress {display: block;}
+#demo.done .message {display: none;}
+
+/* err */
+#demo.err table {display: none;}
+#demo.err .progress {display: block;}
+#demo.err .progress span {background: #aa0000;}
+#demo.err .message {display: block;}

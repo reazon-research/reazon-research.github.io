@@ -40,6 +40,38 @@ ReazonSpeech
 .. _Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
 .. _CDLA-Sharing-1.0: https://cdla.dev/sharing-1-0/
 
+ReazonSpeechの音声認識を試してみる
+==================================
+
+このデモではReazonSpeechの音声認識モデルを利用して、音声をテキストに変換します。
+
+.. raw:: html
+
+   <script src='../../_static/demo.js'></script>
+   <link rel="stylesheet" type="text/css" href="../../_static/demo.css" />
+   <div id='demo'>
+     <section>
+        <label for='demo-file'>音声ファイルを選択</label>
+        <input id='demo-file' accept="audio/wav,audio/mpeg,audio/ogg,audio/flac" type='file' hidden>
+        <a class='sample' href='../../_static/demo.flac'>テスト音声</a>
+     </section>
+     <div class="table-wrapper docutils container">
+       <div class='progress'><span></span></div>
+       <p class='message'>アクセスが集中しています。時間をおいて再度お試し下さい。
+       <table class='docutils align-default' width=100%>
+         <thead>
+           <tr>
+             <th width=10%>開始</th>
+             <th width=10%>終了</th>
+             <th>認識結果</th>
+           </tr>
+         </thead>
+         <tbody id='demo-tbody'></tbody>
+       </table>
+     </div>
+   </div>
+   </ul>
+
 ReazonSpeechコーパスのサンプル音声
 ==================================
 
