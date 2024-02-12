@@ -53,7 +53,7 @@ ReazonSpeechの音声認識を試してみる
      <section>
         <label for='demo-file'>音声ファイルを選択</label>
         <input id='demo-file' accept="audio/wav,audio/mpeg,audio/ogg,audio/flac" type='file' hidden>
-        <a class='sample' href='../../_static/demo.flac'>テスト音声</a>
+        <a class='sample' href='../../_static/demo.mp3'>テスト音声</a>
      </section>
      <div class="table-wrapper docutils container">
        <div class='progress'><span></span></div>
