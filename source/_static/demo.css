@@ -1,8 +1,14 @@
-#demo {border: 1px solid #aaa; padding:1em;margin:2em;}
+@media (min-width: 1024px){
+    #demo {margin: 2em;}
+}
+
+#demo {border: 1px solid #aaa; padding:1em;margin:2em 0;}
 #demo section {margin: 1em 0;}
 #demo label {display: inline-block; border-radius: 5px; background: #eee; border: 1px solid #333; padding: 0.4em; margin-right:1em;}
 #demo table {display: none; width: 100%;}
 #demo a.sample {text-decoration:none;font-size:0.8em;}
+
+.dark #demo label {background: steelblue; border: 1px solid #aaa;}
 
 /* unset */
 #demo .progress {display: none; margin: 1em 0; border-radius:5px; border:1px solid #ccc; overflow: hidden; width: 100%; }
