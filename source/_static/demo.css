@@ -7,12 +7,13 @@
 #demo label {display: inline-block; border-radius: 5px; background: #eee; border: 1px solid #333; padding: 0.4em; margin-right:1em;}
 #demo table {display: none; width: 100%;}
 #demo a.sample {text-decoration:none;font-size:0.8em;}
+#demo .tip {float:right;font-size:0.8em;color:#aaa;}
 
 .dark #demo label {background: steelblue; border: 1px solid #aaa;}
 
 /* unset */
-#demo .progress {display: none; margin: 1em 0; border-radius:5px; border:1px solid #ccc; overflow: hidden; width: 100%; }
-#demo .progress span {background: steelblue; display:block; padding:5px; transition: width 0.5s linear;}
+#demo .progress {margin: 1em 0; border-radius:5px; border:1px solid #ccc; overflow: hidden; width: 100%; }
+#demo .progress span {opacity: 0; background: steelblue; display:block; padding:5px; transition: width 0.5s linear;}
 #demo .message {display: none; color: #aa0000;}
 
 /* loading */

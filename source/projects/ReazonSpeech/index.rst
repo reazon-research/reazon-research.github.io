@@ -40,6 +40,8 @@ ReazonSpeech
 .. _Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
 .. _CDLA-Sharing-1.0: https://cdla.dev/sharing-1-0/
 
+.. _reazonspeech-demo:
+
 ReazonSpeechの音声認識を試してみる
 ==================================
 
@@ -51,6 +53,7 @@ ReazonSpeechの音声認識を試してみる
    <link rel="stylesheet" type="text/css" href="../../_static/demo.css" />
    <div id='demo'>
      <section>
+        <span class='tip'>音声を8倍速でテキストに直します（音声の長さは最大30分まで）</span>
         <label for='demo-file'>音声ファイルを選択</label>
         <input id='demo-file' accept="audio/wav,audio/mpeg,audio/ogg,audio/flac" type='file' hidden>
         <a class='sample' download href='../../_static/demo.mp3'>テスト音声</a>
