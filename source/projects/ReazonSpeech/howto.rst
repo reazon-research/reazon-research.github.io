@@ -40,15 +40,12 @@ HowToガイド
 
      - >>> # 約600MBのダウンロードが発生します。
        >>> from datasets import load_dataset
-       >>> ds = load_dataset("reazon-research/reazonspeech")
+       >>> ds = load_dataset("reazon-research/reazonspeech", trust_remote_code=True)
 
    * - ダウンロードが完了すれば成功です！
 
-     - >>> ds["train"]
-       Dataset({
-           features: ['name', 'audio', 'transcription'],
-           num_rows: 2637
-       })
+     - >>> ds["train"][0]["name"]
+       '000/000734dcb35d6.flac'
 
 **データ形式**
 
@@ -90,13 +87,13 @@ ReazonSpeechでは5種類のデータセットのサイズを提供していま�
    from datasets import load_dataset
 
    # 1000時間のmediumデータを取得する
-   ds = load_dataset("reazon-research/reazonspeech", "medium")
+   ds = load_dataset("reazon-research/reazonspeech", "medium", trust_remote_code=True)
 
    # 全件データを取得する
-   ds = load_dataset("reazon-research/reazonspeech", "all")
+   ds = load_dataset("reazon-research/reazonspeech", "all", trust_remote_code=True)
 
    # 全件データにストリームアクセスする
-   ds = load_dataset("reazon-research/reazonspeech", "all", streaming=True)
+   ds = load_dataset("reazon-research/reazonspeech", "all", streaming=True, trust_remote_code=True)
 
 **ReazonSpeech v1データセット**
 
