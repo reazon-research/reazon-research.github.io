@@ -20,6 +20,14 @@
  * INTHE SOFTWARE.
  */
 
+.dark .admonition, .dark .topic {
+    border: 1px solid #555;
+}
+
+.dark p.admonition-title, .dark .topic-title {
+    background: steelblue;
+}
+
 .admonition, .topic {
     background: var(--color-admonition-background);
     border-radius: .2rem;
