@@ -71,5 +71,5 @@ body {
     --color-admonition-title--admonition-todo: grey;
     --color-admonition-title-background--admonition-todo: hsla(0,0%,50%,.2);
     --color-admonition-title: #651fff;
-    --color-admonition-title-background: rgba(101,31,255,.2);
+    --color-admonition-title-background: aliceblue;
 }
