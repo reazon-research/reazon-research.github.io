@@ -4,7 +4,6 @@
 <head><meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta content="このガイドではReazonSpeech日本語音声コーパスの利用方法を解説します。また、コーパス構築ツールキットの使い方等についても説明します。" name="description" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1KMDX1V1H"></script>
@@ -15,10 +14,10 @@
         gtag('config', 'G-S1KMDX1V1H');
     </script>
     
-  <link rel="author" title="About these documents" href="../../about.html" /><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="ReazonSpeech APIリファレンス" href="api.html" /><link rel="prev" title="ReazonSpeechクイックスタート" href="quickstart.html" />
+  <link rel="author" title="About these documents" href="../../about.html" /><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="APIリファレンス" href="api/index.html" /><link rel="prev" title="クイックスタート" href="quickstart.html" />
   <link rel="canonical" href="https://research.reazon.jp/projects/ReazonSpeech/howto.html" />
   
-  <title>ReazonSpeech HowToガイド - Reazon Human Interaction Lab</title>
+  <title>HowToガイド - Reazon Human Interaction Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
@@ -74,18 +73,24 @@
 <li class="toctree-l1 Tree__item"><a class="reference internal" href="../../about.html">About</a></li>
 <li class="toctree-l1 current Tree__item Tree__item--has-children"><a class="reference internal" href="../index.html">Projects</a><input checked="" class="Tree_itemToggleCheckbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-1"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current Tree__item Tree__item--has-children"><a class="reference internal" href="index.html">ReazonSpeech</a><input checked="" class="Tree_itemToggleCheckbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-2"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 Tree__item"><a class="reference internal" href="quickstart.html">ReazonSpeechクイックスタート</a></li>
-<li class="toctree-l3 current Tree__item current-page"><a class="current reference internal" href="#">ReazonSpeech HowToガイド</a></li>
-<li class="toctree-l3 Tree__item"><a class="reference internal" href="api.html">ReazonSpeech APIリファレンス</a></li>
+<li class="toctree-l3 Tree__item"><a class="reference internal" href="quickstart.html">クイックスタート</a></li>
+<li class="toctree-l3 current Tree__item current-page"><a class="current reference internal" href="#">HowToガイド</a></li>
+<li class="toctree-l3 Tree__item Tree__item--has-children"><a class="reference internal" href="api/index.html">APIリファレンス</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-3"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="api/reazonspeech.nemo.asr.html">reazonspeech.nemo.asr</a></li>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="api/reazonspeech.espnet.asr.html">reazonspeech.espnet.asr</a></li>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="api/reazonspeech.espnet.oneseg.html">reazonspeech.espnet.oneseg</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../../news/index.html">News</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-3"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+</ul>
+</li>
+<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../../news/index.html">News</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-4"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../../news/reazonspeech.html">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a></li>
 </ul>
 </li>
-<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../../blog/index.html">Blog</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-4"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../../blog/index.html">Blog</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-5"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2024-02-14-ReazonSpeech.html">(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2023-04-04-ReazonSpeech.html">(2023-04-04) ReazonSpeechの最新モデルを公開しました</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2023-01-15-ReazonSpeech-ESP32.html">(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a></li>
@@ -123,102 +128,62 @@
         
         <div class="Page__headerParent">ReazonSpeech：</div>
         
-        <h1>ReazonSpeech HowToガイド </h1>
+        <h1>HowToガイド </h1>
         
     </header>
     <article class="Page__body">
-        <section id="reazonspeech-howto">
-<h1>ReazonSpeech HowToガイド<a class="headerlink" href="#reazonspeech-howto" title="Permalink to this heading">¶</a></h1>
-<section id="python">
-<h2>日本語音声コーパスにPythonからアクセスする<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
+        <section id="howto">
+<h1>HowToガイド<a class="headerlink" href="#howto" title="Permalink to this heading">¶</a></h1>
+<section id="reazonspeech-corpus">
+<span id="id1"></span><h2>日本語音声コーパスにアクセスする<a class="headerlink" href="#reazonspeech-corpus" title="Permalink to this heading">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>コーパスの利用目的は著作権法３０条の４に定める情報解析に限ります。</p>
 </div>
-<p>ReazonSpeechにはHugging Faceの <a class="reference external" href="https://huggingface.co/docs/datasets/">Datasets</a> ライブラリからアクセスできます。</p>
 <ul class="simple">
-<li><p>データのダウンロードが自動化され、またストリームアクセスもサポートしています。</p></li>
-<li><p>「とりあえずデータを見てみたい・Pythonで音声処理がしたい」という場合におすすめです。</p></li>
+<li><p>ReazonSpeechプロジェクトでは、35,000時間の日本語音声コーパスを公開しています。</p></li>
+<li><p>データセットには <a class="reference external" href="https://huggingface.co/docs/datasets/">Hugging Face Datasets</a> 経由でアクセスできます。</p></li>
 </ul>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50.0%" />
-<col style="width: 50.0%" />
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><ol class="arabic simple" start="0">
-<li><p>データセットを参照するには、<a class="reference external" href="https://huggingface.co/datasets/reazon-research/reazonspeech">まずHugging Face上で規約に同意してください。</a></p>
-<ul class="simple">
-<li><p>以下の手順は規約に同意したアカウントに <a class="reference external" href="https://huggingface.co/docs/huggingface_hub/quick-start">huggingface-ctl login</a> でログインして行います。</p></li>
-</ul>
-</li>
-</ol>
-</td>
+<tr class="row-odd"><td><p>データセットにアクセスするには、<a class="reference external" href="https://huggingface.co/datasets/reazon-research/reazonspeech">Hugging Face上で規約に同意してください。</a></p></td>
 <td><figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/huggingface.png"><img alt="../../_images/huggingface.png" src="../../_images/huggingface.png" style="width: 80%;" /></a>
 </figure>
 </td>
 </tr>
-<tr class="row-even"><td><ol class="arabic">
-<li><p>最初にPythonのvirtualenvを作成します。</p>
-<p>インストールの詳しい手順は <a class="reference external" href="https://huggingface.co/docs/datasets/installation">Hugging Face公式ドキュメント</a> を参照ください。</p>
-</li>
-</ol>
+<tr class="row-even"><td><p>Hugging Faceにアクセスできる環境を作成します。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/docs/datasets/installation">Hugging Face公式ドキュメント</a></p></li>
+</ul>
 </td>
-<td><p>Datasetsのセットアップ例:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv .env
-$ source .env/bin/activate
-$ pip install datasets soundfile librosa
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># Pythonのvenv環境作成</span>
+<span class="gp">$ </span>python3 -m venv venv
+<span class="gp">$ </span><span class="nb">source</span> venv/bin/activate
+
+<span class="gp">$ </span><span class="c1"># 環境セットアップ</span>
+<span class="gp">$ </span>pip install datasets soundfile librosa
+<span class="gp">$ </span>huggingface-ctl login
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><ol class="arabic simple" start="2">
-<li><p>Pythonを起動してデータをロードします。</p></li>
-</ol>
-</td>
-<td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 約400MBのダウンロードが発生します。</span>
+<tr class="row-odd"><td><p>Hugging Faceからデータセットを取得します。</p></td>
+<td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 約600MBのダウンロードが発生します。</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><ol class="arabic simple" start="3">
-<li><p>ダウンロードが完了すれば成功です！</p></li>
-</ol>
-</td>
-<td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span>
-<span class="go">Dataset({</span>
-<span class="go">    features: [&#39;name&#39;, &#39;audio&#39;, &#39;transcription&#39;],</span>
-<span class="go">    num_rows: 2637</span>
-<span class="go">})</span>
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><ol class="arabic simple" start="4">
-<li><p>次のように音声データにアクセスできます。</p>
-<dl class="field-list simple">
-<dt class="field-odd">audio<span class="colon">:</span></dt>
-<dd class="field-odd"><p>音声データ・ファイルパス・サンプリングレートを格納</p>
-</dd>
-<dt class="field-even">transcription<span class="colon">:</span></dt>
-<dd class="field-even"><p>対応する字幕テキストを格納</p>
-</dd>
-</dl>
-</li>
-</ol>
-</td>
-<td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="mi">2000</span><span class="p">]</span>
-<span class="go">{&#39;audio&#39;: {</span>
-<span class="go">     &#39;array&#39;: array([-0.01190186,  ... ])</span>
-<span class="go">     &#39;path&#39;: &#39;/tmp/cache/000/57b6f7027e24f.flac&#39;,</span>
-<span class="go">     &#39;sampling_rate&#39;: 16000</span>
-<span class="go"> },</span>
-<span class="go"> &#39;name&#39;: &#39;000/57b6f7027e24f.flac&#39;,</span>
-<span class="go"> &#39;transcription&#39;: &#39;週末の天気を詳しく解説。&#39;}</span>
+<tr class="row-even"><td><p>ダウンロードが完了すれば成功です！</p></td>
+<td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="go">&#39;000/000734dcb35d6.flac&#39;</span>
 </pre></div>
 </div>
 </td>
@@ -226,66 +191,204 @@ $ pip install datasets soundfile librosa
 </tbody>
 </table>
 </div>
-<p>なお、参照の便宜を踏まえて、データセットは <cite>small</cite> と <cite>all</cite> の二種類を用意しています。</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
+<p><strong>データ形式</strong></p>
+<p>FLAC形式の音声ファイル（16khzサンプリング）と、テキストラベルのペアから構成されています。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;000/0000000000000.flac&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;audio&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;/path/to/000/0000000000000.flac&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;array&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.01000000</span><span class="p">,</span>  <span class="o">...</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+        <span class="s1">&#39;sampling_rate&#39;</span><span class="p">:</span> <span class="mi">16000</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;transcription&#39;</span><span class="p">:</span> <span class="s1">&#39;今日のニュースをお伝えします。&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>ReazonSpeechでは5種類のデータセットのサイズを提供しています。
+デフォルトではtinyが選択されます。</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default" style="width: 600px">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>種別</p></th>
+<tr class="row-odd"><th class="head"><p>タグ</p></th>
 <th class="head"><p>サイズ</p></th>
 <th class="head"><p>収録時間数</p></th>
-<th class="head"><p>説明</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>small</p></td>
-<td><p>350MB</p></td>
-<td><p>約5時間</p></td>
-<td><p>確認用のサブセットデータ（既定）</p></td>
+<tr class="row-even"><td><p>tiny</p></td>
+<td><p>600MB</p></td>
+<td><p>8.5 時間</p></td>
 </tr>
-<tr class="row-odd"><td><p>all</p></td>
-<td><p>1.3TB</p></td>
-<td><p>約19,000時間</p></td>
-<td><p>ReazonSpeechの全件データ</p></td>
+<tr class="row-odd"><td><p>small</p></td>
+<td><p>6GB</p></td>
+<td><p>100 時間</p></td>
+</tr>
+<tr class="row-even"><td><p>medium</p></td>
+<td><p>65GB</p></td>
+<td><p>1000 時間</p></td>
+</tr>
+<tr class="row-odd"><td><p>large</p></td>
+<td><p>330GB</p></td>
+<td><p>5000 時間</p></td>
+</tr>
+<tr class="row-even"><td><p>all</p></td>
+<td><p>2.3TB</p></td>
+<td><p>35000 時間</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>デフォルトでは <cite>small</cite> が選択されます。
-1.3TBの全件データにアクセスしたい場合は、次のように実行してください。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 全件データにアクセスする (1.3TBのダウンロードが発生します)</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<p>データセットを参照するコード例のパターンは以下の通りです。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+
+<span class="c1"># 1000時間のmediumデータを取得する</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">,</span> <span class="s2">&quot;medium&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 全件データを取得する</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># 全件データにストリームアクセスする</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">streaming</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;reazon-research/reazonspeech&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">streaming</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>なお、このデータセットは、雑音に強いロバストなデータを得るため、ReazonSpeechの <code class="docutils literal notranslate"><span class="pre">strategy=lax</span></code> で抽出しています。
-詳細はAPIリファレンス <a class="reference internal" href="api.html#get_utterances" title="get_utterances"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_utterances()</span></code></a> を参照ください。</p>
+<p><strong>ReazonSpeech v1データセット</strong></p>
+<p>旧バージョンのReazonSpeechコーパスは次のタグから参照できます。</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default" style="width: 600px">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>タグ</p></th>
+<th class="head"><p>サイズ</p></th>
+<th class="head"><p>収録時間数</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>small-v1</p></td>
+<td><p>350MB</p></td>
+<td><p>5 時間</p></td>
+</tr>
+<tr class="row-odd"><td><p>medium-v1</p></td>
+<td><p>22GB</p></td>
+<td><p>300 時間</p></td>
+</tr>
+<tr class="row-even"><td><p>all-v1</p></td>
+<td><p>1TB</p></td>
+<td><p>19000 時間</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注記</strong></p>
+<ul class="simple">
+<li><p>本データセットは、雑音に強いロバストなデータを得るため <code class="docutils literal notranslate"><span class="pre">strategy=lax</span></code> で抽出しています。</p></li>
+<li><p>詳しくは <a class="reference internal" href="api/reazonspeech.espnet.oneseg.html#reazonspeech.espnet.oneseg.get_utterances" title="reazonspeech.espnet.oneseg.get_utterances"><code class="xref any py py-func docutils literal notranslate"><span class="pre">reazonspeech.espnet.oneseg.get_utterances</span></code></a> を参照下さい。</p></li>
+</ul>
 </section>
-<section id="id2">
-<h2>録画データから字幕情報を抽出する<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用すると、
-簡単に放送録画データから字幕情報を解析できます。</p>
+<section id="python">
+<span id="nemo-asr"></span><h2>Pythonから音声認識モデルを利用する<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
+<p>ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行う方法を解説します。</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50.0%" />
-<col style="width: 50.0%" />
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><ol class="arabic simple">
-<li><p>ReazonSpeechをインストールします。</p></li>
-</ol>
+<tr class="row-odd"><td><p>実行環境をセットアップします。</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># Pythonのvenv環境作成</span>
+<span class="gp">$ </span>python3 -m venv venv
+<span class="gp">$ </span><span class="nb">source</span> venv/bin/activate
+
+<span class="gp">$ </span><span class="c1"># ffmpegとCythonをインストール</span>
+<span class="gp">$ </span>sudo apt install ffmpeg
+<span class="gp">$ </span>pip install Cython
+</pre></div>
+</div>
 </td>
-<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install ffmpeg libsndfile1
-<span class="gp">$ </span>pip install <span class="se">\</span>
-    git+https://github.com/reazon-research/ReazonSpeech
+</tr>
+<tr class="row-even"><td><p>ReazonSpeechをインストールします。</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
+<span class="gp">$ </span>pip install ReazonSpeech/pkg/nemo-asr
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>右のスクリプトを <code class="docutils literal notranslate"><span class="pre">test.py</span></code> という名前で保存します。</p>
+<ul class="simple">
+<li><p>サンプル音源: <a class="reference download internal" download="" href="../../_downloads/a8f2c35bb3d351a76212b2257d5bfc85/speech-001.wav"><code class="xref download docutils literal notranslate"><span class="pre">speech-001.wav</span></code></a></p></li>
+</ul>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reazonspeech.nemo.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span>
+
+<span class="c1"># 実行時にHugging Faceからモデルを取得します (2.3GB)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+
+<span class="c1"># ローカルの音声ファイルを読み込む</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="s1">&#39;speech-001.wav&#39;</span><span class="p">)</span>
+
+<span class="c1"># 音声認識を適用する</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">audio</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>結果が出力されれば成功です！</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3 test.py
+<span class="go">気象庁は雪や路面の凍結による交通への影響、暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています。</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>関数が受け取る引数や返り値の詳細はAPIリファレンス <a class="reference internal" href="api/reazonspeech.nemo.asr.html"><span class="doc">reazonspeech.nemo.asr</span></a> を参照ください。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ReazonSpeechはESPnetとNeMoの2種類のモデルを提供しています。</p>
+<p>ESPnetバージョンの音声認識モデルを利用する場合は、
+最初のインストールのステップで次のコマンドを実行します。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
+<span class="gp">$ </span>pip install ReazonSpeech/pkg/espnet-asr
+</pre></div>
+</div>
+<p>詳細はAPIリファレンス <a class="reference internal" href="api/reazonspeech.espnet.asr.html#module-reazonspeech.espnet.asr" title="reazonspeech.espnet.asr"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">reazonspeech.espnet.asr</span></code></a> を参照ください。</p>
+</div>
+</section>
+<section id="id3">
+<h2>ワンセグ放送から字幕情報を抽出する<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ReazonSpeechをインストールします。</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># Pythonのvenv環境作成</span>
+<span class="gp">$ </span>python3 -m venv venv
+<span class="gp">$ </span><span class="nb">source</span> venv/bin/activate
+
+<span class="gp">$ </span><span class="c1"># ReazonSpeechインストール</span>
+<span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
+<span class="gp">$ </span>pip install ReazonSpeech/pkg/espnet-oneseg
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><ol class="arabic simple" start="2">
-<li><p>録画ファイルのパスを引数に与え、 <a class="reference internal" href="api.html#get_captions" title="get_captions"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_captions()</span></code></a> を呼び出します。</p></li>
+<li><p>録画ファイルのパスを引数に与え、 <code class="xref py py-func docutils literal notranslate"><span class="pre">get_captions()</span></code> を呼び出します。</p></li>
 </ol>
 </td>
 <td><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">reazonspeech</span> <span class="k">as</span> <span class="nn">rs</span>
@@ -310,8 +413,8 @@ $ pip install datasets soundfile librosa
 </table>
 </div>
 </section>
-<section id="id3">
-<h2>録画データからコーパスを作成する<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<section id="id4">
+<h2>ワンセグ放送からコーパスを作成する<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用して、
 実際に録画データから音声コーパスを作成する方法を示します。</p>
 <ul class="simple">
@@ -320,19 +423,22 @@ $ pip install datasets soundfile librosa
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50.0%" />
-<col style="width: 50.0%" />
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><ol class="arabic simple">
 <li><p>ReazonSpeechとESPnetをインストールします。</p></li>
 </ol>
 </td>
-<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt install ffmpeg libsndfile1 git-lfs
-<span class="gp">$ </span>pip install <span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.21.1
-<span class="gp">$ </span>pip install <span class="nv">espnet</span><span class="o">==</span><span class="m">202209</span>
-<span class="gp">$ </span>pip install <span class="se">\</span>
-    git+https://github.com/reazon-research/ReazonSpeech
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># 作業用の環境を作成する</span>
+<span class="gp">$ </span>sudo apt install ffmpeg libsndfile1 git-lfs
+<span class="gp">$ </span>python3 -m venv venv
+<span class="gp">$ </span><span class="nb">source</span> venv/bin/activate
+
+<span class="gp">$ </span><span class="c1"># ReazonSpeechインストール</span>
+<span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
+<span class="gp">$ </span>pip install ReazonSpeech/pkg/espnet-oneseg
 </pre></div>
 </div>
 </td>
@@ -341,8 +447,8 @@ $ pip install datasets soundfile librosa
 <li><p>ReazonSpeechの音声認識モデルを取得します</p></li>
 </ol>
 </td>
-<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone <span class="se">\</span>
-  https://huggingface.co/reazon-research/reazonspeech-espnet-v1
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://huggingface.co/reazon-research/reazonspeech-espnet-v2
+<span class="gp">$ </span>ln -s reazonspeech-espnet-v1/exp
 </pre></div>
 </div>
 </td>
@@ -351,13 +457,7 @@ $ pip install datasets soundfile librosa
 <li><p>以下の <code class="file docutils literal notranslate"><span class="pre">create_corpus.py</span></code> を保存して実行します。</p></li>
 </ol>
 </td>
-<td><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 音声認識モデルのフォルダに移動します。</span>
-<span class="m">5</span> <span class="nb">cd</span> reazonspeech-espnet-v1
-
-<span class="c1"># 実際にコーパスを抽出します。</span>
-<span class="c1"># * CPUの場合、概ね再生時間の1-2倍速で解析が進みます。</span>
-<span class="c1"># * GPUの場合、再生時間の5-6倍速で解析が完了します。</span>
-$ python3 create_corpus.py ../test.m2ts
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3 create_corpus.py ../test.m2ts
 </pre></div>
 </div>
 </td>
@@ -366,13 +466,13 @@ $ python3 create_corpus.py ../test.m2ts
 <li><p>ZIPファイルが生成されれば成功です！</p></li>
 </ol>
 </td>
-<td><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># corpus.zip には音声データと、対応する字幕情報を</span>
-<span class="c1"># 収録したファイルが含まれています。</span>
-$ unzip -l corpus.zip
-<span class="m">0001</span>.flac      --+
-<span class="m">0002</span>.flac        <span class="p">|</span> 音声ファイル
-...            --+
-dataset.json   ... 各々の発話に対応する字幕データ
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># corpus.zip には音声データと、対応する字幕情報を</span>
+<span class="gp">$ </span><span class="c1"># 収録したファイルが含まれています。</span>
+<span class="gp">$ </span>unzip -l corpus.zip
+<span class="go">0001.flac      --+</span>
+<span class="go">0002.flac        | 音声ファイル</span>
+<span class="go">...            --+</span>
+<span class="go">dataset.json   ... 各々の発話に対応する字幕データ</span>
 </pre></div>
 </div>
 </td>
@@ -416,10 +516,11 @@ dataset.json   ... 各々の発話に対応する字幕データ
             </div>
             <div class="Toc__tree">
                 <ul>
-<li><a class="reference internal" href="#">ReazonSpeech HowToガイド</a><ul>
-<li><a class="reference internal" href="#python">日本語音声コーパスにPythonからアクセスする</a></li>
-<li><a class="reference internal" href="#id2">録画データから字幕情報を抽出する</a></li>
-<li><a class="reference internal" href="#id3">録画データからコーパスを作成する</a></li>
+<li><a class="reference internal" href="#">HowToガイド</a><ul>
+<li><a class="reference internal" href="#reazonspeech-corpus">日本語音声コーパスにアクセスする</a></li>
+<li><a class="reference internal" href="#python">Pythonから音声認識モデルを利用する</a></li>
+<li><a class="reference internal" href="#id3">ワンセグ放送から字幕情報を抽出する</a></li>
+<li><a class="reference internal" href="#id4">ワンセグ放送からコーパスを作成する</a></li>
 </ul>
 </li>
 </ul>

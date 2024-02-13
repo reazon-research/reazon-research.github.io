@@ -20,6 +20,14 @@
  * INTHE SOFTWARE.
  */
 
+.dark .admonition, .dark .topic {
+    border: 1px solid #555;
+}
+
+.dark p.admonition-title, .dark .topic-title {
+    background: steelblue;
+}
+
 .admonition, .topic {
     background: var(--color-admonition-background);
     border-radius: .2rem;
@@ -36,9 +44,10 @@ p.admonition-title, p.topic-title {
     margin: 0 -.5rem .5rem;
     padding: .5rem;
     position: relative;
+    display: block !important;
 }
 
-p.admonition-title {
+p.admonition-title, p.topic-title {
     background-color: var(--color-admonition-title-background);
 }
 
@@ -70,5 +79,5 @@ body {
     --color-admonition-title--admonition-todo: grey;
     --color-admonition-title-background--admonition-todo: hsla(0,0%,50%,.2);
     --color-admonition-title: #651fff;
-    --color-admonition-title-background: rgba(101,31,255,.2);
+    --color-admonition-title-background: aliceblue;
 }

@@ -1,0 +1,416 @@
+<!doctype html>
+<html class="no-js"  lang="ja" >
+
+<head><meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1KMDX1V1H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1KMDX1V1H');
+    </script>
+    
+  <link rel="author" title="このドキュメントについて" href="../../../about.html" /><link rel="index" title="索引" href="../../../genindex.html" /><link rel="search" title="検索" href="../../../search.html" /><link rel="next" title="News" href="../../../news/index.html" /><link rel="prev" title="reazonspeech.espnet.asr" href="reazonspeech.espnet.asr.html" />
+  <link rel="canonical" href="https://research.reazon.jp/projects/ReazonSpeech/api/reazonspeech.espnet.oneseg.html" />
+  
+  <title>reazonspeech.espnet.oneseg - Reazon Human Interaction Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  </head>
+
+<body id="projects-ReazonSpeech-api-reazonspeech.espnet.oneseg">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-arrow" viewBox="0 0 14 8">
+      <svg viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 2.82801L2.05 7.77801L0.635998 6.36401L7 1.47024e-05L13.364 6.36402L11.95 7.77802L7 2.82801Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-toc-menu">
+      <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19 15V17H1V15H19ZM4.596 0.903999L6.01 2.318L2.828 5.5L6.01 8.682L4.596 10.096L0 5.5L4.596 0.903999ZM19 8V10H10V8H19ZM19 0.999999V3H10V0.999999H19Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8 6.2225L14.2225 0L16 1.7775L9.7775 8L16 14.2225L14.2225 16L8 9.7775L1.7775 16L0 14.2225L6.2225 8L0 1.7775L1.7775 0L8 6.2225Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-left">
+      <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.6359 8.5L10 15.1114L8.18205 17L5.82128e-07 8.5L8.18205 -7.9465e-08L10 1.88859L3.6359 8.5Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+  </svg>
+  <div id="global_nav"></div>
+  <div class="Container">
+    <aside id="sidebar" class="Sidebar" aria-label="Sidebar">
+    <div class="Sidebar__animationBg"></div>
+    <div class="Sidebar__container">
+        <div class="Sidebar__inner">
+            <a class="Sidebar__logo" href="../../../index.html">
+                
+                <h1>
+                    <img class="Sidebar__logoImage--light" src="../../../_static/logo.png" />
+                    <img class="Sidebar__logoImage--dark" src="../../../_static/logo-dark.png" />
+                </h1>
+                
+            </a>
+            <div class="Sidebar__tree Tree"><ul class="current">
+<li class="toctree-l1 Tree__item"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1 current Tree__item Tree__item--has-children"><a class="reference internal" href="../../index.html">Projects</a><input checked="" class="Tree_itemToggleCheckbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-1"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current Tree__item Tree__item--has-children"><a class="reference internal" href="../index.html">ReazonSpeech</a><input checked="" class="Tree_itemToggleCheckbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-2"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 Tree__item"><a class="reference internal" href="../quickstart.html">クイックスタート</a></li>
+<li class="toctree-l3 Tree__item"><a class="reference internal" href="../howto.html">HowToガイド</a></li>
+<li class="toctree-l3 current Tree__item Tree__item--has-children"><a class="reference internal" href="index.html">APIリファレンス</a><input checked="" class="Tree_itemToggleCheckbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-3"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul class="current">
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="reazonspeech.nemo.asr.html">reazonspeech.nemo.asr</a></li>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="reazonspeech.espnet.asr.html">reazonspeech.espnet.asr</a></li>
+<li class="toctree-l4 current Tree__item current-page"><a class="current reference internal" href="#">reazonspeech.espnet.oneseg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../../../news/index.html">News</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-4"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../../news/reazonspeech.html">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a></li>
+</ul>
+</li>
+<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../../../blog/index.html">Blog</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-5"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../../blog/2024-02-14-ReazonSpeech.html">(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../../blog/2023-04-04-ReazonSpeech.html">(2023-04-04) ReazonSpeechの最新モデルを公開しました</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../../blog/2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../../blog/2023-01-15-ReazonSpeech-ESP32.html">(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a></li>
+</ul>
+</li>
+<li class="toctree-l1 Tree__item"><a class="reference internal" href="../../../publications.html">Publications</a></li>
+<li class="toctree-l1 Tree__item"><a class="reference internal" href="../../../careers.html">Careers</a></li>
+</ul>
+</div>
+            <div class="Sidebar__search Search">
+                <i class="Search__icon">
+                    <svg width="22" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16.031 14.617L20.314 18.899L18.899 20.314L14.617 16.031C13.0237 17.3082 11.042 18.0029 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18.0029 11.042 17.3082 13.0237 16.031 14.617ZM14.025 13.875C15.2941 12.5699 16.0029 10.8204 16 9C16 5.132 12.867 2 9 2C5.132 2 2 5.132 2 9C2 12.867 5.132 16 9 16C10.8204 16.0029 12.5699 15.2941 13.875 14.025L14.025 13.875Z"
+                            fill="currentColor" />
+                    </svg>
+                </i>
+                <form class="Search__form" method="get" action="../../../search.html" role="search">
+                    <input class="Search__formText" placeholder=" Search" name="q" aria-label=" Search" />
+                    <input type="hidden" name="check_keywords" value="yes" />
+                    <input type="hidden" name="area" value="default" />
+                </form>
+            </div>
+        </div>
+    </div>
+</aside>
+    <div class="Container__inner">
+      
+      <script>document.body.dataset.theme = localStorage.getItem("theme") || "auto";</script>
+
+
+
+<main class="Page">
+    <header class="Page__header">
+        
+        <div class="Page__headerParent">APIリファレンス：</div>
+        
+        <h1>reazonspeech.espnet.oneseg </h1>
+        
+    </header>
+    <article class="Page__body">
+        <section id="module-reazonspeech.espnet.oneseg">
+<span id="reazonspeech-espnet-oneseg"></span><h1>reazonspeech.espnet.oneseg<a class="headerlink" href="#module-reazonspeech.espnet.oneseg" title="この見出しへのパーマリンク">¶</a></h1>
+<p>このリファレンスでは、ワンセグ放送データを解析するためのインターフェイスを解説します。</p>
+<section id="id1">
+<h2>関数<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.get_captions">
+<span class="sig-name descname"><span class="pre">get_captions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reazonspeech.espnet.oneseg.get_captions" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>MPEG2-TSファイルから字幕テキストを読み取ります。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) -- MPEG2-TSファイルのパス</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>List</p>
+</dd>
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#reazonspeech.espnet.oneseg.Caption" title="reazonspeech.espnet.oneseg.Caption"><code class="xref py py-class docutils literal notranslate"><span class="pre">Caption</span></code></a> のリスト</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.get_utterances">
+<span class="sig-name descname"><span class="pre">get_utterances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctc_segmentation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speech2text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'optim'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reazonspeech.espnet.oneseg.get_utterances" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>MPEG2-TSファイルから音声コーパスを抽出します。</p>
+<p>音声ファイルの切り出しについて、2つのモードをサポートしています。</p>
+<ul class="simple">
+<li><p><cite>optim</cite> は音声認識モデルをもとに最適なポイントで音声を切り出します。
+余計なノイズの少ないクリーンなコーパスを作成する場合に適しています。</p></li>
+<li><p><cite>lax</cite> は前後の文脈を含めて余分に切り出します。
+ロバストな音声認識に適したコーパスが得られます。</p></li>
+</ul>
+<p>また、<cite>speech2text</cite> を呼び出し時に渡すことで、追加の精度指標（文字誤り率）を計算できます。
+省略した場合 <a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.asr" title="reazonspeech.espnet.oneseg.Utterance.asr"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Utterance.asr</span></code></a> と <a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.cer" title="reazonspeech.espnet.oneseg.Utterance.cer"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Utterance.cer</span></code></a> は <code class="code docutils literal notranslate"><span class="pre">None</span></code> になります。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) -- MPEG2-TSファイルのパス</p></li>
+<li><p><strong>ctc_segmentation</strong> (<em>CTCSegmentation</em>) -- ESPnet2のCTCSegmentationインスタンス</p></li>
+<li><p><strong>speech2text</strong> (<em>Speech2Text</em>) -- ESPnet2のSpeech2Textインスタンス（省略可）</p></li>
+<li><p><strong>strategy</strong> (<em>str</em>) -- <cite>optim</cite> または <cite>lax</cite> （既定値は <cite>optim</cite> ）</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>List</p>
+</dd>
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance" title="reazonspeech.espnet.oneseg.Utterance"><code class="xref py py-class docutils literal notranslate"><span class="pre">Utterance</span></code></a> のリスト</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id2">
+<h2>補助関数<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.build_sentences">
+<span class="sig-name descname"><span class="pre">build_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">captions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reazonspeech.espnet.oneseg.build_sentences" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>字幕テキストをセンテンス単位に再構成します。</p>
+<p>次のように文の途中で字幕が分割されているケースを想定した関数です:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Caption</span><span class="p">(</span><span class="n">start_seconds</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">end_seconds</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;輸送機は午前１０時に&#39;</span><span class="p">)</span>
+<span class="n">Caption</span><span class="p">(</span><span class="n">start_seconds</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">end_seconds</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;離陸しました。&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>この関数を適用すると、次のように文単位に字幕をマージできます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Caption</span><span class="p">(</span><span class="n">start_seconds</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">end_seconds</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;輸送機は午前１０時に離陸しました。&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>captions</strong> (<em>str</em>) -- <a class="reference internal" href="#reazonspeech.espnet.oneseg.Caption" title="reazonspeech.espnet.oneseg.Caption"><code class="xref py py-class docutils literal notranslate"><span class="pre">Caption</span></code></a> のリスト</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>List</p>
+</dd>
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#reazonspeech.espnet.oneseg.Caption" title="reazonspeech.espnet.oneseg.Caption"><code class="xref py py-class docutils literal notranslate"><span class="pre">Caption</span></code></a> のリスト</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.save_as_zip">
+<span class="sig-name descname"><span class="pre">save_as_zip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utterances</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flac'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reazonspeech.espnet.oneseg.save_as_zip" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>日本語音声コーパスをZIP形式で保存します。</p>
+<p>フォーマットは <a class="reference external" href="https://github.com/bastibe/python-soundfile">python-soundfile</a> がサポートしている形式を指定できます（既定値は <cite>flac</cite> です）</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Utterances</strong> (<em>list</em>) -- <code class="xref py py-class docutils literal notranslate"><span class="pre">Utterances</span></code> のリスト</p></li>
+<li><p><strong>path</strong> (<em>str</em>) -- 保存先のファイルパス</p></li>
+<li><p><strong>format</strong> (<em>str</em>) -- 発話を保存するファイル形式</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>クラス<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Caption">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Caption</span></span><a class="headerlink" href="#reazonspeech.espnet.oneseg.Caption" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>MPEG2-TSファイルから抽出された字幕に対応するデータクラスです。</p>
+<p>開始・終了時刻は、動画の先頭からの経過秒数を計算して格納しています。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Caption.start_seconds">
+<span class="sig-name descname"><span class="pre">start_seconds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Caption.start_seconds" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>字幕の表示開始タイミング</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Caption.end_seconds">
+<span class="sig-name descname"><span class="pre">end_seconds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Caption.end_seconds" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>字幕の表示終了タイミング</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Caption.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Caption.text" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>字幕テキスト</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Utterance</span></span><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>MPEG2-TSファイルから抽出された発話に対応するデータクラスです。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.buffer">
+<span class="sig-name descname"><span class="pre">buffer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.array</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.buffer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>音声データを表すNumpyのArray</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.samplerate">
+<span class="sig-name descname"><span class="pre">samplerate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.samplerate" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>音声データのサンプルレート</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.duration" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>音声データの再生秒数</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.start_seconds">
+<span class="sig-name descname"><span class="pre">start_seconds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.start_seconds" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>動画の先頭からの開始秒数</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.end_seconds">
+<span class="sig-name descname"><span class="pre">end_seconds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.end_seconds" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>動画の先頭からの終了秒数</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.text" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>字幕テキスト</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.ctc">
+<span class="sig-name descname"><span class="pre">ctc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.ctc" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>CTC Segmentationの適合度スコア</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.asr">
+<span class="sig-name descname"><span class="pre">asr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.asr" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Speech2Textが出力した認識結果  (speech2textを省略した場合はNone)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.espnet.oneseg.Utterance.cer">
+<span class="sig-name descname"><span class="pre">cer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#reazonspeech.espnet.oneseg.Utterance.cer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Speech2Textの認識結果の文字誤り率 (speech2textを省略した場合はNone)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+    </article>
+    <aside class="Page__toc Toc">
+        
+        
+        <div class="Toc__inner">
+            <div class="Toc__title">
+                <span>Index</span>
+            </div>
+            <div class="Toc__tree">
+                <ul>
+<li><a class="reference internal" href="#">reazonspeech.espnet.oneseg</a><ul>
+<li><a class="reference internal" href="#id1">関数</a><ul>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.get_captions"><code class="docutils literal notranslate"><span class="pre">get_captions()</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.get_utterances"><code class="docutils literal notranslate"><span class="pre">get_utterances()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">補助関数</a><ul>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.build_sentences"><code class="docutils literal notranslate"><span class="pre">build_sentences()</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.save_as_zip"><code class="docutils literal notranslate"><span class="pre">save_as_zip()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">クラス</a><ul>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Caption"><code class="docutils literal notranslate"><span class="pre">Caption</span></code></a><ul>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Caption.start_seconds"><code class="docutils literal notranslate"><span class="pre">Caption.start_seconds</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Caption.end_seconds"><code class="docutils literal notranslate"><span class="pre">Caption.end_seconds</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Caption.text"><code class="docutils literal notranslate"><span class="pre">Caption.text</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance"><code class="docutils literal notranslate"><span class="pre">Utterance</span></code></a><ul>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.buffer"><code class="docutils literal notranslate"><span class="pre">Utterance.buffer</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.samplerate"><code class="docutils literal notranslate"><span class="pre">Utterance.samplerate</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.duration"><code class="docutils literal notranslate"><span class="pre">Utterance.duration</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.start_seconds"><code class="docutils literal notranslate"><span class="pre">Utterance.start_seconds</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.end_seconds"><code class="docutils literal notranslate"><span class="pre">Utterance.end_seconds</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.text"><code class="docutils literal notranslate"><span class="pre">Utterance.text</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.ctc"><code class="docutils literal notranslate"><span class="pre">Utterance.ctc</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.asr"><code class="docutils literal notranslate"><span class="pre">Utterance.asr</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.espnet.oneseg.Utterance.cer"><code class="docutils literal notranslate"><span class="pre">Utterance.cer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        
+        
+    </aside>
+</main>
+
+    </div>
+  </div>
+  <footer class="Footer">
+    <div class="Footer__copyright">
+        Copyright &copy; 2023, Human Interaction Laboratory
+    </div>
+    <div class="Footer__toolButton ToolButton">
+        <div class="ToolButton__viewMode">
+            <div class="ToolButton__viewModeLabel">View Mode</div>
+            <button class="ToolButton__viewModeButton ToolButton__viewModeButton--dark">Night Mode</button>
+            <button class="ToolButton__viewModeButton ToolButton__viewModeButton--light">Day Mode</button>
+            <button class="ToolButton__viewModeButton ToolButton__viewModeButton--system">System Setting</button>
+        </div>
+<!--
+        <div class="ToolButton__languageMode">
+            <div class="ToolButton__languageModeLabel">Language</div>
+            <div class="ToolButton__languageModeButtons">
+                <a class="ToolButton__languageModeButton" disabled
+                    href="../../../../projects/ReazonSpeech/api/reazonspeech.espnet.oneseg.html">JP</a>
+                /
+                <a class="ToolButton__languageModeButton"
+                    href="../../.././en/projects/ReazonSpeech/api/reazonspeech.espnet.oneseg.html">EN</a>
+            </div>
+        </div>
+-->
+    </div>
+</footer><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+  <script src="../../../_static/jquery.js"></script>
+  <script src="../../../_static/underscore.js"></script>
+  <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../../../_static/doctools.js"></script>
+  <script src="../../../_static/sphinx_highlight.js"></script>
+  <script src="../../../_static/translations.js"></script>
+  <!-- <script type="module" crossorigin src="http://localhost:3000/javascripts/main.ts"></script> -->
+  <script src="../../../_static/main.js" defer></script></body>
+
+</html>

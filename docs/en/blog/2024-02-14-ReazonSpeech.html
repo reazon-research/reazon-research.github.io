@@ -1,0 +1,409 @@
+<!doctype html>
+<html class="no-js"  lang="en" >
+
+<head><meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1KMDX1V1H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1KMDX1V1H');
+    </script>
+    
+  <link rel="author" title="About these documents" href="../about.html" /><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="(2023-04-04) ReazonSpeechの最新モデルを公開しました" href="2023-04-04-ReazonSpeech.html" /><link rel="prev" title="Blog" href="index.html" />
+  <link rel="canonical" href="https://research.reazon.jp/blog/2024-02-14-ReazonSpeech.html" />
+  
+  <title>(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大 - Reazon Human Interaction Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  </head>
+
+<body id="blog-2024-02-14-ReazonSpeech">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-arrow" viewBox="0 0 14 8">
+      <svg viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 2.82801L2.05 7.77801L0.635998 6.36401L7 1.47024e-05L13.364 6.36402L11.95 7.77802L7 2.82801Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-toc-menu">
+      <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19 15V17H1V15H19ZM4.596 0.903999L6.01 2.318L2.828 5.5L6.01 8.682L4.596 10.096L0 5.5L4.596 0.903999ZM19 8V10H10V8H19ZM19 0.999999V3H10V0.999999H19Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8 6.2225L14.2225 0L16 1.7775L9.7775 8L16 14.2225L14.2225 16L8 9.7775L1.7775 16L0 14.2225L6.2225 8L0 1.7775L1.7775 0L8 6.2225Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-left">
+      <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.6359 8.5L10 15.1114L8.18205 17L5.82128e-07 8.5L8.18205 -7.9465e-08L10 1.88859L3.6359 8.5Z"
+          fill="currentColor" />
+      </svg>
+    </symbol>
+  </svg>
+  <div id="global_nav"></div>
+  <div class="Container">
+    <aside id="sidebar" class="Sidebar" aria-label="Sidebar">
+    <div class="Sidebar__animationBg"></div>
+    <div class="Sidebar__container">
+        <div class="Sidebar__inner">
+            <a class="Sidebar__logo" href="../index.html">
+                
+                <h1>
+                    <img class="Sidebar__logoImage--light" src="../_static/logo.png" />
+                    <img class="Sidebar__logoImage--dark" src="../_static/logo-dark.png" />
+                </h1>
+                
+            </a>
+            <div class="Sidebar__tree Tree"><ul class="current">
+<li class="toctree-l1 Tree__item"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../projects/index.html">Projects</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-1"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l2 Tree__item Tree__item--has-children"><a class="reference internal" href="../projects/ReazonSpeech/index.html">ReazonSpeech</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-2"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l3 Tree__item"><a class="reference internal" href="../projects/ReazonSpeech/quickstart.html">クイックスタート</a></li>
+<li class="toctree-l3 Tree__item"><a class="reference internal" href="../projects/ReazonSpeech/howto.html">HowToガイド</a></li>
+<li class="toctree-l3 Tree__item Tree__item--has-children"><a class="reference internal" href="../projects/ReazonSpeech/api/index.html">APIリファレンス</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-3"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="../projects/ReazonSpeech/api/reazonspeech.nemo.asr.html">reazonspeech.nemo.asr</a></li>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="../projects/ReazonSpeech/api/reazonspeech.espnet.asr.html">reazonspeech.espnet.asr</a></li>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="../projects/ReazonSpeech/api/reazonspeech.espnet.oneseg.html">reazonspeech.espnet.oneseg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../news/index.html">News</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-4"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../news/reazonspeech.html">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current Tree__item Tree__item--has-children"><a class="reference internal" href="index.html">Blog</a><input checked="" class="Tree_itemToggleCheckbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-5"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current Tree__item current-page"><a class="current reference internal" href="#">(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="2023-04-04-ReazonSpeech.html">(2023-04-04) ReazonSpeechの最新モデルを公開しました</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="2023-01-15-ReazonSpeech-ESP32.html">(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a></li>
+</ul>
+</li>
+<li class="toctree-l1 Tree__item"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1 Tree__item"><a class="reference internal" href="../careers.html">Careers</a></li>
+</ul>
+</div>
+            <div class="Sidebar__search Search">
+                <i class="Search__icon">
+                    <svg width="22" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16.031 14.617L20.314 18.899L18.899 20.314L14.617 16.031C13.0237 17.3082 11.042 18.0029 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18.0029 11.042 17.3082 13.0237 16.031 14.617ZM14.025 13.875C15.2941 12.5699 16.0029 10.8204 16 9C16 5.132 12.867 2 9 2C5.132 2 2 5.132 2 9C2 12.867 5.132 16 9 16C10.8204 16.0029 12.5699 15.2941 13.875 14.025L14.025 13.875Z"
+                            fill="currentColor" />
+                    </svg>
+                </i>
+                <form class="Search__form" method="get" action="../search.html" role="search">
+                    <input class="Search__formText" placeholder=" Search" name="q" aria-label=" Search" />
+                    <input type="hidden" name="check_keywords" value="yes" />
+                    <input type="hidden" name="area" value="default" />
+                </form>
+            </div>
+        </div>
+    </div>
+</aside>
+    <div class="Container__inner">
+      
+      <script>document.body.dataset.theme = localStorage.getItem("theme") || "auto";</script>
+
+
+
+<main class="Page">
+    <header class="Page__header">
+        
+        <div class="Page__headerParent">Blog：</div>
+        
+        <h1>(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大 </h1>
+        
+    </header>
+    <article class="Page__body">
+        <section id="reazonspeech-v2-0">
+<h1>(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大<a class="headerlink" href="#reazonspeech-v2-0" title="Permalink to this heading">¶</a></h1>
+<p>2024年2月14日に、ReazonSpeechの最新バージョン v2.0 を公開したことをお知らせします。</p>
+<p>ReazonSpeech v2.0では、音声認識モデルの飛躍的な性能アップデートを実現しており、
+また公開する日本語音声コーパスも35000時間に大幅に拡大しています。</p>
+<p>この記事では、今回のアップデートのポイントをお伝えします。</p>
+<section id="id1">
+<h2>ReazonSpeech v2.0で何がリリースされたのか？<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>今回、ヒューマンインタラクション研究所では次の3点をリリースしました。</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.6%" />
+<col style="width: 42.9%" />
+<col style="width: 28.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>対象</p></th>
+<th class="head"><p>主なトピック</p></th>
+<th class="head"><p>URL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>音声認識モデル (NeMo)</p></td>
+<td><ul class="simple">
+<li><p><strong>推論速度を大幅に高速化</strong></p></li>
+<li><p>長時間音声の推論サポート</p></li>
+<li><p>学習データを35000時間に拡大</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/reazon-research/reazonspeech-nemo-v2">Hugging Face</a></p></li>
+<li><p><a class="reference internal" href="../projects/ReazonSpeech/quickstart.html"><span class="doc">クイックスタート</span></a></p></li>
+<li><p><a class="reference internal" href="../projects/ReazonSpeech/howto.html#nemo-asr"><span class="std std-ref">HowToガイド</span></a></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>音声認識モデル (ESPnet)</p></td>
+<td><ul class="simple">
+<li><p>学習データを35000時間に拡大</p></li>
+<li><p>句読点の推論機能</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/reazon-research/reazonspeech-espnet-v2">Hugging Face</a></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>日本語音声コーパス</p></td>
+<td><ul class="simple">
+<li><p><strong>収録時間数を35000時間に拡大</strong></p></li>
+<li><p>5種類のデータセットサイズの提供開始</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/datasets/reazon-research/reazonspeech">Hugging Face</a></p></li>
+<li><p><a class="reference internal" href="../projects/ReazonSpeech/howto.html#reazonspeech-corpus"><span class="std std-ref">HowToガイド</span></a></p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>それぞれのリリースアセットの詳細は、表の各リンクから参照できます。
+この記事の以降では、今回のリリースの特に重要なポイントについて解説を加えます。</p>
+</section>
+<section id="id2">
+<h2>音声認識モデルの大規模アップデート<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>ReazonSpeech v2.0では、従来のESPnetに加え、NVIDIA NeMoベースのモデルの提供をスタートします。</p>
+<p>この新しく提供するモデルの最大の特徴は、高速かつ高精度に日本語を認識できる点です。
+次の図をご覧ください。</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/rtf.png"><img alt="../_images/rtf.png" src="../_images/rtf.png" style="width: 800px;" /></a>
+</figure>
+<p>この図は、日本語音声認識モデルの処理速度と認識精度を散布図にプロットしたものです。
+縦軸と横軸ともに、原点に近いほど高い性能であることを表します。 <a class="footnote-reference brackets" href="#note" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p>この図からいくつかのポイントが指摘できます。</p>
+<ul class="simple">
+<li><p>深層学習による音声認識において、速度・精度の間にトレードオフの関係があることが確認できます。
+一般に、高精度の音声認識には、パラメーター数の多い巨大なモデルが必要となり、
+その分だけ処理時間が長くなります。図の点線のカーブは、この関係を示すものです。</p></li>
+<li><p>従来のモデル群は、実質的に同じトレードオフの前線に位置していました。
+例えば、WhisperのSmallモデルはMediumモデルの1.5倍速で推論を行えますが、その分だけ精度が劣化します。
+このため、これまでは「認識精度か処理速度か」の選択をユーザーが行う必要がありました。</p></li>
+</ul>
+<p>今回、ReazonSpeech v2.0では、認識精度と処理速度の両立を実現しました。
+ReazonSpeech v1.1と比較すると、精度は保ったまま、推論速度が7倍以上に高速化しています。
+OpenAI Whisperとの比較では、最も小さいTinyモデルの速度で、最も大きいLargeモデルの精度を実現できています。</p>
+<p>さらに、ReazonSpeech v2.0の認識精度の頑健性を示すために、
+JSUT-BASIC5000 <a class="footnote-reference brackets" href="#jsut-basic5000" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> 、Common Voice v8.0 <a class="footnote-reference brackets" href="#cv" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> 、
+TEDxJP-10K <a class="footnote-reference brackets" href="#tedx" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> の3つのデータセットに対して測定を行いました。
+その結果が次の図です。</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/cer1.png"><img alt="../_images/cer1.png" src="../_images/cer1.png" style="width: 700px;" /></a>
+</figure>
+<p>様々なデータセットに対して、ロバストに推論を実行できていることが確認できます。</p>
+<p>今回、公式サイトでは <a class="reference internal" href="../projects/ReazonSpeech/index.html#reazonspeech-demo"><span class="std std-ref">ReazonSpeechの音声認識デモ</span></a> を用意しています。
+次のように、ファイルのドラッグ＆ドロップで簡単に音声をテキストに変換できます。</p>
+<video controls width=500 style='margin: 1em 0; border:1px solid #ccc;'>
+  <source src='../../_static/blog/2024-02-14-ReazonSpeech/demo.webm' type='video/webm' />
+</video><p>また、ReazonSpeechモデルの使い方を <a class="reference internal" href="../projects/ReazonSpeech/quickstart.html"><span class="doc">クイックスタート</span></a> と <a class="reference internal" href="../projects/ReazonSpeech/howto.html"><span class="doc">HowToガイド</span></a> で解説しています。
+実際に音声認識モデルを使ってみた感想などのフィードバックをお待ちしています。</p>
+<aside class="topic">
+<p class="topic-title">補足: ReazonSpeech v2.0の音声認識モデルはなぜ速いのか？</p>
+<p>今回のアップデートのベースにあるのは、昨年発表されたFast Conformer <a class="footnote-reference brackets" href="#fastconformer" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> という最新の深層学習アーキテクチャです。
+原論文の Rekesh, et al., 2023 のアブストラクトから引用します。</p>
+<blockquote>
+<div><p>Conformerベースのモデルは、音声処理タスクに対するエンドツーエンドアーキテクチャの主流である。
+我々は、Conformerアーキテクチャの訓練と推論を改善を目標として、新しいダウンサンプリングの仕組みを用いて再設計を試みた。
+今回提案するモデルのFast Conformer (FC) はオリジナルのConformerよりも2.8倍高速であり、
+アーキテクチャに本質的な変更を加えなくとも10億パラメータにスケールし、
+認識精度においてもSOTAの性能を達成している。</p>
+</div></blockquote>
+<p>重要なポイントとして、Fast ConformerはLongformer <a class="footnote-reference brackets" href="#longformer" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> スタイルの注意機構と組み合わせることができます。
+Transformerは本質的に <span class="math notranslate nohighlight">\(O(n^2)\)</span> の計算量を必要とするため、長い入力シーケンスの扱いは概して苦手です。
+Longformerの線型のアテンションパターンは、この理論的な限界を克服することを可能にします。</p>
+<p>今回、ReazonSpeech v2.0では改良されたConformerと線型の注意機構を組み合わせたアーキテクチャを採用しました。
+これにより、長時間の音声シーケンスをシングルパスで処理できるようになり、推論速度を大幅に向上させることができました。</p>
+</aside>
+</section>
+<section id="id9">
+<h2>従来比1.8倍の日本語音声コーパス<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
+<p>ReazonSpeechは世界最大のオープン日本語音声コーパスの構築を目指すプロジェクトです。</p>
+<p>昨年1月に、放送音声から抽出した19000時間の日本語音声コーパスを公開しました。
+これを実現した技術の詳細は <a class="reference external" href="../../_static/reazonspeech_nlp2023.pdf">言語処理学会の年次大会で発表した論文</a> で詳しく述べました。</p>
+<p>今回は、その手法をさらに推し進め、35000時間のコーパスを構築しました。
+これは昨年比で1.8倍に相当する規模となり、英語圏の大規模データセットと比較しても遜色のないスケールに達しています。</p>
+<p>さらに、実際のユースケースに配慮し、今回のリリースからサブセットデータの提供も拡大します。
+具体的には、全件データに加えて、次のようなサブセットを提供します。</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default" style="width: 600px">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>タグ</p></th>
+<th class="head"><p>サイズ</p></th>
+<th class="head"><p>収録時間数</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tiny</p></td>
+<td><p>600MB</p></td>
+<td><p>8.5 時間</p></td>
+</tr>
+<tr class="row-odd"><td><p>small</p></td>
+<td><p>6GB</p></td>
+<td><p>100 時間</p></td>
+</tr>
+<tr class="row-even"><td><p>medium</p></td>
+<td><p>65GB</p></td>
+<td><p>1000 時間</p></td>
+</tr>
+<tr class="row-odd"><td><p>large</p></td>
+<td><p>330GB</p></td>
+<td><p>5000 時間</p></td>
+</tr>
+<tr class="row-even"><td><p>all</p></td>
+<td><p>2.3TB</p></td>
+<td><p>35000 時間</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>これらのデータセットの具体的な利用方法は <a class="reference internal" href="../projects/ReazonSpeech/howto.html#reazonspeech-corpus"><span class="std std-ref">HowToガイド</span></a> に記述しています。</p>
+</section>
+<section id="id11">
+<h2>今後の展開<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<p>当研究所では、ユーザがより効率的に情報伝達を行うための技術研究の一環として、
+音声コーパスと音声認識モデルの研究開発を行ってきました。</p>
+<p>今回のリリースはその一つの大きなマイルストーンであり、
+今後も日本語音声処理技術の発展に向けてより一層研究を進めて参ります。</p>
+</section>
+<section id="id12">
+<h2>脚注<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="note" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p>この図は、約70分の読み上げ音声からなるJSUT-book <a class="footnote-reference brackets" href="#jsut-book" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> を検証データセットとして利用し、
+NVIDIA DGX A100上で認識精度・速度を測定したものです。</p>
+</aside>
+<aside class="footnote brackets" id="jsut-book" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://sites.google.com/site/shinnosuketakamichi/publication/jsut-book">https://sites.google.com/site/shinnosuketakamichi/publication/jsut-book</a></p>
+</aside>
+<aside class="footnote brackets" id="jsut-basic5000" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
+<p>Ryosuke Sonobe, Shinnosuke Takamichi and Hiroshi Saruwatari,  “JSUT corpus: free large-scale Japanese speech corpus for end-to-end speech synthesis,” arXiv preprint, 1711.00354, 2017.</p>
+</aside>
+<aside class="footnote brackets" id="cv" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a></p>
+</aside>
+<aside class="footnote brackets" id="tedx" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/laboroai/TEDxJP-10K">https://github.com/laboroai/TEDxJP-10K</a></p>
+</aside>
+<aside class="footnote brackets" id="fastconformer" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">6</a><span class="fn-bracket">]</span></span>
+<p>Rekesh, Dima, et al. “Fast conformer with linearly scalable attention for efficient speech recognition.” 2023 IEEE Automatic Speech Recognition and Understanding Workshop (ASRU). IEEE, 2023</p>
+</aside>
+<aside class="footnote brackets" id="longformer" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">7</a><span class="fn-bracket">]</span></span>
+<p>Beltagy, Iz, Matthew E. Peters, and Arman Cohan. “Longformer: The long-document transformer.” arXiv preprint arXiv:2004.05150 (2020).</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    </article>
+    <aside class="Page__toc Toc">
+        
+        
+        <div class="Toc__inner">
+            <div class="Toc__title">
+                <span>Index</span>
+            </div>
+            <div class="Toc__tree">
+                <ul>
+<li><a class="reference internal" href="#">(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大</a><ul>
+<li><a class="reference internal" href="#id1">ReazonSpeech v2.0で何がリリースされたのか？</a></li>
+<li><a class="reference internal" href="#id2">音声認識モデルの大規模アップデート</a></li>
+<li><a class="reference internal" href="#id9">従来比1.8倍の日本語音声コーパス</a></li>
+<li><a class="reference internal" href="#id11">今後の展開</a></li>
+<li><a class="reference internal" href="#id12">脚注</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        
+        
+    </aside>
+</main>
+
+    </div>
+  </div>
+  <footer class="Footer">
+    <div class="Footer__copyright">
+        Copyright &copy; 2023, Human Interaction Laboratory
+    </div>
+    <div class="Footer__toolButton ToolButton">
+        <div class="ToolButton__viewMode">
+            <div class="ToolButton__viewModeLabel">View Mode</div>
+            <button class="ToolButton__viewModeButton ToolButton__viewModeButton--dark">Night Mode</button>
+            <button class="ToolButton__viewModeButton ToolButton__viewModeButton--light">Day Mode</button>
+            <button class="ToolButton__viewModeButton ToolButton__viewModeButton--system">System Setting</button>
+        </div>
+<!--
+        <div class="ToolButton__languageMode">
+            <div class="ToolButton__languageModeLabel">Language</div>
+            <div class="ToolButton__languageModeButtons">
+                <a class="ToolButton__languageModeButton"
+                    href="../../blog/2024-02-14-ReazonSpeech.html">JP</a>
+                /
+                <a class="ToolButton__languageModeButton" disabled
+                    href=".././en/blog/2024-02-14-ReazonSpeech.html">EN</a>
+            </div>
+        </div>
+-->
+    </div>
+</footer><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/sphinx_highlight.js"></script>
+  <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- <script type="module" crossorigin src="http://localhost:3000/javascripts/main.ts"></script> -->
+  <script src="../_static/main.js" defer></script></body>
+
+</html>
