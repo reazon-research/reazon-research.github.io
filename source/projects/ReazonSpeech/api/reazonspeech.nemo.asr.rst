@@ -13,7 +13,7 @@ reazonspeech.nemo.asr
 
    ReazonSpeechのNeMoモデルをロードする。
 
-   :param device str: ``cuda``, ``cpu`` または ``mps``  ( ``None`` 指定で自動選択)
+   :param device str: ``cuda`` または ``cpu`` ( ``None`` 指定で自動選択)
    :rtype: nemo.collections.asr.models.EncDecRNNTBPEModel
 
 .. function:: transcribe(model, audio, config=None)
