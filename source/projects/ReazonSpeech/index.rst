@@ -122,6 +122,9 @@ ReazonSpeechの音声認識モデルは最先端の性能を実現していま�
 
 .. figure:: ../../_static/rtf.png
 
+:関連記事:
+  * :any:`/blog/2024-02-14-ReazonSpeech`
+
 .. _JSUT-bookコーパス: https://sites.google.com/site/shinnosuketakamichi/publication/jsut-book
 
 .. toctree::
