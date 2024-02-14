@@ -137,7 +137,7 @@
 <p>2024年2月14日に、ReazonSpeechの最新バージョン v2.0 を公開したことをお知らせします。</p>
 <p>ReazonSpeech v2.0では、音声認識モデルの飛躍的な性能アップデートを実現しており、
 また公開する日本語音声コーパスも35000時間に大幅に拡大しています。</p>
-<p>この記事では、今回のアップデートのポイントをお伝えします。</p>
+<p>この記事では、今回のアップデートのハイライトをお伝えします。</p>
 <section id="id1">
 <h2>ReazonSpeech v2.0で何がリリースされたのか？<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
 <p>今回、ヒューマンインタラクション研究所では次の3点をリリースしました。</p>
@@ -208,18 +208,20 @@
 </figure>
 <p>この図は、日本語音声認識モデルの処理速度と認識精度を散布図にプロットしたものです。
 縦軸と横軸ともに、原点に近いほど高い性能であることを表します。 <a class="footnote-reference brackets" href="#note" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
-<p>この図からいくつかのポイントが指摘できます。</p>
+<p>この図からいくつかのポイントが見てとれます：</p>
 <ul class="simple">
-<li><p>深層学習による音声認識において、速度・精度の間にトレードオフの関係があることが確認できます。
+<li><p>まず、音声認識において、速度・精度の間にトレードオフの関係があることが確認できます。
 一般に、高精度の音声認識には、パラメーター数の多い巨大なモデルが必要となり、
 その分だけ処理時間が長くなります。図の点線のカーブは、この関係を示すものです。</p></li>
 <li><p>従来のモデル群は、実質的に同じトレードオフの前線に位置していました。
-例えば、WhisperのSmallモデルはMediumモデルの1.5倍速で推論を行えますが、その分だけ精度が劣化します。
-このため、これまでは「認識精度か処理速度か」の選択をユーザーが行う必要がありました。</p></li>
+例えば、WhisperのSmallモデルはMediumモデルの1.7倍速で推論を行えますが、その分だけ精度が劣化します。</p></li>
 </ul>
-<p>今回、ReazonSpeech v2.0では、認識精度と処理速度の両立を実現しました。
-ReazonSpeech v1.1と比較すると、精度は保ったまま、推論速度が7倍以上に高速化しています。
-OpenAI Whisperとの比較では、最も小さいTinyモデルの速度で、最も大きいLargeモデルの精度を実現できています。</p>
+<p>今回、ReazonSpeech v2.0では、認識精度と処理速度の両立を実現しました。</p>
+<ul class="simple">
+<li><p>ReazonSpeech v1.1と比較すると、精度は保ったまま、推論速度が7倍以上に高速化しています。</p></li>
+<li><p>同じことをOpenAI Whisperとの比較で言い替えると、Whisperの最も小さいTinyモデルの速度で、
+最も大きいLargeモデル相当の精度を達成できています。</p></li>
+</ul>
 <p>さらに、ReazonSpeech v2.0の認識精度の頑健性を示すために、
 JSUT-BASIC5000 <a class="footnote-reference brackets" href="#jsut-basic5000" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> 、Common Voice v8.0 <a class="footnote-reference brackets" href="#cv" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> 、
 TEDxJP-10K <a class="footnote-reference brackets" href="#tedx" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> の3つのデータセットに対して測定を行いました。
