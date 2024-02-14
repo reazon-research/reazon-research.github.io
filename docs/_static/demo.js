@@ -4,6 +4,7 @@ var dom = {
     container: null,
     input: null,
     tbody: null,
+    message: null,
     progress: null,
 }
 
@@ -26,6 +27,17 @@ function render_table(resp) {
     }).join("");
 }
 
+function get_message(code) {
+    switch (code) {
+        case 400:
+            return 'サポートされていない音声ファイルの形式です。';
+        case 413:
+            return '音声ファイルのサイズが大きすぎます。';
+        default:
+            return 'アクセスが集中しています。時間をおいて再度お試し下さい。';
+    }
+}
+
 function on_success() {
     var resp = JSON.parse(state.xhr.response);
     if (resp.text) {
@@ -37,6 +49,7 @@ function on_success() {
 }
 
 function on_error() {
+    dom.message.innerText = get_message(state.xhr.status);
     dom.container.className = 'err';
     clearInterval(state.timer_id);
     progress_set(100);
@@ -112,6 +125,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     dom.input = document.querySelector('#demo-file');
     dom.tbody = document.querySelector('#demo-tbody');
     dom.progress = document.querySelector('#demo .progress span');
+    dom.message = document.querySelector('#demo .message');
     dom.container.addEventListener('drop', on_drop);
     dom.container.addEventListener('dragover', (evt) => {
         evt.preventDefault();
