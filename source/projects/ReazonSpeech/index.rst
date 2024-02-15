@@ -49,6 +49,12 @@ ReazonSpeechの音声認識を試してみる
 
 .. raw:: html
 
+   <a href="https://colab.research.google.com/github/reazon-research/ReazonSpeech/blob/master/colab/ReazonSpeech_v2_0.ipynb">
+    <img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
+   </a>
+
+.. raw:: html
+
    <script src='../../_static/demo.js'></script>
    <link rel="stylesheet" type="text/css" href="../../_static/demo.css" />
    <div id='demo'>
@@ -73,7 +79,6 @@ ReazonSpeechの音声認識を試してみる
        </table>
      </div>
    </div>
-   </ul>
 
 * WAV・MP3・Flac・Opus・Oggの各音声形式に対応しています。
 
