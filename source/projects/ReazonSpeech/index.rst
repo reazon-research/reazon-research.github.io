@@ -75,6 +75,8 @@ ReazonSpeechの音声認識を試してみる
    </div>
    </ul>
 
+* WAV・MP3・Flac・Opus・Oggの各音声形式に対応しています。
+
 ReazonSpeechコーパスのサンプル音声
 ==================================
 
