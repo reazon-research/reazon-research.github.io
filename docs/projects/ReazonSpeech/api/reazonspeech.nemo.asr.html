@@ -269,6 +269,12 @@
 <dd><p>Falseがセットされた場合、プログレスバーを無効化する。</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.nemo.asr.TranscribeConfig.raw_hypothesis">
+<span class="sig-name descname"><span class="pre">raw_hypothesis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#reazonspeech.nemo.asr.TranscribeConfig.raw_hypothesis" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Trueがセットされた場合、Hypothesisオブジェクトを返却する。</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -291,6 +297,12 @@
 <dt class="sig sig-object py" id="reazonspeech.nemo.asr.TranscribeResult.subwords">
 <span class="sig-name descname"><span class="pre">subwords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#reazonspeech.nemo.asr.Subword" title="reazonspeech.nemo.asr.Subword"><span class="pre">Subword</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#reazonspeech.nemo.asr.TranscribeResult.subwords" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>サブワード単位のタイムスタンプ情報</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reazonspeech.nemo.asr.TranscribeResult.hypothesis">
+<span class="sig-name descname"><span class="pre">hypothesis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">nemo.collections.asr.parts.utils.rnnt_utils.Hypothesis</span></em><a class="headerlink" href="#reazonspeech.nemo.asr.TranscribeResult.hypothesis" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>NeMoが返却する音声認識の詳細情報（ <a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeConfig.raw_hypothesis" title="reazonspeech.nemo.asr.TranscribeConfig.raw_hypothesis"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">TranscribeConfig.raw_hypothesis</span></code></a> を参照）</p>
 </dd></dl>
 
 </dd></dl>
@@ -389,12 +401,14 @@
 <li><a class="reference internal" href="#id3">クラス</a><ul>
 <li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeConfig"><code class="docutils literal notranslate"><span class="pre">TranscribeConfig</span></code></a><ul>
 <li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeConfig.verbose"><code class="docutils literal notranslate"><span class="pre">TranscribeConfig.verbose</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeConfig.raw_hypothesis"><code class="docutils literal notranslate"><span class="pre">TranscribeConfig.raw_hypothesis</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeResult"><code class="docutils literal notranslate"><span class="pre">TranscribeResult</span></code></a><ul>
 <li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeResult.text"><code class="docutils literal notranslate"><span class="pre">TranscribeResult.text</span></code></a></li>
 <li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeResult.segments"><code class="docutils literal notranslate"><span class="pre">TranscribeResult.segments</span></code></a></li>
 <li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeResult.subwords"><code class="docutils literal notranslate"><span class="pre">TranscribeResult.subwords</span></code></a></li>
+<li><a class="reference internal" href="#reazonspeech.nemo.asr.TranscribeResult.hypothesis"><code class="docutils literal notranslate"><span class="pre">TranscribeResult.hypothesis</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#reazonspeech.nemo.asr.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
