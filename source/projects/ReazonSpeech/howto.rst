@@ -171,8 +171,6 @@ ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行�
           $ python3 test.py
           気象庁は雪や路面の凍結による交通への影響、暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています。
 
-
-
 関数が受け取る引数や返り値の詳細はAPIリファレンス :any:`api/reazonspeech.nemo.asr` を参照ください。
 
 .. note::
@@ -188,6 +186,24 @@ ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行�
       $ pip install ReazonSpeech/pkg/espnet-asr
 
    詳細はAPIリファレンス :any:`reazonspeech.espnet.asr` を参照ください。
+
+.. hint::
+
+     プログレスバーを無効化する場合は、次のサンプルコードを利用ください。
+
+     .. code:: python
+
+        import os
+        os.environ['TQDM_DISABLE'] = '1'
+        from reazonspeech.nemo.asr import load_model, transcribe, audio_from_path, TranscribeConfig
+
+        # Prepare model and configuration
+        model = load_model()
+        audio = audio_from_path("demo.mp3")
+        config = TranscribeConfig(verbose=False)
+
+        # Process audio
+        ret = transcribe(model, audio, config)
 
 ワンセグ放送から字幕情報を抽出する
 ==================================
