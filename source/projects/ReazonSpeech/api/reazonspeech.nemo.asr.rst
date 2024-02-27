@@ -104,6 +104,12 @@ reazonspeech.nemo.asr
 
       Falseがセットされた場合、プログレスバーを無効化する。
 
+   .. attribute:: raw_hypothesis
+      :type: bool
+      :value: False
+
+      Trueがセットされた場合、Hypothesisオブジェクトを返却する。
+
 .. class:: TranscribeResult
 
    音声認識の結果を格納するためのデータクラス
@@ -122,6 +128,11 @@ reazonspeech.nemo.asr
       :type: List[Subword]
 
       サブワード単位のタイムスタンプ情報
+
+   .. attribute:: hypothesis
+      :type: nemo.collections.asr.parts.utils.rnnt_utils.Hypothesis
+
+      NeMoが返却する音声認識の詳細情報（ :any:`TranscribeConfig.raw_hypothesis` を参照）
 
 .. class:: Segment
 
