@@ -205,6 +205,23 @@
 </dl>
 </dd></dl>
 
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p>transcribe関数のプログレスバーを無効化するサンプルコードを以下に示します。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TQDM_DISABLE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+<span class="kn">from</span> <span class="nn">reazonspeech.nemo.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span><span class="p">,</span> <span class="n">TranscribeConfig</span>
+
+<span class="c1"># Prepare model and configuration</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">()</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="s2">&quot;demo.mp3&quot;</span><span class="p">)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">TranscribeConfig</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Process audio</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">audio</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </section>
 <section id="id2">
 <h2>補助関数<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>

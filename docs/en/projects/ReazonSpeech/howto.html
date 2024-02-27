@@ -365,23 +365,6 @@
 </div>
 <p>詳細はAPIリファレンス <a class="reference internal" href="api/reazonspeech.espnet.asr.html#module-reazonspeech.espnet.asr" title="reazonspeech.espnet.asr"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">reazonspeech.espnet.asr</span></code></a> を参照ください。</p>
 </div>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>プログレスバーを無効化する場合は、次のサンプルコードを利用ください。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TQDM_DISABLE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
-<span class="kn">from</span> <span class="nn">reazonspeech.nemo.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span><span class="p">,</span> <span class="n">TranscribeConfig</span>
-
-<span class="c1"># Prepare model and configuration</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">()</span>
-<span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="s2">&quot;demo.mp3&quot;</span><span class="p">)</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">TranscribeConfig</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Process audio</span>
-<span class="n">ret</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">audio</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </section>
 <section id="id3">
 <h2>ワンセグ放送から字幕情報を抽出する<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
