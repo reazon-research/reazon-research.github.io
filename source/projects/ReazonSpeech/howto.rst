@@ -187,24 +187,6 @@ ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行�
 
    詳細はAPIリファレンス :any:`reazonspeech.espnet.asr` を参照ください。
 
-.. hint::
-
-     プログレスバーを無効化する場合は、次のサンプルコードを利用ください。
-
-     .. code:: python
-
-        import os
-        os.environ['TQDM_DISABLE'] = '1'
-        from reazonspeech.nemo.asr import load_model, transcribe, audio_from_path, TranscribeConfig
-
-        # Prepare model and configuration
-        model = load_model()
-        audio = audio_from_path("demo.mp3")
-        config = TranscribeConfig(verbose=False)
-
-        # Process audio
-        ret = transcribe(model, audio, config)
-
 ワンセグ放送から字幕情報を抽出する
 ==================================
 

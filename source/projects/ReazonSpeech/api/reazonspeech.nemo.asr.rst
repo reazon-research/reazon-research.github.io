@@ -65,6 +65,25 @@ reazonspeech.nemo.asr
    :param reazonspeech.nemo.asr.TranscribeConfig config: 追加オプション（省略可）
    :rtype: reazonspeech.nemo.asr.TranscribeResult
 
+.. hint::
+
+   transcribe関数のプログレスバーを無効化するサンプルコードを以下に示します。
+
+   .. code:: python
+
+      import os
+      os.environ['TQDM_DISABLE'] = '1'
+      from reazonspeech.nemo.asr import load_model, transcribe, audio_from_path, TranscribeConfig
+
+      # Prepare model and configuration
+      model = load_model()
+      audio = audio_from_path("demo.mp3")
+      config = TranscribeConfig(verbose=False)
+
+      # Process audio
+      ret = transcribe(model, audio, config)
+
+
 補助関数
 ========
 
