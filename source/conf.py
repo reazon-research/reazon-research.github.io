@@ -27,10 +27,13 @@ author = 'Human Interaction Laboratory'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+import os,sys
+sys.path.insert(0, os.path.abspath('../pkg'))
 extensions = [
     "sphinx.ext.githubpages",
     "sphinxcontrib.googleanalytics",
     "myst_parser",
+    "sphinx_reazon_filter_extension",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
