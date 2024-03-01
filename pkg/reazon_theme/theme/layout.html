@@ -28,7 +28,7 @@
   <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
   {%- endif -%}
   {#- rel="canonical" (set by html_baseurl) -#}
-  {%- if pageurl %}
+  {%- if pageurl and '<link rel="canonical"' not in metatags %}
   <link rel="canonical" href="{{ pageurl|e }}" />{%- endif %}
   {%- endblock linktags %}
   {# Favicon #}
