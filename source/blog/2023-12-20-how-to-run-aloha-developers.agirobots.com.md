@@ -56,7 +56,7 @@ C922X）を使用します。これらの機器を同時に使用すると大量
 
 本記事で構築するALOHAの動作環境の全体的な構成について説明します。以下の図を見てください。
 
-> ![](image-13-1024x644.png)
+> ![](../_static/blog/2023-12-20-how-to-run-aloha-developers.agirobots.com/image-13-1024x644.png)
 
 ALOHAは、左右のリーダーとフォロワーのアーム、カメラがそれぞれ2つのUSBハブを通じてPCに接続されます。これらのUSBハブは、PCのUSB
 3.0以上のポートに接続されます（帯域が小さいと通信エラーになる可能性あり）。
@@ -172,7 +172,7 @@ Dynamixel
 Wizardを使用し、フォロワー側のアームのIDが9番のサーボに電流制限を追加し、グリッパが過度に強く閉じて壊れることや、過負荷エラーを防げるようにします。具体的にはアドレス38のCurrent
 Limitを300に設定します。
 
-> ![](image-11-1024x768.png)
+> ![](../_static/blog/2023-12-20-how-to-run-aloha-developers.agirobots.com/image-11-1024x768.png)
 
 ## Dockerイメージのビルド
 
@@ -269,13 +269,13 @@ docker run -it -p 6080:80 --privileged --gpus all --volume ~/aloha/datasets:/dat
 
 ブラウザからhttp://127.0.0.1:6080にアクセスし、無事、下図のようなリモートデスクトップが起動すれば問題ありません。
 
-![](image-12-1024x640.png)
+![](../_static/blog/2023-12-20-how-to-run-aloha-developers.agirobots.com/image-12-1024x640.png)
 
 ## リーダーフォロワーによる操作実験
 
 では、まずはリーダーフォロワーによる操作を試してみましょう。ALOHAがPCに接続されていることを確認したうえで、以下の図のように3つのターミナルを開いて下さい。
 
-![](Screenshot-from-2024-01-28-20-06-21-1024x640.png)
+![](../_static/blog/2023-12-20-how-to-run-aloha-developers.agirobots.com/Screenshot-from-2024-01-28-20-06-21-1024x640.png)
 
 そして、それぞれのターミナルに以下を入力してください。
 
@@ -378,7 +378,7 @@ python3 replay_episodes.py --dataset_dir /datasets/operation_test --episode_idx 
 
 コンテナ内でターミナルを開き、`nvidia-smi`を実行し、GPUが使用できるか確認しましょう。問題なく実行できるのであれば、以下のようにGPUの情報が表示されます。
 
-> ![](image-6-1024x621.png)
+> ![](../_static/blog/2023-12-20-how-to-run-aloha-developers.agirobots.com/image-6-1024x621.png)
 
 ### 十分なエキスパートデータの収集
 
