@@ -15,9 +15,9 @@
     </script>
     <link rel="canonical" href="https://developers.agirobots.com/jp/how-to-run-aloha/" />
 <meta name="robots" content="noindex, follow" />
-  <link rel="author" title="About these documents" href="../about.html" /><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+  <link rel="author" title="About these documents" href="../about.html" /><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="(2023-04-04) ReazonSpeechの最新モデルを公開しました" href="2023-04-04-ReazonSpeech.html" /><link rel="prev" title="(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大" href="2024-02-14-ReazonSpeech.html" />
   
-  <title>はじめに - Reazon Human Interaction Lab</title>
+  <title>(2023-12-20) ALOHAとACTを用いた模倣学習実験の再現方法 - Reazon Human Interaction Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@
                 </h1>
                 
             </a>
-            <div class="Sidebar__tree Tree"><ul>
+            <div class="Sidebar__tree Tree"><ul class="current">
 <li class="toctree-l1 Tree__item"><a class="reference internal" href="../about.html">About</a></li>
 <li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../projects/index.html">Projects</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-1"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
 <li class="toctree-l2 Tree__item Tree__item--has-children"><a class="reference internal" href="../projects/ReazonSpeech/index.html">ReazonSpeech</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-2"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
@@ -89,11 +89,12 @@
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../news/reazonspeech.html">超高精度で商用利用可能な純国産の日本語音声認識モデル「ReazonSpeech」を無償公開</a></li>
 </ul>
 </li>
-<li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="index.html">Blog</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-5"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l1 current Tree__item Tree__item--has-children"><a class="reference internal" href="index.html">Blog</a><input checked="" class="Tree_itemToggleCheckbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-5"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="2024-02-14-ReazonSpeech.html">(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大</a></li>
+<li class="toctree-l2 current Tree__item current-page"><a class="current reference internal" href="#">(2023-12-20) ALOHAとACTを用いた模倣学習実験の再現方法</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="2023-04-04-ReazonSpeech.html">(2023-04-04) ReazonSpeechの最新モデルを公開しました</a></li>
-<li class="toctree-l2 Tree__item"><a class="reference internal" href="2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="2023-01-15-ReazonSpeech-ESP32.html">(2023-01-15) スマホの通話内容をReazonSpeechで音声認識してSlackに転送する</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="2023-01-15-DDS-performance.html">(2023-01-15) 分散ROS2 FastDDS/CycloneDDS のパフォーマンス評価</a></li>
 </ul>
 </li>
 <li class="toctree-l1 Tree__item"><a class="reference internal" href="../publications.html">Publications</a></li>
@@ -126,13 +127,16 @@
 <main class="Page">
     <header class="Page__header">
         
+        <div class="Page__headerParent">Blog：</div>
         
-        <h1>はじめに </h1>
+        <h1>(2023-12-20) ALOHAとACTを用いた模倣学習実験の再現方法 </h1>
         
     </header>
     <article class="Page__body">
-        <section id="id1">
-<h1>はじめに<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+        <section id="alohaact">
+<h1>(2023-12-20) ALOHAとACTを用いた模倣学習実験の再現方法<a class="headerlink" href="#alohaact" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>本記事では、RSS 2023で発表された論文「Learning Fine-Grained Bimanual
 Manipulation with Low-Cost
 Hardware」で紹介された、低コストのオープンソースハードウェア「ALOHA」を用いて、ACT（Action
@@ -163,22 +167,22 @@ target="_blank"
 rel="noreferrer noopener">https://developers.agirobots.com/jp/how-to-run-aloha/</a></p>
 </section>
 <section id="id2">
-<h1>事前準備<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h1>
+<h2>事前準備<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <section id="pc">
-<h2>要求されるPCの仕様<a class="headerlink" href="#pc" title="Permalink to this heading">¶</a></h2>
+<h3>要求されるPCの仕様<a class="headerlink" href="#pc" title="Permalink to this heading">¶</a></h3>
 <p>ALOHAでは、4台のアームロボット（ViperX 300とWidowX
 250それぞれ2台ずつ）と4台のカメラ（Logitech
 C922X）を使用します。これらの機器を同時に使用すると大量のUSB帯域を必要とするため、USB
 3.0以上に対応したポートを2つ以上備えたPCが必要です。また、機械学習を行う場合は、<strong>GPUを搭載したPC</strong>、あるいは<strong>外付けGPUの接続が可能なPC</strong>を準備することをお勧めします。</p>
 </section>
 <section id="os">
-<h2>要求されるOS<a class="headerlink" href="#os" title="Permalink to this heading">¶</a></h2>
+<h3>要求されるOS<a class="headerlink" href="#os" title="Permalink to this heading">¶</a></h3>
 <p>この記事で紹介する動作環境の整備ではDockerを使用しますので、Dockerが動作するOSが必要です。また、DockerコンテナからUSBデバイスへのアクセスが可能である必要がありますので、<strong>基本的にはUbuntuを推奨</strong>します。<br />
 ※Dockerのインストール方法については本記事では紹介していませんので、ご自身でインストールをお願いします。</p>
 </section>
 </section>
 <section id="id3">
-<h1>システム概要<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h1>
+<h2>システム概要<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>本記事で構築するALOHAの動作環境の全体的な構成について説明します。以下の図を見てください。</p>
 <blockquote>
 <div><p><img alt="" src="../_images/image-13-1024x644.png" /></p>
@@ -193,10 +197,10 @@ PiやJetsonなどで運用したい場合は、Dockerfileの内容を変更す�
 <p>以上が、本記事で構築するシステム概要となります。</p>
 </section>
 <section id="id4">
-<h1>デバイス認識名の設定<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h1>
+<h2>デバイス認識名の設定<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p>ここでは、接続したデバイス名を、これから設定するファイル（<strong>/etc/udev/rules.d/99-fixed-interbotix-udev.rules</strong>）に記載の通りの名前として認識されるように設定を行います。今回接続するデバイスは、４台のアームロボットと４台のWebカメラです。それぞれについて、シリアル番号を確認する作業が、ここで一番の面倒なところです。</p>
 <section id="id5">
-<h2>４台のアームロボットの認識名設定<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<h3>４台のアームロボットの認識名設定<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <p>USBで接続されたアームロボットは、ttyUSB*の形で認識されますが、*の部分は接続順によって変わります。これを解決するために、デバイスのシリアル番号を用いて、それぞれのアームロボットに固有の名前を割り当てます。</p>
 <p><strong>各アームロボットのシリアル番号の取得</strong></p>
 <p>まず、シリアル番号を調べるアームロボットのみをPCに接続します。そして、以下のコマンドを実行して、シリアル番号（例:
@@ -225,7 +229,7 @@ FT89FIZE）を取得します。<br />
 <p>そして、4台のアームロボットを接続し、指定した名前で認識されていることを確認して下さい。</p>
 </section>
 <section id="web">
-<h2>4台のWebカメラの認識名設定<a class="headerlink" href="#web" title="Permalink to this heading">¶</a></h2>
+<h3>4台のWebカメラの認識名設定<a class="headerlink" href="#web" title="Permalink to this heading">¶</a></h3>
 <p>USBで接続されたWebカメラは、video*の形で認識されますが、*の部分は接続順によって変わります。これを解決するために、デバイスのシリアル番号を用いて、それぞれのWebカメラに固有の名前を割り当てます。</p>
 <p><strong>各Webカメラのシリアル番号の取得</strong></p>
 <p>まず、シリアル番号を知りたいWebカメラのみをPCに接続します。そして、以下のコマンドを実行して、シリアル番号を取得します。<br />
@@ -261,7 +265,7 @@ WebcamのVideoのドライバー部分が、<code class="docutils literal notran
 </section>
 </section>
 <section id="id6">
-<h1>グリッパーにトルク制限を設定<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h1>
+<h2>グリッパーにトルク制限を設定<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
 <p>Dynamixel
 Wizardを使用し、フォロワー側のアームのIDが9番のサーボに電流制限を追加し、グリッパが過度に強く閉じて壊れることや、過負荷エラーを防げるようにします。具体的にはアドレス38のCurrent
 Limitを300に設定します。</p>
@@ -270,7 +274,7 @@ Limitを300に設定します。</p>
 </div></blockquote>
 </section>
 <section id="docker">
-<h1>Dockerイメージのビルド<a class="headerlink" href="#docker" title="Permalink to this heading">¶</a></h1>
+<h2>Dockerイメージのビルド<a class="headerlink" href="#docker" title="Permalink to this heading">¶</a></h2>
 <p>この章では、ALOHAの制御およびACTによる模倣学習を行うためのDockerイメージを作成します。</p>
 <p>DockerイメージをビルドするにはDockerfileが必要です。aloha_dockerというフォルダをホームディレクトリ直下に作成し、その中にDockerfileを作成することにします。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span>mkdir ~/aloha_docker
@@ -340,7 +344,7 @@ RUN pip3 install torch torchvision pyquaternion pyyaml rospkg pexpect mujoco dm_
 </div>
 </section>
 <section id="id7">
-<h1>Dockerコンテナの起動<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h1>
+<h2>Dockerコンテナの起動<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <p>先ほどビルドしたDockerイメージからコンテナを作成します。これは、docker
 runコマンドで行います。その際に、ルートディレクトリに~/aloha/datasetsフォルダを作成し、コンテナにマウントします。先ほど軽く触れましたが、収集したエキスパートデータは全てこの~/aloha/datasetsフォルダの中に保存されます。まだこのフォルダを作成していないと思いますので、以下のコマンドを実行して、ホストPCに~/aloha/datasetsフォルダを作成してください。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/aloha/datasets
@@ -354,7 +358,7 @@ runコマンドで行います。その際に、ルートディレクトリに~/
 <p><img alt="" src="../_images/image-12-1024x640.png" /></p>
 </section>
 <section id="id8">
-<h1>リーダーフォロワーによる操作実験<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h1>
+<h2>リーダーフォロワーによる操作実験<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
 <p>では、まずはリーダーフォロワーによる操作を試してみましょう。ALOHAがPCに接続されていることを確認したうえで、以下の図のように3つのターミナルを開いて下さい。</p>
 <p><img alt="" src="../_images/Screenshot-from-2024-01-28-20-06-21-1024x640.png" /></p>
 <p>そして、それぞれのターミナルに以下を入力してください。</p>
@@ -385,10 +389,10 @@ DM開放してます <a class="reference external" href="https://t.co/TZUn1GIBdR
 <p>※本来、ALOHAの実験機は、リーダーアームの各関節を上部からゴムで吊るすのですが、ここでは便宜上、上部から吊るしていません。</p>
 </section>
 <section id="id9">
-<h1>エキスパートデータの収集方法<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h1>
+<h2>エキスパートデータの収集方法<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
 <p>リーダーフォロワーによる制御が確認できたら、次はACTで模倣学習をするための準備として、エキスパートデータを収集してみましょう。</p>
 <section id="constants-py">
-<h2>constants.pyにタスクの種類を記載<a class="headerlink" href="#constants-py" title="Permalink to this heading">¶</a></h2>
+<h3>constants.pyにタスクの種類を記載<a class="headerlink" href="#constants-py" title="Permalink to this heading">¶</a></h3>
 <p>エキスパートデータを収集する前に、これから収集するデータのタスク内容について、alohaリポジトリの中にあるconstants.pyに追記する必要があります。デフォルトだと以下のように、aloha_wear_shoeのみが記載されています。</p>
 <div class="highlight-wp-block-code notranslate"><div class="highlight"><pre><span></span>TASK_CONFIGS = {
     &#39;aloha_wear_shoe&#39;:{
@@ -419,14 +423,14 @@ DM開放してます <a class="reference external" href="https://t.co/TZUn1GIBdR
 </div>
 </section>
 <section id="id10">
-<h2>エキスパートデータの収集<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<h3>エキスパートデータの収集<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
 <p>データの収集はrecord_episoeds.pyを実行することで行います。その際には、タスクの名前と、エピソードの番号を指定します。以下は、先程constants.pyに定義したoperation_testタスクにおけるエピソード0番目の収集を行う場合の例です。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span>python3 record_episodes.py --task_name operation_test --episode_idx 0
 </pre></div>
 </div>
 </section>
 <section id="id11">
-<h2>収集したエピソードデータからWebカメラの映像を生成<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<h3>収集したエピソードデータからWebカメラの映像を生成<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
 <p>Webカメラから収集された映像が学習に適しているかを確認してみましょう。引数のdataset_dirは省略できないのがちょっと面倒ですが、以下のようなコマンドを実行してください。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span>python3 visualize_episodes.py --dataset_dir /datasets/operation_test --episode_idx 0
 </pre></div>
@@ -435,7 +439,7 @@ DM開放してます <a class="reference external" href="https://t.co/TZUn1GIBdR
 <p>一番左側の映像に注目していただきたいのですが、アームが映っていません。つまり、Webカメラの角度が適切でないことが確認できます。このような場合は、<strong>上に設置したWebカメラの角度を調節し、フォロワーのアームロボットが正しく映るように</strong>してください。</p>
 </section>
 <section id="id12">
-<h2>動作の再生<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h2>
+<h3>動作の再生<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
 <p>以下を実行すると、収集した動作が実機で再生されます。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span>python3 replay_episodes.py --dataset_dir /datasets/operation_test --episode_idx 0
 </pre></div>
@@ -443,18 +447,18 @@ DM開放してます <a class="reference external" href="https://t.co/TZUn1GIBdR
 </section>
 </section>
 <section id="act">
-<h1>ACTによる模倣学習<a class="headerlink" href="#act" title="Permalink to this heading">¶</a></h1>
+<h2>ACTによる模倣学習<a class="headerlink" href="#act" title="Permalink to this heading">¶</a></h2>
 <p>コンテナ内でターミナルを開き、<code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>を実行し、GPUが使用できるか確認しましょう。問題なく実行できるのであれば、以下のようにGPUの情報が表示されます。</p>
 <blockquote>
 <div><p><img alt="" src="../_images/image-6-1024x621.png" /></p>
 </div></blockquote>
 <section id="id13">
-<h2>十分なエキスパートデータの収集<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h2>
+<h3>十分なエキスパートデータの収集<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
 <p>先ほど、エキスパートデータの収集方法について記載しました。ACTで模倣学習し、高い精度をで動作を獲得するには、それなりに沢山のエキスパートデータが必要になりますので、適宜収集してください。</p>
 <p>本記事では、エラーが無く学習できるところまでを確認することが目的ですので、箱からサーボを取り出す動作を10エピソードだけ収集してみました。</p>
 </section>
 <section id="id14">
-<h2>模倣学習の実行<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<h3>模倣学習の実行<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
 <p>模倣学習をするには以下のコードを実行します。</p>
 <p>&lt;ckpt dir&gt;には学習済みモデルを保存するディレクトリを指定します。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span>cd ~/act
@@ -468,7 +472,7 @@ python3 imitate_episodes.py \
 </div>
 </section>
 <section id="id15">
-<h2>学習後のモデルによる実機の動作<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
+<h3>学習後のモデルによる実機の動作<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
 <p>エラーが無く学習を終了できたら、実機で動作を再現してみましょう。</p>
 <p>再現するときは、先ほど模倣学習を行った時に実行したimitate_episodes.pyの引数に、–evalを追加するだけです。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span>cd ~/act
@@ -487,17 +491,62 @@ python3 imitate_episodes.py \
 </section>
 </section>
 <section id="id16">
-<h1>さいごに<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h1>
+<h2>さいごに<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
 <p>本記事では、ALOHAとACTを用いた模倣学習実験の再現方法について説明しました。エラー無く最後まで実行できましたでしょうか？</p>
 <p>本記事執筆時点では、まだ動作の再現ができただけで、技術の本質的な部分にふれられていないので、より深い部分にたどり着けるよう、実験を行っていきたいと思います。</p>
 <p>最後までお読みいただきありがとうございました。</p>
 <p>Copyright © 2024 <a class="reference external" href="https://developers.agirobots.com/jp">AGIRobots Blog</a>
 All Rights Reserved.</p>
 </section>
+</section>
 
     </article>
-    <aside class="Page__toc Toc Page__toc--hidden">
+    <aside class="Page__toc Toc">
         
+        
+        <div class="Toc__inner">
+            <div class="Toc__title">
+                <span>Index</span>
+            </div>
+            <div class="Toc__tree">
+                <ul>
+<li><a class="reference internal" href="#">(2023-12-20) ALOHAとACTを用いた模倣学習実験の再現方法</a><ul>
+<li><a class="reference internal" href="#id1">はじめに</a></li>
+<li><a class="reference internal" href="#id2">事前準備</a><ul>
+<li><a class="reference internal" href="#pc">要求されるPCの仕様</a></li>
+<li><a class="reference internal" href="#os">要求されるOS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">システム概要</a></li>
+<li><a class="reference internal" href="#id4">デバイス認識名の設定</a><ul>
+<li><a class="reference internal" href="#id5">４台のアームロボットの認識名設定</a></li>
+<li><a class="reference internal" href="#web">4台のWebカメラの認識名設定</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">グリッパーにトルク制限を設定</a></li>
+<li><a class="reference internal" href="#docker">Dockerイメージのビルド</a></li>
+<li><a class="reference internal" href="#id7">Dockerコンテナの起動</a></li>
+<li><a class="reference internal" href="#id8">リーダーフォロワーによる操作実験</a></li>
+<li><a class="reference internal" href="#id9">エキスパートデータの収集方法</a><ul>
+<li><a class="reference internal" href="#constants-py">constants.pyにタスクの種類を記載</a></li>
+<li><a class="reference internal" href="#id10">エキスパートデータの収集</a></li>
+<li><a class="reference internal" href="#id11">収集したエピソードデータからWebカメラの映像を生成</a></li>
+<li><a class="reference internal" href="#id12">動作の再生</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#act">ACTによる模倣学習</a><ul>
+<li><a class="reference internal" href="#id13">十分なエキスパートデータの収集</a></li>
+<li><a class="reference internal" href="#id14">模倣学習の実行</a></li>
+<li><a class="reference internal" href="#id15">学習後のモデルによる実機の動作</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id16">さいごに</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
         
         
     </aside>
