@@ -1,5 +1,8 @@
 [//]: # (sphinx-build::html::head [<link rel="canonical" href="https://developers.agirobots.com/jp/how-to-run-aloha/" />])
 [//]: # (sphinx-build::html::head [<meta name="robots" content="noindex, follow" />])
+
+# (2023-12-20) ALOHAとACTを用いた模倣学習実験の再現方法
+
 ## はじめに
 
 本記事では、RSS 2023で発表された論文「Learning Fine-Grained Bimanual
