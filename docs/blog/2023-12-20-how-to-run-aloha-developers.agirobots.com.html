@@ -182,7 +182,7 @@ C922X）を使用します。これらの機器を同時に使用すると大量
 <h1>システム概要<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h1>
 <p>本記事で構築するALOHAの動作環境の全体的な構成について説明します。以下の図を見てください。</p>
 <blockquote>
-<div><p><img alt="" src="blog/image-13-1024x644.png" /></p>
+<div><p><img alt="" src="../_images/image-13-1024x644.png" /></p>
 </div></blockquote>
 <p>ALOHAは、左右のリーダーとフォロワーのアーム、カメラがそれぞれ2つのUSBハブを通じてPCに接続されます。これらのUSBハブは、PCのUSB
 3.0以上のポートに接続されます（帯域が小さいと通信エラーになる可能性あり）。</p>
@@ -267,7 +267,7 @@ WebcamのVideoのドライバー部分が、<code class="docutils literal notran
 Wizardを使用し、フォロワー側のアームのIDが9番のサーボに電流制限を追加し、グリッパが過度に強く閉じて壊れることや、過負荷エラーを防げるようにします。具体的にはアドレス38のCurrent
 Limitを300に設定します。</p>
 <blockquote>
-<div><p><img alt="" src="blog/image-11-1024x768.png" /></p>
+<div><p><img alt="" src="../_images/image-11-1024x768.png" /></p>
 </div></blockquote>
 </section>
 <section id="docker">
@@ -352,12 +352,12 @@ runコマンドで行います。その際に、ルートディレクトリに~/
 </pre></div>
 </div>
 <p>ブラウザからhttp://127.0.0.1:6080にアクセスし、無事、下図のようなリモートデスクトップが起動すれば問題ありません。</p>
-<p><img alt="" src="blog/image-12-1024x640.png" /></p>
+<p><img alt="" src="../_images/image-12-1024x640.png" /></p>
 </section>
 <section id="id8">
 <h1>リーダーフォロワーによる操作実験<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h1>
 <p>では、まずはリーダーフォロワーによる操作を試してみましょう。ALOHAがPCに接続されていることを確認したうえで、以下の図のように3つのターミナルを開いて下さい。</p>
-<p><img alt="" src="blog/Screenshot-from-2024-01-28-20-06-21-1024x640.png" /></p>
+<p><img alt="" src="../_images/Screenshot-from-2024-01-28-20-06-21-1024x640.png" /></p>
 <p>そして、それぞれのターミナルに以下を入力してください。</p>
 <div class="highlight-prism notranslate"><div class="highlight"><pre><span></span># 1つ目のターミナル
 source /opt/ros/noetic/setup.sh &amp;&amp; source ~/interbotix_ws/devel/setup.sh
@@ -447,7 +447,7 @@ DM開放してます <a class="reference external" href="https://t.co/TZUn1GIBdR
 <h1>ACTによる模倣学習<a class="headerlink" href="#act" title="この見出しへのパーマリンク">¶</a></h1>
 <p>コンテナ内でターミナルを開き、<code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>を実行し、GPUが使用できるか確認しましょう。問題なく実行できるのであれば、以下のようにGPUの情報が表示されます。</p>
 <blockquote>
-<div><p><img alt="" src="blog/image-6-1024x621.png" /></p>
+<div><p><img alt="" src="../_images/image-6-1024x621.png" /></p>
 </div></blockquote>
 <section id="id13">
 <h2>十分なエキスパートデータの収集<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h2>
