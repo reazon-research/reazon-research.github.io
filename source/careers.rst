@@ -1,4 +1,4 @@
-Comapny・Career Introduction 【会社紹介】
+Laboratory Introduction 【研究所紹介】
 =======
 
 研究所紹介カジュアル面談
