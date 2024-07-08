@@ -42,46 +42,6 @@ ReazonSpeech
 
 .. _reazonspeech-demo:
 
-ReazonSpeechの音声認識を試してみる
-==================================
-
-このデモではReazonSpeechの音声認識モデルを利用して、音声をテキストに変換します。
-
-.. raw:: html
-
-   <a href="https://colab.research.google.com/github/reazon-research/ReazonSpeech/blob/master/colab/ReazonSpeech_v2_0.ipynb">
-    <img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
-   </a>
-
-.. raw:: html
-
-   <script src='../../_static/demo.js'></script>
-   <link rel="stylesheet" type="text/css" href="../../_static/demo.css" />
-   <div id='demo'>
-     <section>
-        <span class='tip'>音声を8倍速でテキストに直します（音声の長さは最大30分まで）</span>
-        <label for='demo-file'>音声ファイルを選択</label>
-        <input id='demo-file' accept="audio/wav,audio/mpeg,audio/ogg,audio/flac" type='file' hidden>
-        <a class='sample' download href='../../_static/demo.mp3'>テスト音声</a>
-     </section>
-     <div class="table-wrapper docutils container">
-       <div class='progress'><span></span></div>
-       <p class='message'>アクセスが集中しています。時間をおいて再度お試し下さい。
-       <table class='docutils align-default' width=100%>
-         <thead>
-           <tr>
-             <th width=10%>開始</th>
-             <th width=10%>終了</th>
-             <th>認識結果</th>
-           </tr>
-         </thead>
-         <tbody id='demo-tbody'></tbody>
-       </table>
-     </div>
-   </div>
-
-* WAV・MP3・Flac・Opus・Oggの各音声形式に対応しています。
-
 ReazonSpeechコーパスのサンプル音声
 ==================================
 

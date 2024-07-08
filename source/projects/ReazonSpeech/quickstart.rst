@@ -78,6 +78,15 @@ ReazonSpeechモデルで音声認識する
 
      $ reazonspeech-nemo-asr --help
 
+.. seealso::
+
+   この記事で解説した内容は、Google Colabでも試すことができます。次のリンクからノートを参照ください。
+
+   .. raw:: html
+
+      <p><a href="https://colab.research.google.com/github/reazon-research/ReazonSpeech/blob/master/colab/ReazonSpeech_v2_0.ipynb">
+       <img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
+      </a>
 
 次のステップ
 ============
