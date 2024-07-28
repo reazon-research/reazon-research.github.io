@@ -22,7 +22,9 @@ ReazonSpeech
      - `Apache-2.0`_
      - `reazonspeech-nemo-v2 <https://huggingface.co/reazon-research/reazonspeech-nemo-v2>`_
 
-       `reazonspeech-espnet-v2 <https://huggingface.co/reazon-research/reazonspeech-espnet-v2>`_
+       `reazonspeech-k2-v2 <https://huggingface.co/reazon-research/reazonspeech-k2-v2>`_
+
+       `reazonspeech-espnet-v2 <https://huggingface.co/reazon-research/reazonspeech-espnet-v2>`_  
 
    * - 音声処理ライブラリ
      - `Apache-2.0`_
@@ -39,8 +41,6 @@ ReazonSpeech
 
 .. _Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
 .. _CDLA-Sharing-1.0: https://cdla.dev/sharing-1-0/
-
-.. _reazonspeech-demo:
 
 ReazonSpeechコーパスのサンプル音声
 ==================================
