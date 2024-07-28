@@ -11,3 +11,4 @@ ReazonSpeechでは、音声処理を行うための様々なPythonインター�
    reazonspeech.nemo.asr.rst
    reazonspeech.espnet.asr.rst
    reazonspeech.espnet.oneseg.rst
+   reazonspeech.k2.asr.rst
