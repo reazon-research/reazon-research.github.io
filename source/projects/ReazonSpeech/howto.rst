@@ -4,8 +4,11 @@ HowToガイド
 
 .. _reazonspeech-corpus:
 
+音声コーパス
+============
+
 日本語音声コーパスにアクセスする
-================================
+--------------------------------
 
 .. important::
 
@@ -118,10 +121,13 @@ ReazonSpeechでは5種類のデータセットのサイズを提供していま�
 
 .. _nemo-asr:
 
-Pythonから音声認識モデルを利用する
-==================================
+音声認識
+========
 
-ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行う方法を解説します。
+NeMoモデルで日本語の音声を認識する
+----------------------------------
+
+ReazonSpeechのNeMoモデルを利用して、Pythonから音声認識を行う方法を解説します。
 
 .. list-table::
    :widths: 2 3
@@ -171,24 +177,115 @@ ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行�
           $ python3 test.py
           気象庁は雪や路面の凍結による交通への影響、暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています。
 
-関数が受け取る引数や返り値の詳細はAPIリファレンス :any:`api/reazonspeech.nemo.asr` を参照ください。
+各関数の詳細な使い方は、APIリファレンス :any:`api/reazonspeech.nemo.asr` を参照ください。
 
-.. note::
+K2モデルで日本語の音声を認識する
+--------------------------------
 
-   ReazonSpeechはESPnetとNeMoの2種類のモデルを提供しています。
+ReazonSpeechのK2モデルを利用して、Pythonから音声認識を行う方法を解説します。
 
-   ESPnetバージョンの音声認識モデルを利用する場合は、
-   最初のインストールのステップで次のコマンドを実行します。
+* K2モデルを利用するには `shepra-onnx <https://k2-fsa.github.io/sherpa/onnx/index.html>`_ （K2モデルの評価エンジン）が必須です。
+* また、K2モデルが扱える入力音声の長さは、概ね30秒が上限になります。
 
-   .. code:: console
+.. list-table::
+   :widths: 2 3
 
-      $ git clone https://github.com/reazon-research/ReazonSpeech
-      $ pip install ReazonSpeech/pkg/espnet-asr
+   * - 最初に、sherpa-onnxの公式サイトの手順に従って、パッケージをインストールします。
 
-   詳細はAPIリファレンス :any:`reazonspeech.espnet.asr` を参照ください。
+     - `shepra-onnx - Install Python package <https://k2-fsa.github.io/sherpa/onnx/python/install.html>`_
+
+   * - ReazonSpeechをインストールします。
+
+     - .. code:: console
+
+          $ git clone https://github.com/reazon-research/ReazonSpeech
+          $ pip install ReazonSpeech/pkg/k2-asr
+
+   * - 右のスクリプトを ``test.py`` という名前で保存します。
+
+       * サンプル音源: :download:`speech-001.wav <../../_static/speech-001.wav>`
+
+     - .. code:: python
+
+          from reazonspeech.k2.asr import load_model, transcribe, audio_from_path
+
+          # 実行時にHugging Faceからモデルを取得します (1.5GB)
+          model = load_model(device='cuda')
+
+          # ローカルの音声ファイルを読み込む
+          audio = audio_from_path('speech-001.wav')
+
+          # 音声認識を適用する
+          ret = transcribe(model, audio)
+
+          print(ret.text)
+
+   * - 結果が出力されれば成功です！
+
+     - .. code:: console
+
+          $ python3 test.py
+          気象庁は雪や路面の凍結による交通への影響暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています
+
+各関数の詳細な使い方は、APIリファレンス :any:`api/reazonspeech.k2.asr` を参照ください。
+
+ESPnetモデルで日本語の音声を認識する
+------------------------------------
+
+ReazonSpeechのESPnetモデルを利用して、Pythonから音声認識を行う方法を解説します。
+
+.. list-table::
+   :widths: 2 3
+
+
+   * - 実行環境をセットアップします。
+
+     - .. code:: console
+
+          $ # Pythonのvenv環境作成
+          $ python3 -m venv venv
+          $ source venv/bin/activate
+
+   * - ReazonSpeechをインストールします。
+
+     - .. code:: console
+
+          $ git clone https://github.com/reazon-research/ReazonSpeech
+          $ pip install ReazonSpeech/pkg/espnet-asr
+
+   * - 右のスクリプトを ``test.py`` という名前で保存します。
+
+       * サンプル音源: :download:`speech-001.wav <../../_static/speech-001.wav>`
+
+     - .. code:: python
+
+          from reazonspeech.espnet.asr import load_model, transcribe, audio_from_path
+
+          # 実行時にHugging Faceからモデルを取得します (1.6GB)
+          model = load_model(device='cuda')
+
+          # ローカルの音声ファイルを読み込む
+          audio = audio_from_path('speech-001.wav')
+
+          # 音声認識を適用する
+          ret = transcribe(model, audio)
+
+          print(ret.text)
+
+   * - 結果が出力されれば成功です！
+
+     - .. code:: console
+
+          $ python3 test.py
+          気象庁は雪や路面の凍結による交通への影響、暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています。
+
+各関数の詳細な使い方は、APIリファレンス :any:`api/reazonspeech.espnet.asr` を参照ください。
+
+データ解析
+==========
 
 ワンセグ放送から字幕情報を抽出する
-==================================
+----------------------------------
 
 .. list-table::
    :widths: 2 3
@@ -217,10 +314,8 @@ ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行�
                end_seconds=5.1291,
                text='今日のニュースをお伝えします')
 
-
-
 ワンセグ放送からコーパスを作成する
-==================================
+----------------------------------
 
 `ReazonSpeech <https://github.com/reazon-research/ReazonSpeech>`_ ライブラリを利用して、
 実際に録画データから音声コーパスを作成する方法を示します。
