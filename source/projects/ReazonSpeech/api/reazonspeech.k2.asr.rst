@@ -14,7 +14,7 @@ reazonspeech.k2.asr
    ReazonSpeechのK2モデルをロードする。
 
    :param device: ``cuda``, ``cpu`` または ``coreml``
-   :param precision: ``fp32`` または ``int8``
+   :param precision: ``fp32``, ``int8`` または ``int8-fp32``
    :rtype: sherpa_onnx.OfflineRecognizer
 
 .. function:: transcribe(model, audio, config=None)
