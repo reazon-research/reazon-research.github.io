@@ -5,7 +5,7 @@
 Today, we're excited to announce ReazonSpeech v2.1. In this release, we
 publish ReazonSpeech-k2-v2, an open-source Japanese ASR model which sets
 new records in benchmark tests. It is built on the
-`Next-gen Kaldi framework <https://k2-fsa.org/>`_, and distributed in
+`Next-gen Kaldi framework <https://k2-fsa.org/>`_ and distributed in
 the platform-neutral
 `Open Neural Network Exchange (ONNX) format <https://github.com/onnx/onnx>`_.
 ReazonSpeech-k2-v2 excels in accuracy, compactness, and inference speed,
@@ -50,7 +50,7 @@ which revealed a best-in-class performance.
 
 .. figure:: ../_static/blog/2024-08-01-ReazonSpeech/cer.png
 
-   **Figure: ReazonSpeech v2.1 on common Japanese ASR benchmark tests**
+   **Figure 1: ReazonSpeech v2.1 on common Japanese ASR benchmark tests**
 
 Easy deployment with ONNX
 =========================
@@ -72,13 +72,15 @@ We also released a ``int8``-quantized version of the ReazonSpeech v2.1 model.
 The quantized model exhibits a significantly smaller footprint, as shown
 in the following table.
 
-============ ================ ================
-FILE         FILE SIZE (FP32) FILE SIZE (INT8)
-============ ================ ================
-Encoder      565 MB           148 MB
-Decoder       12 MB             3 MB
-Joiner        11 MB             3 MB
-============ ================ ================
+.. table:: Table 1: The effects of quantization on model size
+
+   ============ ================ ================
+   FILE         FILE SIZE (FP32) FILE SIZE (INT8)
+   ============ ================ ================
+   Encoder      565 MB           148 MB
+   Decoder       12 MB             3 MB
+   Joiner        11 MB             3 MB
+   ============ ================ ================
 
 These quantized models are up to 4x smaller than comparable ASR models like
 Whisper-Large-v3, enabling their deployment on a wide range of devices with
@@ -87,16 +89,18 @@ these quantized models maintain accuracy levels comparable to their
 non-quantized counterparts. This enables the deployment of our model even on
 devices with very limited computational capacity.
 
-============================== ======= ============ ==========
-Model Name                      JSUT   Common Voice TEDxJP-10K
-============================== ======= ============ ==========
-ReazonSpeech-k2-v2               6.45     7.85        9.09
-ReazonSpeech-k2-v2 (int8)        6.63     8.20        9.85
-ReazonSpeech-k2-v2 (fp32-int8)   6.46     7.88        9.15
-Whisper Large-v3                 7.18     8.18        9.96
-ReazonSpeech-NeMo-v2             7.31     8.81       10.42
-ReazonSpeech-ESPnet-v2           6.89     8.27        9.28
-============================== ======= ============ ==========
+.. table:: Table 2: The effects of quantization on accuracy
+
+   ============================== ======= ============ ==========
+   Model Name                      JSUT   Common Voice TEDxJP-10K
+   ============================== ======= ============ ==========
+   ReazonSpeech-k2-v2               6.45     7.85        9.09
+   ReazonSpeech-k2-v2 (int8)        6.63     8.20        9.85
+   ReazonSpeech-k2-v2 (int8-fp32)   6.46     7.88        9.15
+   Whisper Large-v3                 7.18     8.18        9.96
+   ReazonSpeech-NeMo-v2             7.31     8.81       10.42
+   ReazonSpeech-ESPnet-v2           6.89     8.27        9.28
+   ============================== ======= ============ ==========
 
 Future goals
 ============
