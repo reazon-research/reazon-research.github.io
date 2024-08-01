@@ -2,11 +2,14 @@
 (2024-08-01) ReazonSpeech v2.1: Setting a New Standard in Japanese ASR
 ======================================================================
 
-Today, we're excited to announce ReazonSpeech v2.1, which sets new
-records in Japanese ASR benchmark tests. The new model is built on
+Today, we're excited to announce ReazonSpeech v2.1. In this release, we
+publish ReazonSpeech-k2-v2, an open-source Japanese ASR model which sets
+new records in benchmark tests. It is built on the
 `Next-gen Kaldi framework <https://k2-fsa.org/>`_, and distributed in
-platform-neutral `Open Neural Network Exchange (ONNX) format <https://github.com/onnx/onnx>`_,
-and it also supports quantization for very low memory footprint.
+the platform-neutral
+`Open Neural Network Exchange (ONNX) format <https://github.com/onnx/onnx>`_.
+ReazonSpeech-k2-v2 excels in accuracy, compactness, and inference speed,
+and can run on-device without GPU.
 
 We published the ReazonSpeech v2.1 model under the Apache 2.0 license. The
 model files and the inference code are readily available on Hugging Face
@@ -52,13 +55,12 @@ which revealed a best-in-class performance.
 Easy deployment with ONNX
 =========================
 
-As previously stated, the ReazonSpeech v2.1 model is now available in the ONNX
-format, significantly enhancing its versatility across a wide range of
-platforms. Leveraging the ONNX runtime, which is independent of the PyTorch
-framework, simplifies the setup process, facilitating seamless integration
-across diverse environments. This adaptability ensures practical application on
-various devices, including Linux, macOS, Windows, embedded systems, Android,
-and iOS.
+The ReazonSpeech-k2-v2 model is available in the ONNX format, significantly
+enhancing its versatility across a wide range of platforms. Leveraging the ONNX
+runtime, which is independent of the PyTorch framework, simplifies the setup
+process, facilitating seamless integration across diverse environments. This
+adaptability ensures practical application on various devices, including Linux,
+macOS, Windows, embedded systems, Android, and iOS.
 
 For more details about the supported platforms, please refer to the
 `Sherpa-ONNX's documentation <https://k2-fsa.github.io/sherpa/onnx/index.html>`_.
@@ -82,18 +84,39 @@ These quantized models are up to 4x smaller than comparable ASR models like
 Whisper-Large-v3, enabling their deployment on a wide range of devices with
 computational constraints. Notably, when used with a non-quantized decoder,
 these quantized models maintain accuracy levels comparable to their
-non-quantized counterparts. This should enable the deployment of our model even
-on devices with very limited computational capacity.
+non-quantized counterparts. This enables the deployment of our model even on
+devices with very limited computational capacity.
 
-Conclusion
-==========
+============================== ======= ============ ==========
+Model Name                      JSUT   Common Voice TEDxJP-10K
+============================== ======= ============ ==========
+ReazonSpeech-k2-v2               6.45     7.85        9.09
+ReazonSpeech-k2-v2 (int8)        6.63     8.20        9.85
+ReazonSpeech-k2-v2 (fp32-int8)   6.46     7.88        9.15
+Whisper Large-v3                 7.18     8.18        9.96
+ReazonSpeech-NeMo-v2             7.31     8.81       10.42
+ReazonSpeech-ESPnet-v2           6.89     8.27        9.28
+============================== ======= ============ ==========
 
-We believe this release marks a significantly milestone in Japanese ASR,
-enabling anyone to deploy our best-in-class ASR model to a very wide
-range of platforms.
+Future goals
+============
 
-We are looking forward to receiving feedbacks from users who makes use
-of our latest research results.
+With this release, we have significantly enhanced both the speed and accuracy
+of our Japanese ASR models. By making our model open-source on the K2
+Sherpa-ONNX platform, we have greatly improved accessibility for a broad range
+of users and developers across various platforms.
+
+Looking ahead, we are committed to further advancing our models by expanding
+our dataset, developing streaming ASR capabilities, and incorporating
+multilingual data to create an exceptional bilingual English-Japanese ASR
+model.
+
+This release represents a major milestone, and we are excited to continue
+pushing the boundaries of Japanese speech processing technology in the future.
+Currently, ReazonSpeech-k2-v2 can process longer segments of audio with the
+help of voice activity detection (VAD). In the future, we plan to release a
+streaming version of this model which can innately support real-time
+transcription.
 
 Footnotes
 =========
