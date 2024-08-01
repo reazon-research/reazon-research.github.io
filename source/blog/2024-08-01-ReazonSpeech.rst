@@ -11,17 +11,15 @@ the platform-neutral
 ReazonSpeech-k2-v2 excels in accuracy, compactness, and inference speed,
 and can run on-device without GPU.
 
-We published the ReazonSpeech v2.1 model under the Apache 2.0 license. The
-model files and the inference code are readily available on Hugging Face
-and GitHub.
+We published the ReazonSpeech-k2-v2 model under the Apache 2.0 license. The
+model files and the inference code are readily available on
+`Hugging Face <https://huggingface.co/reazon-research/reazonspeech-k2-v2>`_
+and
+`GitHub <https://github.com/reazon-research/ReazonSpeech>`_.
 
-**Hugging Face**
+.. figure:: ../_static/blog/2024-08-01-ReazonSpeech/cer.png
 
-https://huggingface.co/reazon-research/reazonspeech-k2-v2
-
-**GitHub**
-
-https://github.com/reazon-research/ReazonSpeech
+   **Figure 1: ReazonSpeech v2.1 on common Japanese ASR benchmark tests**
 
 What is ReazonSpeech v2.1?
 ==========================
@@ -31,7 +29,7 @@ Lab's ASR research. This release introduces a new Japanese ASR model that:
 
 * Outperforms existing Japanese ASR models on JSUT-BASIC5000 [#jsut-basic5000]_,
   Common Voice v8.0 [#cv]_, and TEDxJP-10K [#tedx]_ benchmark sets (see the
-  chart below).
+  chart above).
 
 * Excels in compactness, only having 159M parameters.
 
@@ -45,12 +43,8 @@ which revealed a best-in-class performance.
 
 .. tip::
 
-   For further details about the ReazonSpeech v2.1 model, the full training
+   For further details about the ReazonSpeech-k2-v2 model, the full training
    recipe is available on `k2-fsa/icefall <https://github.com/k2-fsa/icefall/tree/master/egs/reazonspeech/ASR>`_.
-
-.. figure:: ../_static/blog/2024-08-01-ReazonSpeech/cer.png
-
-   **Figure 1: ReazonSpeech v2.1 on common Japanese ASR benchmark tests**
 
 Easy deployment with ONNX
 =========================
@@ -59,8 +53,8 @@ The ReazonSpeech-k2-v2 model is available in the ONNX format, significantly
 enhancing its versatility across a wide range of platforms. Leveraging the ONNX
 runtime, which is independent of the PyTorch framework, simplifies the setup
 process, facilitating seamless integration across diverse environments. This
-adaptability ensures practical application on various devices, including Linux,
-macOS, Windows, embedded systems, Android, and iOS.
+adaptability ensures practical application on various devices even without GPU,
+including Linux, macOS, Windows, embedded systems, Android, and iOS.
 
 For more details about the supported platforms, please refer to the
 `Sherpa-ONNX's documentation <https://k2-fsa.github.io/sherpa/onnx/index.html>`_.
@@ -68,7 +62,7 @@ For more details about the supported platforms, please refer to the
 Reduce memory footprint with quantization
 =========================================
 
-We also released a ``int8``-quantized version of the ReazonSpeech v2.1 model.
+We also released a ``int8``-quantized version of the ReazonSpeech-k2-v2 model.
 The quantized model exhibits a significantly smaller footprint, as shown
 in the following table.
 
@@ -82,7 +76,7 @@ in the following table.
    Joiner        11 MB             3 MB
    ============ ================ ================
 
-These quantized models are up to 4x smaller than comparable ASR models like
+These quantized models are up to 10x smaller than comparable ASR models like
 Whisper-Large-v3, enabling their deployment on a wide range of devices with
 computational constraints. Notably, when used with a non-quantized decoder,
 these quantized models maintain accuracy levels comparable to their
@@ -95,8 +89,8 @@ devices with very limited computational capacity.
    Model Name                      JSUT   Common Voice TEDxJP-10K
    ============================== ======= ============ ==========
    ReazonSpeech-k2-v2               6.45     7.85        9.09
-   ReazonSpeech-k2-v2 (int8)        6.63     8.20        9.85
-   ReazonSpeech-k2-v2 (int8-fp32)   6.46     7.88        9.15
+   ReazonSpeech-k2-v2 (int8)        6.63     8.19        9.86
+   ReazonSpeech-k2-v2 (int8-fp32)   6.45     7.87        9.15
    Whisper Large-v3                 7.18     8.18        9.96
    ReazonSpeech-NeMo-v2             7.31     8.81       10.42
    ReazonSpeech-ESPnet-v2           6.89     8.27        9.28
