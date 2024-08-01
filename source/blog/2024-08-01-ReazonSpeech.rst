@@ -6,7 +6,7 @@ Today, we're excited to announce ReazonSpeech v2.1, which sets new
 records in Japanese ASR benchmark tests. The new model is built on
 `Next-gen Kaldi framework <https://k2-fsa.org/>`_, and distributed in
 platform-neutral `Open Neural Network Exchange (ONNX) format <https://github.com/onnx/onnx>`_,
-and support quantization for very low memory footprint.
+and it also supports quantization for very low memory footprint.
 
 We published the ReazonSpeech v2.1 model under the Apache 2.0 license. The
 model files and the inference code are readily available on Hugging Face
@@ -45,19 +45,20 @@ which revealed a best-in-class performance.
    For further details about the ReazonSpeech v2.1 model, the full training
    recipe is available on `k2-fsa/icefall <https://github.com/k2-fsa/icefall/tree/master/egs/reazonspeech/ASR>`_.
 
-.. rubric:: Figure: ReazonSpeech v2.1 on common Japanese ASR benchmark tests
-
 .. figure:: ../_static/blog/2024-08-01-ReazonSpeech/cer.png
+
+   **Figure: ReazonSpeech v2.1 on common Japanese ASR benchmark tests**
 
 Easy deployment with ONNX
 =========================
 
-As already mentioned, the ReazonSpeech v2.1 model is available in ONNX format.
-
-Since ONNX runtime covers the very wide range of platforms and does not
-depend on PyTorch runtime, this significantly reduces the setup process,
-making it practical to use in various devices, including Linux, macOS, Windows,
-embedded systems, Android, and iOS.
+As previously stated, the ReazonSpeech v2.1 model is now available in the ONNX
+format, significantly enhancing its versatility across a wide range of
+platforms. Leveraging the ONNX runtime, which is independent of the PyTorch
+framework, simplifies the setup process, facilitating seamless integration
+across diverse environments. This adaptability ensures practical application on
+various devices, including Linux, macOS, Windows, embedded systems, Android,
+and iOS.
 
 For more details about the supported platforms, please refer to the
 `Sherpa-ONNX's documentation <https://k2-fsa.github.io/sherpa/onnx/index.html>`_.
@@ -65,7 +66,7 @@ For more details about the supported platforms, please refer to the
 Reduce memory footprint with quantization
 =========================================
 
-We also released ``int8``-quantized version of the ReazonSpeech v2.1 model.
+We also released a ``int8``-quantized version of the ReazonSpeech v2.1 model.
 The quantized model exhibits a significantly smaller footprint, as shown
 in the following table.
 
@@ -77,8 +78,12 @@ Decoder       12 MB             3 MB
 Joiner        11 MB             3 MB
 ============ ================ ================
 
-This should enable to deploy our model even on devices with very limited
-computational capacity.
+These quantized models are up to 4x smaller than comparable ASR models like
+Whisper-Large-v3, enabling their deployment on a wide range of devices with
+computational constraints. Notably, when used with a non-quantized decoder,
+these quantized models maintain accuracy levels comparable to their
+non-quantized counterparts. This should enable the deployment of our model even
+on devices with very limited computational capacity.
 
 Conclusion
 ==========
