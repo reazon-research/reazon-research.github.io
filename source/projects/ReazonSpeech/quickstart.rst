@@ -25,6 +25,7 @@ ReazonSpeechモデルで音声認識する
 
           $ # ffmpegとCythonをインストール
           $ sudo apt install ffmpeg
+          $ pip install -U pip setuptools
           $ pip install Cython
 
    * - ReazonSpeechレポジトリをクローンし、インストールします。
