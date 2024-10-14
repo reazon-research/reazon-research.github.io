@@ -27,7 +27,7 @@
 | `jonatasgrosman/wav2vec2-large-xlsr-53-japanese` | `facebook/wav2vec2-large-xlsr-53`        | Common Voice, CSS10, JSUT |
 | `vumichien/wav2vec2-large-xlsr-japanese`         | `facebook/wav2vec2-large-xlsr-53`        |    Common Voice, JSUT     |
 
-※ XLSR [5]とは、53言語の音声データで事前学習を行なったWav2Vec2です。
+※ XLSR [5]とは、53言語の音声データを用いて、Wav2Vec2.0の学習フレームワークにより事前学習を行なったモデルです。
 
 ![benchmark](./2024-10-21-Wav2Vec2-base-release/bench.png)
 
