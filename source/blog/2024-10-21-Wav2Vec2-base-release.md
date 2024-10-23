@@ -1,6 +1,6 @@
 # (2024-10-21) 大規模日本語音声による事前学習モデルWav2Vec2を公開
 
-35,000時間の大規模日本語音声コーパスReazonSpeech v2.0を用いて事前学習及びファインチューニングを行ったWav2Vec2 [1]を公開しました！
+35,000時間の大規模日本語音声コーパスReazonSpeech v2.0を用いて事前学習及びファインチューニングを行ったWav2Vec2 [^1] を公開しました！
 
 本記事では、公開したモデルのベンチマーク結果と、Transformersライブラリを用いたWav2Vec2の事前学習の方法を紹介します。
 
@@ -14,7 +14,7 @@
 ## ベンチマーク結果
 
 ここでは、CTCファインチューニングを行った`reazon-research/japanese-wav2vec2-base-rs35kh`とその他Wav2Vec2ファミリーのCTCモデルを用いて、日本語音声の書き起こし性能のベンチマークを行います。  
-`japanese-wav2vec2-base-rs35kh`の学習データとして用いていない、JSUT-BASIC5000 [2]、Common Voice [3]、TEDxJP-10K [4]の3つのデータセットを用いて性能を検証します。
+`japanese-wav2vec2-base-rs35kh`の学習データとして用いていない、JSUT-BASIC5000 [^2]、Common Voice [^3]、TEDxJP-10K [^4] の3つのデータセットを用いて性能を検証します。
 評価指標には、CER (Character Error Rate)を用います。
 
 ベンチマークに使用したモデルと学習データは以下の表の通りです。
@@ -27,7 +27,7 @@
 | `jonatasgrosman/wav2vec2-large-xlsr-53-japanese` | `facebook/wav2vec2-large-xlsr-53`        | Common Voice, CSS10, JSUT |
 | `vumichien/wav2vec2-large-xlsr-japanese`         | `facebook/wav2vec2-large-xlsr-53`        |    Common Voice, JSUT     |
 
-※ XLSR [5]とは、53言語の音声データを用いて、Wav2Vec2.0の学習フレームワークにより事前学習を行ったモデルです。
+※ XLSR [^5] とは、53言語の音声データを用いて、Wav2Vec2.0の学習フレームワークにより事前学習を行ったモデルです。
 
 ![benchmark](./2024-10-21-Wav2Vec2-base-release/bench.png)
 
@@ -154,8 +154,8 @@ Apache 2.0ライセンスにて公開するため、ぜひ学術研究等で広�
 
 ---
 
-[1] Baevski, A., Zhou, Y., Mohamed, A. and Auli, M., 2020. wav2vec 2.0: A framework for self-supervised learning of speech representations. Advances in neural information processing systems, 33, pp.12449-12460.  
-[2] [https://sites.google.com/site/shinnosuketakamichi/publication/jsut](https://sites.google.com/site/shinnosuketakamichi/publication/jsut)  
-[3] [https://commonvoice.mozilla.org/](https://commonvoice.mozilla.org/)  
-[4] [https://github.com/laboroai/TEDxJP-10K](https://github.com/laboroai/TEDxJP-10K)  
-[5] Conneau, A., Baevski, A., Collobert, R., Mohamed, A. and Auli, M., 2020. Unsupervised cross-lingual representation learning for speech recognition. arXiv preprint arXiv:2006.13979.
+[^1]: Baevski, A., Zhou, Y., Mohamed, A. and Auli, M., 2020. wav2vec 2.0: A framework for self-supervised learning of speech representations. Advances in neural information processing systems, 33, pp.12449-12460.  
+[^2]: [https://sites.google.com/site/shinnosuketakamichi/publication/jsut](https://sites.google.com/site/shinnosuketakamichi/publication/jsut)  
+[^3]: [https://commonvoice.mozilla.org/](https://commonvoice.mozilla.org/)  
+[^4]: [https://github.com/laboroai/TEDxJP-10K](https://github.com/laboroai/TEDxJP-10K)  
+[^5]: Conneau, A., Baevski, A., Collobert, R., Mohamed, A. and Auli, M., 2020. Unsupervised cross-lingual representation learning for speech recognition. arXiv preprint arXiv:2006.13979.
