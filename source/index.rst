@@ -6,6 +6,8 @@ Reazon Human Interaction Laboratory
 
 .. list-table::
 
+   * - 2024年10月21日
+     - :any:`ReazonSpeechで学習したWav2Vec2の事前学習モデルをリリースしました。 <blog/2024-10-21-Wav2Vec2-base-release>`
    * - 2024年8月1日
      - :any:`ReazonSpeechの最新バージョン v2.1 をリリースしました。 <blog/2024-08-01-ReazonSpeech>`
    * - 2024年2月14日
@@ -20,6 +22,7 @@ Reazon Human Interaction Laboratory
 最新記事
 --------
 
+* :any:`blog/2024-10-21-Wav2Vec2-base-release`
 * :any:`blog/2024-08-01-ReazonSpeech`
 * :any:`blog/2024-03-02-how-to-run-aloha-developers.agirobots.com`
 * :any:`blog/2024-02-14-ReazonSpeech`
