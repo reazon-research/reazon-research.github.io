@@ -6,10 +6,10 @@
 
 今回公開したモデルは、以下の2つのWav2Vec2 Baseモデルです。
 
-- [`reazon-research/japanese-wav2vec2-base`](https://huggingface.co/reazon-research/japanese-wav2vec2-base)
-   - ReazonSpeech v2.0コーパスを用いて事前学習を行ったモデル
-- [`reazon-research/japanese-wav2vec2-base-rs35kh`](https://huggingface.co/reazon-research/japanese-wav2vec2-base-rs35kh)
-   - `reazon-research/japanese-wav2vec2-base`をReazonSpeech v2.0コーパスを用いてCTCファインチューニングを行ったモデル
+| Hugging Face | ライセンス | 説明 |
+| ------------ | ---------- | ---- |
+| [reazon-research/japanese-wav2vec2-base](https://huggingface.co/reazon-research/japanese-wav2vec2-base) | Apache-2.0 | ReazonSpeech v2.0コーパスを用いて事前学習を行ったモデル |
+| [reazon-research/japanese-wav2vec2-base-rs35kh](https://huggingface.co/reazon-research/japanese-wav2vec2-base-rs35kh) | Apache-2.0 | `reazon-research/japanese-wav2vec2-base`をReazonSpeech v2.0コーパスを用いてCTCファインチューニングを行ったモデル |
 
 ## ベンチマーク結果
 
@@ -152,7 +152,7 @@ Apache 2.0ライセンスにて公開するため、ぜひ学術研究等で広�
 
 また、ファインチューニングデータを揃えたベンチマークなどによる詳細なモデル評価や、別データで継続学習を行った派生モデルの開発などのフィードバックも、広くお待ちしております！
 
----
+## 脚注
 
 [^1]: Baevski, A., Zhou, Y., Mohamed, A. and Auli, M., 2020. wav2vec 2.0: A framework for self-supervised learning of speech representations. Advances in neural information processing systems, 33, pp.12449-12460.  
 [^2]: [https://sites.google.com/site/shinnosuketakamichi/publication/jsut](https://sites.google.com/site/shinnosuketakamichi/publication/jsut)  
