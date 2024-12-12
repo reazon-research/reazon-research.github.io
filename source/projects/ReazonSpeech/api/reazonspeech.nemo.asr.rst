@@ -186,7 +186,7 @@ reazonspeech.nemo.asr
 
       トークンID
 
-   .. attribute:: text
+   .. attribute:: token
       :type: str
 
       サブワード文字列

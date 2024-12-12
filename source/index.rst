@@ -6,6 +6,8 @@ Reazon Human Interaction Laboratory
 
 .. list-table::
 
+   * - 2024年8月1日
+     - :any:`ReazonSpeechの最新バージョン v2.1 をリリースしました。 <blog/2024-08-01-ReazonSpeech>`
    * - 2024年2月14日
      - :any:`ReazonSpeechの最新バージョン v2.0 をリリースしました。 <blog/2024-02-14-ReazonSpeech>`
    * - 2023年6月15日
@@ -18,6 +20,10 @@ Reazon Human Interaction Laboratory
 最新記事
 --------
 
+* :any:`blog/2024-11-06-openarm-study-group-01`
+* :any:`blog/2024-10-21-Wav2Vec2-base-release`
+* :any:`blog/2024-08-01-ReazonSpeech`
+* :any:`blog/2024-03-02-how-to-run-aloha-developers.agirobots.com`
 * :any:`blog/2024-02-14-ReazonSpeech`
 * :any:`blog/2023-04-04-ReazonSpeech`
 * :any:`blog/2023-01-15-DDS-performance`

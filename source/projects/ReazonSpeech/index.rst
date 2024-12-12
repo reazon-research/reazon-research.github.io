@@ -22,7 +22,9 @@ ReazonSpeech
      - `Apache-2.0`_
      - `reazonspeech-nemo-v2 <https://huggingface.co/reazon-research/reazonspeech-nemo-v2>`_
 
-       `reazonspeech-espnet-v2 <https://huggingface.co/reazon-research/reazonspeech-espnet-v2>`_
+       `reazonspeech-k2-v2 <https://huggingface.co/reazon-research/reazonspeech-k2-v2>`_
+
+       `reazonspeech-espnet-v2 <https://huggingface.co/reazon-research/reazonspeech-espnet-v2>`_  
 
    * - 音声処理ライブラリ
      - `Apache-2.0`_
@@ -39,48 +41,6 @@ ReazonSpeech
 
 .. _Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
 .. _CDLA-Sharing-1.0: https://cdla.dev/sharing-1-0/
-
-.. _reazonspeech-demo:
-
-ReazonSpeechの音声認識を試してみる
-==================================
-
-このデモではReazonSpeechの音声認識モデルを利用して、音声をテキストに変換します。
-
-.. raw:: html
-
-   <a href="https://colab.research.google.com/github/reazon-research/ReazonSpeech/blob/master/colab/ReazonSpeech_v2_0.ipynb">
-    <img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
-   </a>
-
-.. raw:: html
-
-   <script src='../../_static/demo.js'></script>
-   <link rel="stylesheet" type="text/css" href="../../_static/demo.css" />
-   <div id='demo'>
-     <section>
-        <span class='tip'>音声を8倍速でテキストに直します（音声の長さは最大30分まで）</span>
-        <label for='demo-file'>音声ファイルを選択</label>
-        <input id='demo-file' accept="audio/wav,audio/mpeg,audio/ogg,audio/flac" type='file' hidden>
-        <a class='sample' download href='../../_static/demo.mp3'>テスト音声</a>
-     </section>
-     <div class="table-wrapper docutils container">
-       <div class='progress'><span></span></div>
-       <p class='message'>アクセスが集中しています。時間をおいて再度お試し下さい。
-       <table class='docutils align-default' width=100%>
-         <thead>
-           <tr>
-             <th width=10%>開始</th>
-             <th width=10%>終了</th>
-             <th>認識結果</th>
-           </tr>
-         </thead>
-         <tbody id='demo-tbody'></tbody>
-       </table>
-     </div>
-   </div>
-
-* WAV・MP3・Flac・Opus・Oggの各音声形式に対応しています。
 
 ReazonSpeechコーパスのサンプル音声
 ==================================
@@ -129,10 +89,24 @@ ReazonSpeechの音声認識モデルは最先端の性能を実現していま�
 
 .. figure:: ../../_static/rtf.png
 
+**文字誤り率で測定した精度**
+
+* 次の図は、JSUT-BASIC5000 [#jsut-basic5000]_, Common Voice v8.0 [#cv]_,
+  TEDxJP-10K [#tedx]_ を検証データセットとして、日本語音声認識モデルの
+  精度を比較したものです。
+* 縦軸が低ければ低いほど、高い性能であることを表します。
+
+.. figure:: ../../_static/cer.png
+
 :関連記事:
+  * :any:`/blog/2024-08-01-ReazonSpeech`
   * :any:`/blog/2024-02-14-ReazonSpeech`
 
 .. _JSUT-bookコーパス: https://sites.google.com/site/shinnosuketakamichi/publication/jsut-book
+.. [#jsut-basic5000] Ryosuke Sonobe, Shinnosuke Takamichi and Hiroshi Saruwatari,  "JSUT corpus: free large-scale Japanese speech corpus for end-to-end speech synthesis," arXiv preprint, 1711.00354, 2017.
+.. [#cv] https://commonvoice.mozilla.org/
+.. [#tedx] https://github.com/laboroai/TEDxJP-10K
+
 
 .. toctree::
    :maxdepth: 1

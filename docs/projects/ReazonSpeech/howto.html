@@ -77,6 +77,7 @@
 <li class="toctree-l3 current Tree__item current-page"><a class="current reference internal" href="#">HowToガイド</a></li>
 <li class="toctree-l3 Tree__item Tree__item--has-children"><a class="reference internal" href="api/index.html">APIリファレンス</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-3"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
 <li class="toctree-l4 Tree__item"><a class="reference internal" href="api/reazonspeech.nemo.asr.html">reazonspeech.nemo.asr</a></li>
+<li class="toctree-l4 Tree__item"><a class="reference internal" href="api/reazonspeech.k2.asr.html">reazonspeech.k2.asr</a></li>
 <li class="toctree-l4 Tree__item"><a class="reference internal" href="api/reazonspeech.espnet.asr.html">reazonspeech.espnet.asr</a></li>
 <li class="toctree-l4 Tree__item"><a class="reference internal" href="api/reazonspeech.espnet.oneseg.html">reazonspeech.espnet.oneseg</a></li>
 </ul>
@@ -90,6 +91,9 @@
 </ul>
 </li>
 <li class="toctree-l1 Tree__item Tree__item--has-children"><a class="reference internal" href="../../blog/index.html">Blog</a><input class="Tree_itemToggleCheckbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="Tree__itemToggle" for="toctree-checkbox-5"><i class="Tree__itemToggleIcon"><svg><use href="#svg-arrow"></use></svg></i></label><ul>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2024-11-06-openarm-study-group-01.html">(2024-11-06) 第1回 OpenArm勉強会を開催しました!</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2024-10-21-Wav2Vec2-base-release.html">(2024-10-21) 大規模日本語音声による事前学習モデルWav2Vec2を公開</a></li>
+<li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2024-08-01-ReazonSpeech.html">(2024-08-01) ReazonSpeech v2.1: Setting a New Standard in Japanese ASR</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2024-03-02-how-to-run-aloha-developers.agirobots.com.html">(2024-03-02) ALOHAとACTを用いた模倣学習実験の再現方法</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2024-02-14-ReazonSpeech.html">(2024-02-14) ReazonSpeech v2.0: 音声モデルの高速化とコーパスの大幅な拡大</a></li>
 <li class="toctree-l2 Tree__item"><a class="reference internal" href="../../blog/2023-04-04-ReazonSpeech.html">(2023-04-04) ReazonSpeechの最新モデルを公開しました</a></li>
@@ -136,7 +140,9 @@
         <section id="howto">
 <h1>HowToガイド<a class="headerlink" href="#howto" title="この見出しへのパーマリンク">¶</a></h1>
 <section id="reazonspeech-corpus">
-<span id="id1"></span><h2>日本語音声コーパスにアクセスする<a class="headerlink" href="#reazonspeech-corpus" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id1"></span><h2>音声コーパス<a class="headerlink" href="#reazonspeech-corpus" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h3>日本語音声コーパスにアクセスする<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
 <p>コーパスの利用目的は著作権法３０条の４に定める情報解析に限ります。</p>
@@ -294,9 +300,12 @@
 <li><p>詳しくは <a class="reference internal" href="api/reazonspeech.espnet.oneseg.html#reazonspeech.espnet.oneseg.get_utterances" title="reazonspeech.espnet.oneseg.get_utterances"><code class="xref any py py-func docutils literal notranslate"><span class="pre">reazonspeech.espnet.oneseg.get_utterances</span></code></a> を参照下さい。</p></li>
 </ul>
 </section>
-<section id="python">
-<span id="nemo-asr"></span><h2>Pythonから音声認識モデルを利用する<a class="headerlink" href="#python" title="この見出しへのパーマリンク">¶</a></h2>
-<p>ReazonSpeechの音声モデルを利用して、Pythonから音声認識を行う方法を解説します。</p>
+</section>
+<section id="nemo-asr">
+<span id="id4"></span><h2>音声認識<a class="headerlink" href="#nemo-asr" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="nemo">
+<h3>NeMoモデルで日本語の音声を認識する<a class="headerlink" href="#nemo" title="この見出しへのパーマリンク">¶</a></h3>
+<p>ReazonSpeechのNeMoモデルを利用して、Pythonから音声認識を行う方法を解説します。</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -354,21 +363,128 @@
 </tbody>
 </table>
 </div>
-<p>関数が受け取る引数や返り値の詳細はAPIリファレンス <a class="reference internal" href="api/reazonspeech.nemo.asr.html"><span class="doc">reazonspeech.nemo.asr</span></a> を参照ください。</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>ReazonSpeechはESPnetとNeMoの2種類のモデルを提供しています。</p>
-<p>ESPnetバージョンの音声認識モデルを利用する場合は、
-最初のインストールのステップで次のコマンドを実行します。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
+<p>各関数の詳細な使い方は、APIリファレンス <a class="reference internal" href="api/reazonspeech.nemo.asr.html"><span class="doc">reazonspeech.nemo.asr</span></a> を参照ください。</p>
+</section>
+<section id="k2">
+<h3>K2モデルで日本語の音声を認識する<a class="headerlink" href="#k2" title="この見出しへのパーマリンク">¶</a></h3>
+<p>ReazonSpeechのK2モデルを利用して、Pythonから音声認識を行う方法を解説します。</p>
+<ul class="simple">
+<li><p>K2モデルを利用するには <a class="reference external" href="https://k2-fsa.github.io/sherpa/onnx/index.html">shepra-onnx</a> （K2モデルの評価エンジン）が必須です。</p></li>
+<li><p>また、K2モデルが扱える入力音声の長さは、概ね30秒が上限になります。</p></li>
+</ul>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>最初に、sherpa-onnxの公式サイトの手順に従って、パッケージをインストールします。</p></td>
+<td><p><a class="reference external" href="https://k2-fsa.github.io/sherpa/onnx/python/install.html">shepra-onnx - Install Python package</a></p></td>
+</tr>
+<tr class="row-even"><td><p>ReazonSpeechをインストールします。</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
+<span class="gp">$ </span>pip install ReazonSpeech/pkg/k2-asr
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>右のスクリプトを <code class="docutils literal notranslate"><span class="pre">test.py</span></code> という名前で保存します。</p>
+<ul class="simple">
+<li><p>サンプル音源: <a class="reference download internal" download="" href="../../_downloads/a8f2c35bb3d351a76212b2257d5bfc85/speech-001.wav"><code class="xref download docutils literal notranslate"><span class="pre">speech-001.wav</span></code></a></p></li>
+</ul>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reazonspeech.k2.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span>
+
+<span class="c1"># 実行時にHugging Faceからモデルを取得します (1.5GB)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+
+<span class="c1"># ローカルの音声ファイルを読み込む</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="s1">&#39;speech-001.wav&#39;</span><span class="p">)</span>
+
+<span class="c1"># 音声認識を適用する</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">audio</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>結果が出力されれば成功です！</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3 test.py
+<span class="go">気象庁は雪や路面の凍結による交通への影響暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>各関数の詳細な使い方は、APIリファレンス <a class="reference internal" href="api/reazonspeech.k2.asr.html"><span class="doc">reazonspeech.k2.asr</span></a> を参照ください。</p>
+</section>
+<section id="espnet">
+<h3>ESPnetモデルで日本語の音声を認識する<a class="headerlink" href="#espnet" title="この見出しへのパーマリンク">¶</a></h3>
+<p>ReazonSpeechのESPnetモデルを利用して、Pythonから音声認識を行う方法を解説します。</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>実行環境をセットアップします。</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># Pythonのvenv環境作成</span>
+<span class="gp">$ </span>python3 -m venv venv
+<span class="gp">$ </span><span class="nb">source</span> venv/bin/activate
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ReazonSpeechをインストールします。</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
 <span class="gp">$ </span>pip install ReazonSpeech/pkg/espnet-asr
 </pre></div>
 </div>
-<p>詳細はAPIリファレンス <a class="reference internal" href="api/reazonspeech.espnet.asr.html#module-reazonspeech.espnet.asr" title="reazonspeech.espnet.asr"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">reazonspeech.espnet.asr</span></code></a> を参照ください。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>右のスクリプトを <code class="docutils literal notranslate"><span class="pre">test.py</span></code> という名前で保存します。</p>
+<ul class="simple">
+<li><p>サンプル音源: <a class="reference download internal" download="" href="../../_downloads/a8f2c35bb3d351a76212b2257d5bfc85/speech-001.wav"><code class="xref download docutils literal notranslate"><span class="pre">speech-001.wav</span></code></a></p></li>
+</ul>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reazonspeech.espnet.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span>
+
+<span class="c1"># 実行時にHugging Faceからモデルを取得します (1.6GB)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+
+<span class="c1"># ローカルの音声ファイルを読み込む</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="s1">&#39;speech-001.wav&#39;</span><span class="p">)</span>
+
+<span class="c1"># 音声認識を適用する</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">audio</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
 </div>
+</td>
+</tr>
+<tr class="row-even"><td><p>結果が出力されれば成功です！</p></td>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3 test.py
+<span class="go">気象庁は雪や路面の凍結による交通への影響、暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています。</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>各関数の詳細な使い方は、APIリファレンス <a class="reference internal" href="api/reazonspeech.espnet.asr.html"><span class="doc">reazonspeech.espnet.asr</span></a> を参照ください。</p>
 </section>
-<section id="id3">
-<h2>ワンセグ放送から字幕情報を抽出する<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+</section>
+<section id="id5">
+<h2>データ解析<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id6">
+<h3>ワンセグ放送から字幕情報を抽出する<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -414,8 +530,8 @@
 </table>
 </div>
 </section>
-<section id="id4">
-<h2>ワンセグ放送からコーパスを作成する<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id7">
+<h3>ワンセグ放送からコーパスを作成する<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://github.com/reazon-research/ReazonSpeech">ReazonSpeech</a> ライブラリを利用して、
 実際に録画データから音声コーパスを作成する方法を示します。</p>
 <ul class="simple">
@@ -506,6 +622,7 @@
 </dl>
 </section>
 </section>
+</section>
 
     </article>
     <aside class="Page__toc Toc">
@@ -518,10 +635,21 @@
             <div class="Toc__tree">
                 <ul>
 <li><a class="reference internal" href="#">HowToガイド</a><ul>
-<li><a class="reference internal" href="#reazonspeech-corpus">日本語音声コーパスにアクセスする</a></li>
-<li><a class="reference internal" href="#python">Pythonから音声認識モデルを利用する</a></li>
-<li><a class="reference internal" href="#id3">ワンセグ放送から字幕情報を抽出する</a></li>
-<li><a class="reference internal" href="#id4">ワンセグ放送からコーパスを作成する</a></li>
+<li><a class="reference internal" href="#reazonspeech-corpus">音声コーパス</a><ul>
+<li><a class="reference internal" href="#id2">日本語音声コーパスにアクセスする</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nemo-asr">音声認識</a><ul>
+<li><a class="reference internal" href="#nemo">NeMoモデルで日本語の音声を認識する</a></li>
+<li><a class="reference internal" href="#k2">K2モデルで日本語の音声を認識する</a></li>
+<li><a class="reference internal" href="#espnet">ESPnetモデルで日本語の音声を認識する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">データ解析</a><ul>
+<li><a class="reference internal" href="#id6">ワンセグ放送から字幕情報を抽出する</a></li>
+<li><a class="reference internal" href="#id7">ワンセグ放送からコーパスを作成する</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

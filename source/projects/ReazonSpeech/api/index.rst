@@ -9,5 +9,6 @@ ReazonSpeechでは、音声処理を行うための様々なPythonインター�
    :caption: ReazonSpeech APIリファレンス
 
    reazonspeech.nemo.asr.rst
+   reazonspeech.k2.asr.rst
    reazonspeech.espnet.asr.rst
    reazonspeech.espnet.oneseg.rst
