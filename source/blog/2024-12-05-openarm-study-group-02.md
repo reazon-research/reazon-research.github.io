@@ -14,13 +14,14 @@
 
 低コストでオープンソースのロボットアーム「ALOHA」で研究開発を続ける土岐さんから、4chバイラテラル制御についての詳しい話や「外乱オブザーバ」についての紹介いただきました。
 
-[発表資料](<../_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-toki.pdf>）
+[発表資料](<../_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-toki.pdf>)
 
 ### 発表2: バイラテラル制御と模倣学習
 
 筑波大学　准教授境野先生から、じゃがいもを持つという行動を模倣学習することで豆腐を持つこともできるようになっているアームや、人とほぼ同じくらいの速度でトイレ掃除もできるアームなど実例も交えながら、バイラテラル制御と模倣学習で進化する技術について紹介いただきました。
 
-[発表資料]（<../_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-sakaino.pdf>）
+[発表資料](<../_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-sakaino.pdf>)
+
 
 
 ### 発表3: OSSモータドライバについて
@@ -37,11 +38,9 @@
 
 ## 展示アイテム
 
-また、今回はスペースを用意し実機展示を行っていただく方も募集しました！
+また、今回はスペースを用意し実機展示を行っていただく方も募集し、二名の方にご参加いただきました。
 
 [higradoさん](https://x.com/EL2031watson) 
-
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">今日は自作16DoFロボットハンドおよび操作装置を持って第2回OpenArm勉強会に行きます。 <a href="https://t.co/nQFcC9PvEV">pic.twitter.com/nQFcC9PvEV</a></p>&mdash; higrado (@EL2031watson) <a href="https://twitter.com/EL2031watson/status/1864597844034027863?ref_src=twsrc%5Etfw">December 5, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 nakaharaさん
 
