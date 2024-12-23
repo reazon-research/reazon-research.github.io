@@ -12,7 +12,7 @@
 
 ### 発表1：4chバイラテラル制御
 
-バイラテラル制御と模倣学習について研究している名古屋工業大学の土岐さんから、、4chバイラテラル制御についての詳しい話や「外乱オブザーバ」についての紹介いただきました。
+バイラテラル制御と模倣学習について研究している名古屋工業大学の土岐さんから、4chバイラテラル制御についての詳しい話や「外乱オブザーバ」についての紹介いただきました。
 
 [発表資料](<../_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-toki.pdf>)
 
@@ -26,23 +26,23 @@
 
 ### 発表3: OSSモータドライバについて
 
-猫とロボット社の飯田さんから、これまで飯田さんが実際に使われてきた様々な、ソースやドキュメントがオープンになっているモータードライバについて、ご紹介いただきました。
+猫とロボット社の飯田さんから、これまで飯田さんが実際に使われてきた様々な、ソースやドキュメントがオープンになっているモータドライバについて、ご紹介いただきました。
 
 [発表資料](<../_static/_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-iida.pdf>)
 
 ## LTセッション - @shiba_8ro 
 
-今回新たに設けた一般LTセッション枠では、@shiba_8roさんにより、Openshapeのご紹介をいただきました。
+今回新たに設けた一般LTセッション枠では、@shiba_8roさんにより、Onshapeのご紹介をいただきました。
 
-[発表資料]（https://speakerdeck.com/shiba_8ro/onshapenoshao-jie-gai-yao-bian）
+[発表資料](https://speakerdeck.com/shiba_8ro/onshapenoshao-jie-gai-yao-bian)
 
 ## 展示アイテム
 
 また、今回はスペースを用意し実機展示を行っていただく方も募集し、二名の方にご参加いただきました。
 
-[higradoさん](https://x.com/EL2031watson) 
+* [higradoさん](https://x.com/EL2031watson) 
 
-nakaharaさん
+* nakaharaさん
 
 ## 次回予告
 
