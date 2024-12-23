@@ -20,6 +20,7 @@ Reazon Human Interaction Laboratory
 最新記事
 --------
 
+* :any:`blog/2024-12-05-openarm-study-group-02`
 * :any:`blog/2024-11-06-openarm-study-group-01`
 * :any:`blog/2024-10-21-Wav2Vec2-base-release`
 * :any:`blog/2024-08-01-ReazonSpeech`
