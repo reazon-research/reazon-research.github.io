@@ -27,7 +27,7 @@
 
 猫とロボット社の飯田さんから、これまで飯田さんが実際に使われてきた様々な、ソースやドキュメントがオープンになっているモータドライバについて、ご紹介いただきました。
 
-[発表資料](<../_static/_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-iida.pdf>)
+[発表資料](<../_static/blog/2024-12-05-openarm-study-group-02/openarm-study-group-02-iida.pdf>)
 
 ## LTセッション - @shiba_8ro 
 
