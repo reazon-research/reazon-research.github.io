@@ -23,65 +23,85 @@ ReazonSpeechモデルで音声認識する
           $ python3 -m venv venv
           $ source venv/bin/activate
 
-          $ # ffmpegとCythonをインストール
+          $ # ffmpegをインストール
           $ sudo apt install ffmpeg
-          $ pip install -U pip setuptools
-          $ pip install Cython
 
    * - ReazonSpeechレポジトリをクローンし、インストールします。
 
      - .. code-block:: console
 
           $ git clone https://github.com/reazon-research/ReazonSpeech
-          $ pip install ReazonSpeech/pkg/nemo-asr
+          $ pip install ReazonSpeech/pkg/k2-asr
 
-   * - 次のサンプル音源を取得し、右のコマンドを実行します。
+   * - 右のスクリプトを ``asr.py`` という名前で保存します。
+
+     - .. code:: python
+
+          import sys
+          from reazonspeech.k2.asr import load_model, transcribe, audio_from_path
+
+          # 実行時にHugging Faceからモデルを取得します (1.5GB)
+          model = load_model()
+
+          # ローカルの音声ファイルを読み込む
+          audio = audio_from_path(sys.argv[1])
+
+          # 音声認識を適用する
+          ret = transcribe(model, audio)
+
+          print(ret.text)
+
+   * - 次のサンプル音源を取得し、スクリプトを実行します。
 
        * サンプル音源: :download:`speech-001.wav <../../_static/speech-001.wav>`
 
+       結果が表示されたら成功です！
+
      - .. code-block:: console
 
-          $ # 実行時にHugging Faceからモデルを自動取得します (2.3GB)
-          $ reazonspeech-nemo-asr speech-001.wav
-
-   * - 認識結果が出力されれば成功です！
-
-     - .. code-block::
-
-          [00:00:00.280 --> 00:00:04.759] 気象庁は雪や路面の凍結による交通への影響、
-          [00:00:05.160 --> 00:00:07.640] 暴風雪や高波に警戒するとともに
-          [00:00:08.200 --> 00:00:12.599] 雪崩や屋根からの落雪にも十分注意するよう呼びかけています。
+        $ python3 asr.py speech-001.wav
+        気象庁は雪や路面の凍結による交通への影響暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています
 
 .. hint::
 
-   ReazonSpeechは複数の出力形式 (WebVTT, SRT, JSON, TSV) をサポートしています。
+   ReazonSpeechを利用すると、文字起こしの結果だけではなく、発話に対応するタイムスタンプ情報も取得することができます。
 
-   *WebVTTでの出力例*
+   *サンプルコード*
 
-   .. code-block:: console
+   .. code-block:: python
 
-      $ reazonspeech-nemo-asr --to=vtt speech-001.wav
+      from reazonspeech.k2.asr import load_model, transcribe, audio_from_path
 
-      WEBVTT
+      model = load_model()
+      audio = audio_from_path('speech-001.wav')
 
-      00:00:00.280 --> 00:00:04.759
-      気象庁は雪や路面の凍結による交通への影響、
+      ret = transcribe(model, audio)
+      for sw for ret.subwords:
+          print(sw.seconds, sw.token)
 
-      00:00:05.160 --> 00:00:07.640
-      暴風雪や高波に警戒するとともに
-
-      00:00:08.200 --> 00:00:12.599
-      雪崩や屋根からの落雪にも十分注意するよう呼びかけています。
-
-   利用可能なオプションの一覧は、ヘルプを参照ください。
+   *出力例*
 
    .. code-block:: console
 
-     $ reazonspeech-nemo-asr --help
+      $ python3 test.py
+      0.00 気
+      1.04 象
+      1.20 庁
+      1.44 は
+      1.96 雪
+      2.16 や
+      2.56 路
+      2.80 面
+      2.92 の
+      3.20 凍
+      3.44 結
+      ...
+
+   詳細は APIリファレンス :any:`api/reazonspeech.k2.asr` を参照ください。
 
 .. seealso::
 
-   この記事で解説した内容は、Google Colabでも試すことができます。次のリンクからノートを参照ください。
+   ReazonSpeechを手軽に試せるGoogle Colabノートブックを用意しています。
 
    .. raw:: html
 
