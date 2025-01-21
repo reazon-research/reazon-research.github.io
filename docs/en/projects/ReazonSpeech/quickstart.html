@@ -159,12 +159,12 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>最初にチュートリアル用のPython環境を作成します。</p></td>
-<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># Pythonのvenv環境作成</span>
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># ffmpegとvenvをインストール</span>
+<span class="gp">$ </span>sudo apt install ffmpeg python3-venv
+
+<span class="gp">$ </span><span class="c1"># Pythonのvenv環境作成</span>
 <span class="gp">$ </span>python3 -m venv venv
 <span class="gp">$ </span><span class="nb">source</span> venv/bin/activate
-
-<span class="gp">$ </span><span class="c1"># ffmpegをインストール</span>
-<span class="gp">$ </span>sudo apt install ffmpeg
 </pre></div>
 </div>
 </td>
@@ -180,8 +180,8 @@
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">reazonspeech.k2.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span>
 
-<span class="c1"># 実行時にHugging Faceからモデルを取得します (1.5GB)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">()</span>
+<span class="c1"># GPUで推論したい場合は device=&#39;cuda&#39; と指定ください</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
 
 <span class="c1"># ローカルの音声ファイルを読み込む</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -200,7 +200,8 @@
 </ul>
 <p>結果が表示されたら成功です！</p>
 </td>
-<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3 asr.py speech-001.wav
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># 実行時にHugging Faceからモデルを取得します (1.5GB)</span>
+<span class="gp">$ </span>python3 asr.py speech-001.wav
 <span class="go">気象庁は雪や路面の凍結による交通への影響暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています</span>
 </pre></div>
 </div>
