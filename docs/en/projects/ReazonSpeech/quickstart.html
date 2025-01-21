@@ -163,36 +163,45 @@
 <span class="gp">$ </span>python3 -m venv venv
 <span class="gp">$ </span><span class="nb">source</span> venv/bin/activate
 
-<span class="gp">$ </span><span class="c1"># ffmpegとCythonをインストール</span>
+<span class="gp">$ </span><span class="c1"># ffmpegをインストール</span>
 <span class="gp">$ </span>sudo apt install ffmpeg
-<span class="gp">$ </span>pip install -U pip setuptools
-<span class="gp">$ </span>pip install Cython
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>ReazonSpeechレポジトリをクローンし、インストールします。</p></td>
 <td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/reazon-research/ReazonSpeech
-<span class="gp">$ </span>pip install ReazonSpeech/pkg/nemo-asr
+<span class="gp">$ </span>pip install ReazonSpeech/pkg/k2-asr
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>次のサンプル音源を取得し、右のコマンドを実行します。</p>
+<tr class="row-even"><td><p>右のスクリプトを <code class="docutils literal notranslate"><span class="pre">asr.py</span></code> という名前で保存します。</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">reazonspeech.k2.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span>
+
+<span class="c1"># 実行時にHugging Faceからモデルを取得します (1.5GB)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">()</span>
+
+<span class="c1"># ローカルの音声ファイルを読み込む</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># 音声認識を適用する</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">audio</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>次のサンプル音源を取得し、スクリプトを実行します。</p>
 <ul class="simple">
 <li><p>サンプル音源: <a class="reference download internal" download="" href="../../_downloads/a8f2c35bb3d351a76212b2257d5bfc85/speech-001.wav"><code class="xref download docutils literal notranslate"><span class="pre">speech-001.wav</span></code></a></p></li>
 </ul>
+<p>結果が表示されたら成功です！</p>
 </td>
-<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># 実行時にHugging Faceからモデルを自動取得します (2.3GB)</span>
-<span class="gp">$ </span>reazonspeech-nemo-asr speech-001.wav
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>認識結果が出力されれば成功です！</p></td>
-<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[00:00:00.280 --&gt; 00:00:04.759] 気象庁は雪や路面の凍結による交通への影響、
-[00:00:05.160 --&gt; 00:00:07.640] 暴風雪や高波に警戒するとともに
-[00:00:08.200 --&gt; 00:00:12.599] 雪崩や屋根からの落雪にも十分注意するよう呼びかけています。
+<td><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3 asr.py speech-001.wav
+<span class="go">気象庁は雪や路面の凍結による交通への影響暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています</span>
 </pre></div>
 </div>
 </td>
@@ -202,30 +211,39 @@
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>ReazonSpeechは複数の出力形式 (WebVTT, SRT, JSON, TSV) をサポートしています。</p>
-<p><em>WebVTTでの出力例</em></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>reazonspeech-nemo-asr --to<span class="o">=</span>vtt speech-001.wav
+<p>ReazonSpeechを利用すると、文字起こしの結果だけではなく、発話に対応するタイムスタンプ情報も取得することができます。</p>
+<p><em>サンプルコード</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reazonspeech.k2.asr</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">transcribe</span><span class="p">,</span> <span class="n">audio_from_path</span>
 
-<span class="go">WEBVTT</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">()</span>
+<span class="n">audio</span> <span class="o">=</span> <span class="n">audio_from_path</span><span class="p">(</span><span class="s1">&#39;speech-001.wav&#39;</span><span class="p">)</span>
 
-<span class="go">00:00:00.280 --&gt; 00:00:04.759</span>
-<span class="go">気象庁は雪や路面の凍結による交通への影響、</span>
-
-<span class="go">00:00:05.160 --&gt; 00:00:07.640</span>
-<span class="go">暴風雪や高波に警戒するとともに</span>
-
-<span class="go">00:00:08.200 --&gt; 00:00:12.599</span>
-<span class="go">雪崩や屋根からの落雪にも十分注意するよう呼びかけています。</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">transcribe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">audio</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">sw</span> <span class="k">for</span> <span class="n">ret</span><span class="o">.</span><span class="n">subwords</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">seconds</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>利用可能なオプションの一覧は、ヘルプを参照ください。</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>reazonspeech-nemo-asr --help
+<p><em>出力例</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3 test.py
+<span class="go">0.00 気</span>
+<span class="go">1.04 象</span>
+<span class="go">1.20 庁</span>
+<span class="go">1.44 は</span>
+<span class="go">1.96 雪</span>
+<span class="go">2.16 や</span>
+<span class="go">2.56 路</span>
+<span class="go">2.80 面</span>
+<span class="go">2.92 の</span>
+<span class="go">3.20 凍</span>
+<span class="go">3.44 結</span>
+<span class="go">...</span>
 </pre></div>
 </div>
+<p>詳細は APIリファレンス <a class="reference internal" href="api/reazonspeech.k2.asr.html"><span class="doc">reazonspeech.k2.asr</span></a> を参照ください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>この記事で解説した内容は、Google Colabでも試すことができます。次のリンクからノートを参照ください。</p>
+<p>ReazonSpeechを手軽に試せるGoogle Colabノートブックを用意しています。</p>
 <p><a href="https://colab.research.google.com/github/reazon-research/ReazonSpeech/blob/master/colab/ReazonSpeech_v2_0.ipynb">
  <img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
 </a></div>
