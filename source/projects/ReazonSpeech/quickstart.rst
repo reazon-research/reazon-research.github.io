@@ -19,12 +19,12 @@ ReazonSpeechモデルで音声認識する
 
      - .. code-block:: console
 
+          $ # ffmpegとvenvをインストール
+          $ sudo apt install ffmpeg python3-venv
+
           $ # Pythonのvenv環境作成
           $ python3 -m venv venv
           $ source venv/bin/activate
-
-          $ # ffmpegをインストール
-          $ sudo apt install ffmpeg
 
    * - ReazonSpeechレポジトリをクローンし、インストールします。
 
@@ -40,8 +40,8 @@ ReazonSpeechモデルで音声認識する
           import sys
           from reazonspeech.k2.asr import load_model, transcribe, audio_from_path
 
-          # 実行時にHugging Faceからモデルを取得します (1.5GB)
-          model = load_model()
+          # GPUで推論したい場合は device='cuda' と指定ください
+          model = load_model(device='cpu')
 
           # ローカルの音声ファイルを読み込む
           audio = audio_from_path(sys.argv[1])
@@ -59,6 +59,7 @@ ReazonSpeechモデルで音声認識する
 
      - .. code-block:: console
 
+        $ # 実行時にHugging Faceからモデルを取得します (1.5GB)
         $ python3 asr.py speech-001.wav
         気象庁は雪や路面の凍結による交通への影響暴風雪や高波に警戒するとともに雪崩や屋根からの落雪にも十分注意するよう呼びかけています
 
