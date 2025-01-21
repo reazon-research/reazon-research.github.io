@@ -9,12 +9,13 @@ reazonspeech.k2.asr
 関数
 ====
 
-.. function:: load_model(device="cpu", precision="fp32")
+.. function:: load_model(device="cpu", precision="fp32", language="ja")
 
    ReazonSpeechのK2モデルをロードする。
 
    :param device: ``cuda``, ``cpu`` または ``coreml``
    :param precision: ``fp32``, ``int8`` または ``int8-fp32``
+   :param language: ``ja`` または ``ja-en``
    :rtype: sherpa_onnx.OfflineRecognizer
 
 .. function:: transcribe(model, audio, config=None)
